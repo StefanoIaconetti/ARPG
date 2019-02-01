@@ -17,7 +17,7 @@ Shops
   
 NPC’s
 
-   >There will be ten NPC’s (non-playable characters) per town. Five of which will have helpful dialog and the remaining 5 will either gift the player items or offer quests, this excludes shop keepers. NPCs will walk in a specific area and move.
+   >There will be ten NPC’s (non-playable characters) per town. Five of which will have helpful dialog and the remaining 5 will either gift the player items or offer quests, this excludes shopkeepers. NPCs will walk in a specific area and move.
     
 Enemies
 
@@ -35,15 +35,15 @@ Items
 
 This is the first version of our main character.
 
-![alt text](https://imgur.com/a/QuKZXYy)
+[character-first]
 
 After reviewing the sketch we decided that there needed to be some changes to make the character more sad and rough. This is the revision
 
-![alt text](https://imgur.com/a/6RwlPhr)
+[character-revised]
 
 ## Development Process
 
-We are going to be using agile development for our project. Doing 2 week spints to complete tasks. Issues will be created for the features that need to be worked on and assigned to the programmer in charge of that feature/task. We also have Kanban's set up for each programmer to show what they have in progress, whats been completed, and whats pending.
+We are going to be using agile development for our project. Doing 2 week sprints to complete tasks. Issues will be created for the features that need to be worked on and assigned to the programmer in charge of that feature/task. We also have Kanban's set up for each programmer to show what they have in progress, what's been completed, and what's pending.
 
 ## Release History
 
@@ -52,9 +52,9 @@ We are going to be using agile development for our project. Doing 2 week spints 
 
 ## Meta
 
-Nicholas Stajduhar – nicholas.stajduhar01@stclairconnect.ca
-Stefano Iaconetti - stefano.iaconetti01@stclairconnect.ca
-Justin Maure - justin.maure01@stclairconnect.ca
+   Nicholas Stajduhar – nicholas.stajduhar01@stclairconnect.ca  
+   Stefano Iaconetti - stefano.iaconetti01@stclairconnect.ca  
+   Justin Maure - justin.maure01@stclairconnect.ca  
 
 
 ## Contributing
@@ -67,3 +67,5 @@ Justin Maure - justin.maure01@stclairconnect.ca
 <!-- Markdown link & img dfn's -->
 [travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
 [travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
+[character-first]: https://imgur.com/a/QuKZXYy
+[character-revised]: https://imgur.com/a/6RwlPhr
