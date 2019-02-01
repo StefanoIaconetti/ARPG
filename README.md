@@ -35,11 +35,12 @@ Items
 
 This is the first version of our main character.
 
-[character-first]
+![character-first]
+
 
 After reviewing the sketch we decided that there needed to be some changes to make the character more sad and rough. This is the revision
 
-[character-revised]
+![character-revised]
 
 ## Development Process
 
@@ -67,5 +68,5 @@ We are going to be using agile development for our project. Doing 2 week sprints
 <!-- Markdown link & img dfn's -->
 [travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
 [travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
-[character-first]: https://imgur.com/a/QuKZXYy
-[character-revised]: https://imgur.com/a/6RwlPhr
+[character-first]: http://nstajduhar.com/GithubImages/Chara.png
+[character-revised]: http://nstajduhar.com/GithubImages/CharaRevision.png
