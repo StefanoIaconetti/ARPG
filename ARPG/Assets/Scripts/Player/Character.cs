@@ -10,6 +10,7 @@ public abstract class Character : MonoBehaviour
 	private float speed;
 	protected Vector2 direction;
 	private Rigidbody2D characterRigid;
+
 	
 	void Start()
 	{
