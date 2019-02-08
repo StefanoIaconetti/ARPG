@@ -9,6 +9,7 @@ public class Player : Character
     //public bool isIdle;
     //public bool isWalking;
 
+   
     // Update is called once per frame
     protected override void Update(){
 		getInput();
@@ -28,7 +29,7 @@ public class Player : Character
 		//Each input moves the character in a different direction
 		if (Input.GetKey(KeyCode.RightArrow))
 		{
-			direction += Vector2.right;
+            direction += Vector2.right;
 		}
 		else if (Input.GetKey(KeyCode.LeftArrow))
 		{
@@ -42,6 +43,6 @@ public class Player : Character
 		{
             direction += Vector2.down;
 		}
-	}
+    }
 
 }
