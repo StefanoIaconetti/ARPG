@@ -14,12 +14,13 @@ public abstract class NPC : CanInteract
     void OnTriggerEnter2D(Collider2D character)
     {
 
-        uiText.text = "oooof";
         if (character.gameObject.name == "Player")
         {
             //Strings the data in the xmlFile
             string data = xmlFile.text;
             xmlReader.parseXml(data, name);
+
+            uiText.text = xmlReader.charName;
         }
     }
 }
