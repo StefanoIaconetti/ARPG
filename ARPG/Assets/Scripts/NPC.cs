@@ -28,4 +28,17 @@ public abstract class NPC : CanInteract
 
         }
     }
+
+    private void OnTriggerExit2D(Collider2D character)
+    {
+        //Strings the data in the xmlFile
+        //string data = xmlFile.text;
+
+
+        //string[] lineName = xmlReader.parseXml(data, "empty");
+
+        nameText.text = "";
+        lineText.text = "";
+    }
+
 }

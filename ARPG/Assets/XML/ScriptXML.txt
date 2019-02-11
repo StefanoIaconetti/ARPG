@@ -7,4 +7,8 @@
         <name>Town Broadcaster</name>
         <line>Welcome to Flagstaff</line>
     </town1>
+    <empty>
+        <name></name>
+        <line></line>
+    </empty>
 </script>
