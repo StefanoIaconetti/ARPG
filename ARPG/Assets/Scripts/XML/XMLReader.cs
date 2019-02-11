@@ -9,7 +9,8 @@ public class XMLReader : MonoBehaviour {
 
     //Creates a text asset 
     public TextAsset xmlFile;
-
+    public string charName = "";
+    public string charLine = "";
 
     void Start() {
         //Strings the data in the xmlFile
@@ -20,10 +21,10 @@ public class XMLReader : MonoBehaviour {
     }
 
     //Takes in the data from the xml file grabbing our script
-    void parseXml(string xmlScript, string character) {
+    public string parseXml(string xmlScript, string character) {
 
-        string charName = "";
-        string charLine = "";
+       // string charName = "";
+       // string charLine = "";
 
         //Creates a new xmlDoc
         XmlDocument xmlDoc = new XmlDocument();
@@ -45,8 +46,9 @@ public class XMLReader : MonoBehaviour {
             //Grabs the second node which is the line
             XmlNode line = name.NextSibling;
 
-            //charName = " " +  name.InnerXml;
+            return " " +  name.InnerXml;
             //charLine = " " +  line.InnerXml;
         }
+        return null;
     }
 }

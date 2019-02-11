@@ -9,8 +9,6 @@ public abstract class Character : MonoBehaviour{
 	private float speed;
 	protected Vector2 direction;
 	private Rigidbody2D characterRigid;
-
-    XMLReader xmlReader = new XMLReader();
 	
 	void Start(){
 		//Initializes the rigidbody
