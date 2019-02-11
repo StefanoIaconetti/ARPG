@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //Abstract meaning it cant exist on its own
-public abstract class Character : MonoBehaviour
-{
+public abstract class Character : MonoBehaviour{
 
 	[SerializeField]
 	private float speed;
@@ -12,8 +11,7 @@ public abstract class Character : MonoBehaviour
 	private Rigidbody2D characterRigid;
 
 	
-	void Start()
-	{
+	void Start(){
 		//Initializes the rigidbody
 		characterRigid = GetComponent<Rigidbody2D>();
 	}
