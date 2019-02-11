@@ -21,7 +21,7 @@ public class XMLReader : MonoBehaviour {
     }
 
     //Takes in the data from the xml file grabbing our script
-    public string parseXml(string xmlScript, string character) {
+    public string[] parseXml(string xmlScript, string character) {
 
        // string charName = "";
        // string charLine = "";
@@ -46,8 +46,10 @@ public class XMLReader : MonoBehaviour {
             //Grabs the second node which is the line
             XmlNode line = name.NextSibling;
 
-            return " " +  name.InnerXml;
-            //charLine = " " +  line.InnerXml;
+            string[] nameLineArray = new string[] { name.InnerXml, line.InnerXml };
+
+            //This returns the script given for their name and line
+            return nameLineArray;
         }
         return null;
     }

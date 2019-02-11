@@ -8,8 +8,9 @@ public abstract class NPC : CanInteract
     XMLReader xmlReader = new XMLReader();
     //Creates a text asset 
     public TextAsset xmlFile;
-    public Text uiText;
-
+    public Text nameText;
+    public Text lineText;
+    string seperator = "|";
 
     void OnTriggerEnter2D(Collider2D character)
     {
@@ -18,9 +19,13 @@ public abstract class NPC : CanInteract
         {
             //Strings the data in the xmlFile
             string data = xmlFile.text;
-            xmlReader.parseXml(data, name);
+           
 
-            uiText.text = xmlReader.charName;
+            string[] lineName = xmlReader.parseXml(data, name);
+
+            nameText.text = lineName[0];
+            lineText.text = lineName[1];
+
         }
     }
 }
