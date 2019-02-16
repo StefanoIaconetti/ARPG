@@ -11,6 +11,8 @@ public abstract class NPC : CanInteract
     public Text nameText;
     public Text lineText;
     string seperator = "|";
+    string[] lineName;
+    bool collide = false;
 
     void OnTriggerEnter2D(Collider2D character)
     {
@@ -19,13 +21,23 @@ public abstract class NPC : CanInteract
         {
             //Strings the data in the xmlFile
             string data = xmlFile.text;
-           
 
-            string[] lineName = xmlReader.parseXml(data, name);
 
+            lineName = xmlReader.parseXml(data, name);
+
+            collide = true;
+
+        }
+    }
+
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && collide)
+        {
+            Debug.Log("woop");
             nameText.text = lineName[0];
             lineText.text = lineName[1];
-
         }
     }
 }
