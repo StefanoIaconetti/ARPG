@@ -5,7 +5,11 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
 
     public Rigidbody2D rb;
-    public GameObject target;
+    public float speed;
+    public Transform target;
+    public float chaseRange;
+
+    public bool isTouchingTarget = false;
 
     // Start is called before the first frame update
     void Start() {
@@ -17,20 +21,22 @@ public class Enemy : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        
+        FollowTarget();
     }
 
-    //Runs every frame
-    void FixedUpdate() {
-        //If the player is close to the enemy then start tracking player
-        //if(target.transform.position )
+    private void FollowTarget() { 
+        //If the target is in range and isnt touching then chase after it
+        if(target != null && isTouchingTarget == false) {
+            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        }
 
     }
 
+    private void OnCollisionEnter2D(Collision2D collision) {
+        isTouchingTarget = true;
+    }
 
-    void OnTriggerEnter2D(Collider2D other) {
-        //if the enemy gets close enough make the enemy attack the player
-
-        //if the player is hit with an attack initiate knockback
+    private void OnCollisionExit2D(Collision2D collision) {
+        isTouchingTarget = false;
     }
 }
