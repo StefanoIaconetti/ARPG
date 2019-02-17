@@ -13,7 +13,7 @@ public class Range : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         //if the player is within range then set the target
-        if (collision.tag == "Player") {
+        if (collision.gameObject.CompareTag("Player")) {
             parent.target = collision.transform;
         }
     }
