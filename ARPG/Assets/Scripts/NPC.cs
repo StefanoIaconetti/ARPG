@@ -23,6 +23,8 @@ public abstract class NPC : CanInteract
 
             string[] lineName = xmlReader.parseXml(data, name);
 
+
+
             nameText.text = lineName[0];
             lineText.text = lineName[1];
 
