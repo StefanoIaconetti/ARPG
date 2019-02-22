@@ -9,7 +9,6 @@ public class Player : Character
     //public bool isIdle;
     //public bool isWalking;
 
-   
     // Update is called once per frame
     protected override void Update(){
 		getInput();
