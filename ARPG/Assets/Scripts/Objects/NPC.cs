@@ -24,8 +24,6 @@ public abstract class NPC : CanInteract
 
     //Grabs the name and the line
     string[] lineName;
-
-
     bool collide = false;
 
     //Grabs the animator
@@ -54,6 +52,8 @@ public abstract class NPC : CanInteract
     {
         //The dialogue text goes down
         animator.SetBool("IsOpen", false);
+        collide = false;
+        nameText.text = "";
     }
 
 
@@ -72,6 +72,7 @@ public abstract class NPC : CanInteract
     //Adds a delay when the text plays
     IEnumerator SentenceWrite(string sentence)
     {
+        
         lineText.text = "";
 
         foreach (char letter in sentence.ToCharArray())
