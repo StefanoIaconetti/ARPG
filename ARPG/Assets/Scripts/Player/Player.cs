@@ -42,6 +42,31 @@ public class Player : Character
 		{
             direction += Vector2.down;
 		}
+
+        if (Input.GetKeyDown(KeyCode.Z)) {
+            attackCloseCoroutine = StartCoroutine(AttackClose());
+        }
+        if (Input.GetKeyDown(KeyCode.X)) {
+            attackRangedCoroutine = StartCoroutine(AttackRanged());
+        }
+    }
+
+    private IEnumerator AttackClose() {
+        if (!IsAttackingClose && !IsAttackingRanged && !IsMoving) {
+            IsAttackingClose = true;
+            animator.SetBool("attackClose", IsAttackingClose);
+            yield return new WaitForSeconds(1);
+            StopAttackClose();
+        }
+    }
+
+    private IEnumerator AttackRanged() {
+        if (!IsAttackingClose && !IsAttackingRanged && !IsMoving) {
+            IsAttackingRanged = true;
+            animator.SetBool("attackRanged", IsAttackingRanged);
+            yield return new WaitForSeconds(1);
+            StopAttackRanged();
+        }
     }
 
 }

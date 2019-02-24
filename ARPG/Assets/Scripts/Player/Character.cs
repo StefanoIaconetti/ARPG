@@ -10,41 +10,78 @@ public abstract class Character : MonoBehaviour{
 	protected Vector2 direction;
 	private Rigidbody2D characterRigid;
 
-    private Animator animator;
+    protected Animator animator;
 
-	
-	void Start(){
+    protected bool IsAttackingClose = false;
+    protected bool IsAttackingRanged = false;
+    public bool IsMoving {
+        get {
+            return direction.x != 0 || direction.y != 0;
+        }
+    }
+
+    protected Coroutine attackCloseCoroutine;
+    protected Coroutine attackRangedCoroutine;
+
+
+    void Start() {
 		//Initializes the rigidbody
 		characterRigid = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 	}
 
 	// Virtual update so it can be overridden
-	protected virtual void Update()
-	{
-		MoveChar();
+	protected virtual void Update() {
+        HandleLayers();
 	}
 
-	//Moves a character
-	public void MoveChar()
-	{
-		characterRigid.velocity = direction.normalized * speed;
-
-        if (direction.x != 0 || direction.y != 0) {
-            AnimateMovement();
-        } else {
-            animator.SetLayerWeight(1, 0);
-        }
-
-
+    private void FixedUpdate() {
+        MoveChar();
     }
 
-    public void AnimateMovement() {
+    //Moves a character
+    public void MoveChar() {
+		characterRigid.velocity = direction.normalized * speed;
+    }
 
-        animator.SetLayerWeight(1, 1);
+    public void HandleLayers() {
+        if (IsMoving) {
+            ActivateLayer("Walk");
+            animator.SetFloat("x", direction.x);
+            animator.SetFloat("y", direction.y);
+            StopAttackClose();
+            StopAttackRanged();
+        } else if (IsAttackingClose && !IsAttackingRanged) {
+            ActivateLayer("AttackClose");
+        } else if (IsAttackingRanged && !IsAttackingClose) {
+            ActivateLayer("AttackRanged");
+        } else {
+            ActivateLayer("Idle");
+        }
+    }
 
-        animator.SetFloat("x", direction.x);
-        animator.SetFloat("y", direction.y);
+    public void ActivateLayer(string layerName) {
+        for (int i = 0; i < animator.layerCount; i++) {
+            animator.SetLayerWeight(i, 0);
+        }
+
+        animator.SetLayerWeight(animator.GetLayerIndex(layerName), 1);
+    }
+
+    public void StopAttackClose() {
+        if (attackCloseCoroutine != null) {
+            StopCoroutine(attackCloseCoroutine);
+            IsAttackingClose = false;
+            animator.SetBool("attackClose", IsAttackingClose);
+        }
+    }
+
+    public void StopAttackRanged() {
+        if (attackRangedCoroutine != null) {
+            StopCoroutine(attackRangedCoroutine);
+            IsAttackingRanged = false;
+            animator.SetBool("attackRanged", IsAttackingRanged);
+        }
     }
 
 }
