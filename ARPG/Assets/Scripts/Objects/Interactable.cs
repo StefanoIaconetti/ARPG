@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour {
 
-    public string name;
-    public string line;
+    //Checks if they have collided
+    bool collide = false;
+
 }
