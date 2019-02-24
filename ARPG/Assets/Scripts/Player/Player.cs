@@ -55,7 +55,7 @@ public class Player : Character
         if (!IsAttackingClose && !IsAttackingRanged && !IsMoving) {
             IsAttackingClose = true;
             animator.SetBool("attackClose", IsAttackingClose);
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(.4f);
             StopAttackClose();
         }
     }
@@ -64,7 +64,7 @@ public class Player : Character
         if (!IsAttackingClose && !IsAttackingRanged && !IsMoving) {
             IsAttackingRanged = true;
             animator.SetBool("attackRanged", IsAttackingRanged);
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(.6f);
             StopAttackRanged();
         }
     }
