@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public abstract class NPC : CanInteract
-{
+
+public abstract class NPC : CanInteract{
 
     XMLReader xmlReader = new XMLReader();
 
