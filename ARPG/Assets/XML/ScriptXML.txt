@@ -3,4 +3,16 @@
 		<name>Rock</name>
 		<line>I am a rock</line>
 	</rock>
+    <town1>
+        <name>Hallward District</name>
+        <line>Welcome to Flagstaff</line>
+    </town1>
+    <town2>
+        <name>Welington District</name>
+        <line>Welcome to Nevertown</line>
+    </town2>
+    <empty>
+        <name></name>
+        <line></line>
+    </empty>
 </script>
