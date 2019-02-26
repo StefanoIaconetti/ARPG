@@ -3,11 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Player : Character
-{
-    //private Animator animator;
-    //public bool isIdle;
-    //public bool isWalking;
+public class Player : Character {
 
     // Update is called once per frame
     protected override void Update(){
@@ -16,11 +12,6 @@ public class Player : Character
 		base.Update();
 
 	}
-
-    //private void Awake()
-    //{
-    //    animator = GetComponent<Animator>();
-    //}
 
     private void getInput(){
         //Resets direction
