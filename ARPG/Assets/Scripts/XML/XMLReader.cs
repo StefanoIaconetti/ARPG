@@ -5,7 +5,7 @@ using System.IO;
 using System.Xml;
 using UnityEngine.UI;
 
-public class XMLReader : MonoBehaviour {
+public class XMLReader {
 
     //Creates a text asset 
     public TextAsset xmlFile;

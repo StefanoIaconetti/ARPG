@@ -325,7 +325,7 @@ PolygonCollider2D:
       - {x: 0.07436013, y: -0.7591255}
       - {x: 0.46611524, y: -1.4926281}
       - {x: 1.3283644, y: -1.492628}
-      - {x: 1.3498299, y: 0.081147194}
+      - {x: 1.3498299, y: 0.1140666}
 --- !u!1 &1912882427157198
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,13 +337,13 @@ GameObject:
   - component: {fileID: 4386762622061600}
   - component: {fileID: 212797110457877392}
   - component: {fileID: 95385929907145126}
-  - component: {fileID: 114784177997410486}
   - component: {fileID: 614720237}
   - component: {fileID: 614720239}
   - component: {fileID: 614720236}
+  - component: {fileID: 614720235}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -403,7 +403,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 0f39a9205e4394ee1b6ba8269428d176, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -434,20 +434,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114784177997410486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1912882427157198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb3c365e0e2f64535a1a85e4b774910f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isIdle: 0
-  isWalking: 0
 --- !u!50 &614720237
 Rigidbody2D:
   serializedVersion: 4
@@ -498,3 +484,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+--- !u!114 &614720235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912882427157198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa4e21250630f4640ab7e32cd890a7a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 5
+  knockbackTime: 0.5
