@@ -3,13 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Player : Character
-{
-    //private Animator animator;
-    //public bool isIdle;
-    //public bool isWalking;
+public class Player : Character {
 
-   
     // Update is called once per frame
     protected override void Update(){
 		getInput();
@@ -17,11 +12,6 @@ public class Player : Character
 		base.Update();
 
 	}
-
-    //private void Awake()
-    //{
-    //    animator = GetComponent<Animator>();
-    //}
 
     private void getInput(){
         //Resets direction
@@ -43,6 +33,31 @@ public class Player : Character
 		{
             direction += Vector2.down;
 		}
+
+        if (Input.GetKeyDown(KeyCode.Z)) {
+            attackCloseCoroutine = StartCoroutine(AttackClose());
+        }
+        if (Input.GetKeyDown(KeyCode.X)) {
+            attackRangedCoroutine = StartCoroutine(AttackRanged());
+        }
+    }
+
+    private IEnumerator AttackClose() {
+        if (!IsAttackingClose && !IsAttackingRanged && !IsMoving) {
+            IsAttackingClose = true;
+            animator.SetBool("attackClose", IsAttackingClose);
+            yield return new WaitForSeconds(.4f);
+            StopAttackClose();
+        }
+    }
+
+    private IEnumerator AttackRanged() {
+        if (!IsAttackingClose && !IsAttackingRanged && !IsMoving) {
+            IsAttackingRanged = true;
+            animator.SetBool("attackRanged", IsAttackingRanged);
+            yield return new WaitForSeconds(.6f);
+            StopAttackRanged();
+        }
     }
 
 }
