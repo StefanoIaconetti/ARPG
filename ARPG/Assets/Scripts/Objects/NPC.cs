@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public abstract class NPC : CanInteract
+
+public abstract class NPC : Interactable
 {
 
     XMLReader xmlReader = new XMLReader();
+
+
+    public string nameOfCharacter;
+    public string line;
 
     //Creates a text asset 
     public TextAsset xmlFile;
@@ -13,14 +18,12 @@ public abstract class NPC : CanInteract
     //Name holds the name of the character, line holds their script
     public Text nameText;
     public Text lineText;
+
     //Seperates the strings
     string seperator = "|";
 
     //Grabs the name and the line
     string[] lineName;
-
-    //Checks if they have collided
-    bool collide = false;
 
     //Grabs the animator
     public Animator animator;
@@ -35,7 +38,7 @@ public abstract class NPC : CanInteract
             string data = xmlFile.text;
 
             //Sets the name and line
-            lineName = xmlReader.parseXml(data, name);
+            lineName = xmlReader.parseXml(data, nameOfCharacter);
 
             //If the NPC collides with player then collide is set to true.
             collide = true;
@@ -48,6 +51,8 @@ public abstract class NPC : CanInteract
     {
         //The dialogue text goes down
         animator.SetBool("IsOpen", false);
+        collide = false;
+        nameText.text = "";
     }
 
 
@@ -64,8 +69,9 @@ public abstract class NPC : CanInteract
     }
 
     //Adds a delay when the text plays
-    IEnumerator SentenceWrite (string sentence)
+    IEnumerator SentenceWrite(string sentence)
     {
+        
         lineText.text = "";
 
         foreach (char letter in sentence.ToCharArray())
