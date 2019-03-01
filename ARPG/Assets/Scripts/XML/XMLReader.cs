@@ -5,10 +5,11 @@ using System.IO;
 using System.Xml;
 using UnityEngine.UI;
 
-public class XMLReader : MonoBehaviour {
+public class XMLReader {
 
     //Creates a text asset 
     public TextAsset xmlFile;
+
     public string charName = "";
     public string charLine = "";
 
@@ -22,10 +23,6 @@ public class XMLReader : MonoBehaviour {
 
     //Takes in the data from the xml file grabbing our script
     public string[] parseXml(string xmlScript, string character) {
-
-       // string charName = "";
-       // string charLine = "";
-
         //Creates a new xmlDoc
         XmlDocument xmlDoc = new XmlDocument();
 
