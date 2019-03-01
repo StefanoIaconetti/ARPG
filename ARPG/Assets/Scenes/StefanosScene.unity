@@ -13224,6 +13224,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:ARPG/Assets/Scenes/StefanosScene.unity
   m_GameObject: {fileID: 161966677}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.2775807, y: -0.73651624, z: -0.45591176}
@@ -13231,7 +13232,90 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
+=======
+  m_GameObject: {fileID: 36257487}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 15.063845, y: -3.716247, z: 0.07643915}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1804310049}
+  m_RootOrder: 0
+>>>>>>> 0e46d79faf13fe5d7a1209b2eca6d52b42540283:ARPG/Assets/Scenes/MainScene.unity
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &134473724
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3611444754444479329, guid: c44c89c1ef4c5427298b8ad4a67a2303,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611444754444479357, guid: c44c89c1ef4c5427298b8ad4a67a2303,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611444754444479357, guid: c44c89c1ef4c5427298b8ad4a67a2303,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611444754444479357, guid: c44c89c1ef4c5427298b8ad4a67a2303,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.331235
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611444754444479357, guid: c44c89c1ef4c5427298b8ad4a67a2303,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611444754444479357, guid: c44c89c1ef4c5427298b8ad4a67a2303,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611444754444479357, guid: c44c89c1ef4c5427298b8ad4a67a2303,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611444754444479357, guid: c44c89c1ef4c5427298b8ad4a67a2303,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611444754444479357, guid: c44c89c1ef4c5427298b8ad4a67a2303,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611444754444479357, guid: c44c89c1ef4c5427298b8ad4a67a2303,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611444754444479357, guid: c44c89c1ef4c5427298b8ad4a67a2303,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611444754444479357, guid: c44c89c1ef4c5427298b8ad4a67a2303,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611444754444479328, guid: c44c89c1ef4c5427298b8ad4a67a2303,
+        type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c44c89c1ef4c5427298b8ad4a67a2303, type: 3}
 --- !u!1 &319923246
 GameObject:
   m_ObjectHideFlags: 0
@@ -13348,6 +13432,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:ARPG/Assets/Scenes/StefanosScene.unity
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -13638,6 +13723,8 @@ CapsuleCollider2D:
   m_Offset: {x: -0.15, y: -0.021623254}
   m_Size: {x: 1.2875925, y: 2.08051}
   m_Direction: 0
+=======
+>>>>>>> 0e46d79faf13fe5d7a1209b2eca6d52b42540283:ARPG/Assets/Scenes/MainScene.unity
 --- !u!1 &717463164
 GameObject:
   m_ObjectHideFlags: 0
@@ -48977,8 +49064,12 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 570679642}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1912882427157198, guid: 7a99c59d3b9064c958bbce110d3437be, type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 4386762622061600, guid: 7a99c59d3b9064c958bbce110d3437be, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.15
@@ -48993,15 +49084,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4386762622061600, guid: 7a99c59d3b9064c958bbce110d3437be, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4386762622061600, guid: 7a99c59d3b9064c958bbce110d3437be, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4386762622061600, guid: 7a99c59d3b9064c958bbce110d3437be, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4386762622061600, guid: 7a99c59d3b9064c958bbce110d3437be, type: 3}
       propertyPath: m_LocalRotation.w
@@ -49009,24 +49100,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4386762622061600, guid: 7a99c59d3b9064c958bbce110d3437be, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4386762622061600, guid: 7a99c59d3b9064c958bbce110d3437be, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4386762622061600, guid: 7a99c59d3b9064c958bbce110d3437be, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4386762622061600, guid: 7a99c59d3b9064c958bbce110d3437be, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 212797110457877392, guid: 7a99c59d3b9064c958bbce110d3437be,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
+    - target: {fileID: 614720235, guid: 7a99c59d3b9064c958bbce110d3437be, type: 3}
+      propertyPath: thrust
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 614720235, guid: 7a99c59d3b9064c958bbce110d3437be, type: 3}
+      propertyPath: knockbackTime
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a99c59d3b9064c958bbce110d3437be, type: 3}
@@ -49366,6 +49460,37 @@ Transform:
   - {fileID: 828838716}
   m_Father: {fileID: 0}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1804310048
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1804310049}
+  m_Layer: 0
+  m_Name: Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1804310049
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804310048}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.15, y: 0.69374573, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 36257489}
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1846342725
 GameObject:
@@ -77511,6 +77636,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1989773523}
   m_CullTransparentMesh: 0
+<<<<<<< HEAD:ARPG/Assets/Scenes/StefanosScene.unity
 --- !u!1001 &576344743683099676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -77709,3 +77835,5 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c44c89c1ef4c5427298b8ad4a67a2303, type: 3}
+=======
+>>>>>>> 0e46d79faf13fe5d7a1209b2eca6d52b42540283:ARPG/Assets/Scenes/MainScene.unity
