@@ -6,7 +6,7 @@ public class Rock :  NPC {
     
     public Rock()
     {
-        name = "rock";
+        nameOfCharacter = "rock";
     }
         
     
