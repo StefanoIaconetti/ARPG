@@ -22,7 +22,7 @@ public class PickUp : Interactable
         //If the player collided with the item
         if (collide){
             //Boolean to see if the item has picked up or not
-           bool pickedUp = Inventory.instance.Add(item);
+           bool pickedUp = Inventory.instance.AddItem(item);
             if (pickedUp){
                 //Destroys the gameobject because it is then added into the inventory
                 Destroy(gameObject);

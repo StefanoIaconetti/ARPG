@@ -36,10 +36,10 @@ public class Inventory : MonoBehaviour
             return false;
         }
         //Then adds the items
-        items.AddItem(item);
+        items.Add(item);
 
         //If the callback is null then invoke
-        if(onItemChangedCallBack != null)
+        if(itemChangeCallBack != null)
         {
             itemChangeCallBack.Invoke();
         }
@@ -51,7 +51,6 @@ public class Inventory : MonoBehaviour
     {
         //Removes item
         items.Remove(item);
-
         //If the callback is null then invoke
         if (itemChangeCallBack != null)
         {
