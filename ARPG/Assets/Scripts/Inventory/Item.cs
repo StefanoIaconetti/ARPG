@@ -1,28 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Item : MonoBehaviour
+﻿using UnityEngine;
+//This gives us the ability to easily add a new item, this is also a scriptable object
+[CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
+public class Item : ScriptableObject
 {
-        //When the NPC collides
-        void OnTriggerEnter2D(Collider2D character)
-        {
-            //When colliding with the player
-            if (character.gameObject.name == "Player")
-            {
-                PickUp();
-
-            }
-        }
-
-    void PickUp()
-    {
-        Destroy(gameObject);
-    }
-
-    void Update()
-    {
-
-    }
-    
+    //These are the values that a default item will have
+    public string name = "New Item";
+    public Sprite icon = null;
+    public int cost = 0;
 }

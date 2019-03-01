@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class NPC : CanInteract
+public abstract class NPC : Interactable
 {
 
     XMLReader xmlReader = new XMLReader();
@@ -24,7 +24,6 @@ public abstract class NPC : CanInteract
 
     //Grabs the name and the line
     string[] lineName;
-    bool collide = false;
 
     //Grabs the animator
     public Animator animator;
