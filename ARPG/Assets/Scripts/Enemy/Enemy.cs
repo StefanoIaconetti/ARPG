@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
+    public float health;
+    public FloatValue maxHealth;
+
     public Rigidbody2D rb;
     public float speed;
     public Transform target;
@@ -17,6 +20,10 @@ public class Enemy : MonoBehaviour {
         if(this.GetComponent<Rigidbody2D>() != null) {
             rb = this.GetComponent<Rigidbody2D>();
         }
+    }
+
+    private void Awake() {
+        health = maxHealth.initialValue;
     }
 
     // Update is called once per frame
@@ -39,4 +46,13 @@ public class Enemy : MonoBehaviour {
     private void OnCollisionExit2D(Collision2D collision) {
         isTouchingTarget = false;
     }
+
+    public void TakeDamage(float damage) {
+        health -= damage;
+        if (health <= 0) {
+            this.gameObject.SetActive(false);
+        }
+    }
+
+
 }

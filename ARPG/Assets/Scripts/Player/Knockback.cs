@@ -6,6 +6,7 @@ public class Knockback : MonoBehaviour {
 
     public float thrust;
     public float knockbackTime;
+    public float damage;
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("Enemy")) {
@@ -15,7 +16,10 @@ public class Knockback : MonoBehaviour {
                 Vector2 difference = enemy.transform.position - transform.position;
                 difference = difference.normalized * thrust;
                 enemy.AddForce(difference, ForceMode2D.Impulse);
-                StartCoroutine(KnockCo(enemy));
+                collision.GetComponent<Enemy>().TakeDamage(damage);
+                if (collision.GetComponent<Enemy>().isActiveAndEnabled) {
+                    StartCoroutine(KnockCo(enemy));
+                }
             }
         }
     }
