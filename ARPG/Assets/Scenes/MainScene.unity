@@ -13329,7 +13329,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afaa6f8ae3b759c42ba73c8337983924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: rock
+  collide: 0
+  nameOfCharacter: rock
+  line: 
   xmlFile: {fileID: 4900000, guid: 6838df10c67969c4bb4a7856dfa41fee, type: 3}
   nameText: {fileID: 1989773525}
   lineText: {fileID: 1846342727}
