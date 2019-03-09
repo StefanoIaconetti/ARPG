@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
 
     public float health;
-    public FloatValue maxHealth;
+    public float maxHealth;
 
     public Rigidbody2D rb;
     public float speed;
@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour {
     }
 
     private void Awake() {
-        health = maxHealth.initialValue;
+        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -50,6 +50,7 @@ public class Enemy : MonoBehaviour {
     public void TakeDamage(float damage) {
         health -= damage;
         if (health <= 0) {
+            //This is happening before healthbar script can get rid of the healthbar NEEDS FIX
             this.gameObject.SetActive(false);
         }
     }

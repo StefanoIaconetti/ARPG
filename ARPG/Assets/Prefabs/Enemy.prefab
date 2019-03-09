@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3611444754444479359}
   - component: {fileID: 3611444754444479328}
   - component: {fileID: 3611444754444479356}
+  - component: {fileID: 617556629}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -116,8 +117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f0ee89fb50e3495f8c44b8e433370a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
-  maxHealth: {fileID: 11400000, guid: ff0d6c6e281dd4e6a93dd3bdbbb80bc9, type: 2}
+  health: 0
+  maxHealth: 10
   rb: {fileID: 0}
   speed: 2
   target: {fileID: 0}
@@ -139,6 +140,21 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.8, y: 2.5}
   m_Direction: 0
+--- !u!114 &617556629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3611444754444479329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24f14134b76a44f12839689f8aa023b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarPrefab: {fileID: 4766816973832331561, guid: 8b6b70c384d4449ef91c571d9bc9554d,
+    type: 3}
+  enemy: {fileID: 0}
 --- !u!1 &3611444754654381372
 GameObject:
   m_ObjectHideFlags: 0

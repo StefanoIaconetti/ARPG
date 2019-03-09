@@ -341,6 +341,7 @@ GameObject:
   - component: {fileID: 614720239}
   - component: {fileID: 614720236}
   - component: {fileID: 614720235}
+  - component: {fileID: 265120982}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -496,5 +497,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4e21250630f4640ab7e32cd890a7a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 5
-  knockbackTime: 0.5
+  thrust: 10
+  knockbackTime: 0.2
+  damage: 5
+--- !u!114 &265120982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912882427157198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 235ca462c892f08448827723e0442864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items: []
