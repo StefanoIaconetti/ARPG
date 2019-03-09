@@ -116,8 +116,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f0ee89fb50e3495f8c44b8e433370a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 10
+  maxHealth: {fileID: 11400000, guid: ff0d6c6e281dd4e6a93dd3bdbbb80bc9, type: 2}
   rb: {fileID: 0}
-  speed: 1
+  speed: 2
   target: {fileID: 0}
   chaseRange: 5
   isTouchingTarget: 0
