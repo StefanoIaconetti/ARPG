@@ -11,15 +11,36 @@ public class Enemy : MonoBehaviour {
     public float speed;
     public Transform target;
     public float chaseRange;
+    protected Vector2 direction;
 
     public bool isTouchingTarget = false;
 
+    protected Animator animator;
+
+    protected bool IsAttacking = false;
+
+    public bool IsMoving {
+        get {
+            return direction.x != 0 || direction.y != 0;
+        }
+    }
+
+    protected Coroutine attackCoroutine;
+
     // Start is called before the first frame update
     void Start() {
-        //If there is a ridgidbody on the object then set it to the rb variable.
-        if(this.GetComponent<Rigidbody2D>() != null) {
-            rb = this.GetComponent<Rigidbody2D>();
-        }
+        //Set the rigidbody.
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+    }
+
+    private void FixedUpdate() {
+        MoveChar();
+    }
+
+    //Moves a character
+    public void MoveChar() {
+        rb.velocity = direction.normalized * speed;
     }
 
     private void Awake() {
@@ -53,6 +74,24 @@ public class Enemy : MonoBehaviour {
             //This is happening before healthbar script can get rid of the healthbar NEEDS FIX
             this.gameObject.SetActive(false);
         }
+    }
+
+    public void HandleLayers() {
+        if (IsMoving) {
+            ActivateLayer("Walk");
+            animator.SetFloat("x", direction.x);
+            animator.SetFloat("y", direction.y);
+        } else {
+            ActivateLayer("Idle");
+        }
+    }
+
+    public void ActivateLayer(string layerName) {
+        for (int i = 0; i < animator.layerCount; i++) {
+            animator.SetLayerWeight(i, 0);
+        }
+
+        animator.SetLayerWeight(animator.GetLayerIndex(layerName), 1);
     }
 
 
