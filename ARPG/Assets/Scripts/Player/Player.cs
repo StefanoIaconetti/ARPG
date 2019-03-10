@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Player : Character {
 
+    public float health;
+    protected float maxHealth;
+
     // Update is called once per frame
     protected override void Update(){
 		getInput();
@@ -57,6 +60,14 @@ public class Player : Character {
             animator.SetBool("attackRanged", IsAttackingRanged);
             yield return new WaitForSeconds(.6f);
             StopAttackRanged();
+        }
+    }
+
+    public void TakeDamage(float damage) {
+        health -= damage;
+        if (health <= 0) {
+            //This is happening before healthbar script can get rid of the healthbar NEEDS FIX
+            this.gameObject.SetActive(false);
         }
     }
 

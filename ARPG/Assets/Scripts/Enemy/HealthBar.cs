@@ -21,7 +21,6 @@ public class HealthBar : MonoBehaviour {
     void Update() {
         if (enemy.health > 0) {
             healthBar.transform.position = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 1f, 0));
-            Debug.Log(enemy.health / enemy.maxHealth);
             healthBarFilled.fillAmount = enemy.health / enemy.maxHealth;
         } else {
             healthBar.gameObject.SetActive(false);
