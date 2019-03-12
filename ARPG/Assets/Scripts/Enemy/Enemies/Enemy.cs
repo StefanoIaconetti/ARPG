@@ -19,6 +19,12 @@ public class Enemy : MonoBehaviour {
 
     public Transform target;
 
+    protected Animator animator;
+
+    public void Start() {
+        animator = GetComponent<Animator>();
+    }
+
     private void Awake() {
         health = maxHealth;
     }
@@ -26,8 +32,7 @@ public class Enemy : MonoBehaviour {
     public void TakeDamage(float damage) {
         health -= damage;
         if (health <= 0) {
-            //This is happening before healthbar script can get rid of the healthbar NEEDS FIX
-            this.gameObject.SetActive(false);
+            StartCoroutine(DeathCo());
         }
     }
 
@@ -46,6 +51,13 @@ public class Enemy : MonoBehaviour {
             //Switch enemy state
             rb.GetComponent<Enemy>().currentState = EnemyState.idle;
         }
+    }
+
+    private IEnumerator DeathCo() {
+        //This is happening before healthbar script can get rid of the healthbar NEEDS FIX
+        animator.SetBool("IsDead", true);
+        yield return new WaitForSeconds(0.5f);
+        gameObject.SetActive(false);
     }
 
 

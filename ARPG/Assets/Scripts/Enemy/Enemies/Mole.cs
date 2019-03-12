@@ -9,12 +9,11 @@ public class Mole : Enemy {
     public Transform originalPosition;
 
     private Rigidbody2D rb;
-    protected Animator animator;
 
     // Start is called before the first frame update
     void Start() {
-        rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
         currentState = EnemyState.idle;
     }
 
@@ -68,4 +67,6 @@ public class Mole : Enemy {
             currentState = newState;
         }
     }
+
+
 }
