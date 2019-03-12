@@ -159,8 +159,8 @@ MonoBehaviour:
   speed: 3
   baseAttack: 4
   target: {fileID: 0}
-  chaseRange: 10
-  attackRange: 4
+  chaseRange: 8
+  attackRange: 2
   originalPosition: {fileID: 0}
 --- !u!61 &1675299625
 BoxCollider2D:
@@ -201,7 +201,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.006765008}
+  m_Offset: {x: -0.014684439, y: -0.036133647}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -212,7 +212,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.896451, y: 1.3699939}
+  m_Size: {x: 1.0628743, y: 1.5853646}
   m_EdgeRadius: 0
 --- !u!114 &7154547458832746247
 MonoBehaviour:
