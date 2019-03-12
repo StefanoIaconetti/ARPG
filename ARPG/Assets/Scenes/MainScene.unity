@@ -13248,8 +13248,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1152604182229785522, guid: c44c89c1ef4c5427298b8ad4a67a2303,
+        type: 3}
+      propertyPath: chaseRange
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152604182229785522, guid: c44c89c1ef4c5427298b8ad4a67a2303,
+        type: 3}
+      propertyPath: attackRange
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152604182229785522, guid: c44c89c1ef4c5427298b8ad4a67a2303,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 311966841}
+    - target: {fileID: 3611444754654381369, guid: c44c89c1ef4c5427298b8ad4a67a2303,
+        type: 3}
+      propertyPath: m_Radius
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675299624, guid: c44c89c1ef4c5427298b8ad4a67a2303, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.014684439
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675299624, guid: c44c89c1ef4c5427298b8ad4a67a2303, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0628743
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675299624, guid: c44c89c1ef4c5427298b8ad4a67a2303, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.036133647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675299624, guid: c44c89c1ef4c5427298b8ad4a67a2303, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5853646
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c44c89c1ef4c5427298b8ad4a67a2303, type: 3}
+--- !u!4 &311966841 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4386762622061600, guid: 7a99c59d3b9064c958bbce110d3437be,
+    type: 3}
+  m_PrefabInstance: {fileID: 1626541844}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &319923246
 GameObject:
   m_ObjectHideFlags: 0
@@ -48436,7 +48478,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 52.800003}
+  m_AnchoredPosition: {x: 0, y: 52.80005}
   m_SizeDelta: {x: 966, y: 94.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1024270219
@@ -48549,6 +48591,10 @@ PrefabInstance:
     - target: {fileID: 4386762622061600, guid: 7a99c59d3b9064c958bbce110d3437be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 614720237, guid: 7a99c59d3b9064c958bbce110d3437be, type: 3}
+      propertyPath: m_Mass
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a99c59d3b9064c958bbce110d3437be, type: 3}

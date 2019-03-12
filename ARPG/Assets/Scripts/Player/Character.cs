@@ -10,6 +10,8 @@ public abstract class Character : MonoBehaviour{
 	protected Vector2 direction;
 	private Rigidbody2D characterRigid;
 
+    public bool isStaggered = false;
+
     protected Animator animator;
 
     protected bool IsAttackingClose = false;
@@ -25,7 +27,7 @@ public abstract class Character : MonoBehaviour{
 
 
     void Start() {
-		//Initializes the rigidbody
+        //Initializes variables
 		characterRigid = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 	}
@@ -51,9 +53,9 @@ public abstract class Character : MonoBehaviour{
             animator.SetFloat("y", direction.y);
             StopAttackClose();
             StopAttackRanged();
-        } else if (IsAttackingClose && !IsAttackingRanged) {
+        } else if (IsAttackingClose && !IsAttackingRanged && !isStaggered) {
             ActivateLayer("AttackClose");
-        } else if (IsAttackingRanged && !IsAttackingClose) {
+        } else if (IsAttackingRanged && !IsAttackingClose && !isStaggered) {
             ActivateLayer("AttackRanged");
         } else {
             ActivateLayer("Idle");
