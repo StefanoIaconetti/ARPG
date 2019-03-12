@@ -25,7 +25,7 @@ public class Knockback : MonoBehaviour {
                 entity.AddForce(difference, ForceMode2D.Impulse);
 
                 //If enemy...
-                if (collision.gameObject.CompareTag("Enemy") && collision.isActiveAndEnabled) {
+                if (collision.gameObject.CompareTag("Enemy") && collision.isActiveAndEnabled && gameObject.tag != "Enemy") {
                     //Switch enemy state
                     entity.GetComponent<Enemy>().currentState = EnemyState.stagger;
                     //initiate knockback coroutine

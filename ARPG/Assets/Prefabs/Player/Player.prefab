@@ -535,7 +535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   isStaggered: 0
-  health: 10
+  health: 100
 --- !u!114 &265120982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -627,11 +627,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Projectile
-      objectReference: {fileID: 0}
-    - target: {fileID: 1729532828428205666, guid: bf84e9a7b2c25457f89e52c101ea4be1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2125371711225526581, guid: bf84e9a7b2c25457f89e52c101ea4be1,
         type: 3}

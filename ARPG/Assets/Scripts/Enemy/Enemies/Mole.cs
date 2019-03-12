@@ -15,6 +15,7 @@ public class Mole : Enemy {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         currentState = EnemyState.idle;
+        target = GameObject.FindWithTag("Player").transform;
     }
 
     // Update is called once per frame
