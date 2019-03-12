@@ -168,13 +168,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 284122c8ab7e84548a6636d1b9e1d174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 0
   health: 0
   maxHealth: 100
   speed: 3
   baseAttack: 4
   target: {fileID: 0}
-  chaseRange: 8
-  attackRange: 5
+  chaseRange: 10
+  attackRange: 4
   originalPosition: {fileID: 0}
 --- !u!1 &3611444754654381372
 GameObject:
