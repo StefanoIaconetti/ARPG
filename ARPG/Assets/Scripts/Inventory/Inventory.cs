@@ -35,11 +35,40 @@ public class Inventory : MonoBehaviour
         {
             return false;
         }
-        //Then adds the items
-        items.Add(item);
+
+        //This checks to see if there are any items in the inventory, if there is not then it adds it to the inventory
+        if (items.Count == 0)
+        {
+            items.Add(item);
+            items[0].quantity = 1;
+        } else{
+            //This goes through the current inventory
+            for (int i = 0; i < items.Count; i++)
+            {
+                //This counter increases every time the names are not the same
+                int counter = 0;
+
+                counter++;
+                //If the names are equal then the quantity increases
+                if (items[i].name == item.name)
+                {
+                    items[i].quantity++;
+
+                    break;
+                }
+
+                //If there are no items that are the same then a new inventory slot is taken up
+                if (counter == items.Count) { 
+                 items.Add(item);
+                 items[i + 1].quantity = 1;
+                    break;
+                }
+
+            }
+        }
 
         //If the callback is null then invoke
-        if(itemChangeCallBack != null)
+        if (itemChangeCallBack != null)
         {
             itemChangeCallBack.Invoke();
         }

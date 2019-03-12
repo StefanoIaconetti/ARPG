@@ -11,6 +11,8 @@ public class InventorySlot : MonoBehaviour
     //Button that removes items
     public Button removeButton;
 
+    public Text quantityText; 
+
     //Creats an item
     Item item;
 
@@ -23,6 +25,9 @@ public class InventorySlot : MonoBehaviour
         icon.sprite = item.icon;
         icon.enabled = true;
         removeButton.interactable = true;
+
+        quantityText.enabled = true;
+        quantityText.text = item.quantity + "";
     }
 
     //This clears the inventory slot
@@ -32,6 +37,8 @@ public class InventorySlot : MonoBehaviour
         icon.sprite = null;
         icon.enabled = false;
         removeButton.interactable = false;
+
+        quantityText.enabled = false;
     }
     //When the remove button is pressed then the specific item is removed
     public void OnRemoveButton()
