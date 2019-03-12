@@ -17,7 +17,8 @@ public class Knockback : MonoBehaviour {
             Rigidbody2D enemy = collision.GetComponent<Rigidbody2D>();
             //if the enemy has a rigidbody then initiate knockback
             if (enemy != null) {
-                enemy.isKinematic = false;
+                //Switch enemy state
+                enemy.GetComponent<Enemy>().currentState = EnemyState.stagger;
                 //Calculate the knockback
                 Vector2 difference = enemy.transform.position - transform.position;
                 difference = difference.normalized * thrust;
@@ -28,37 +29,25 @@ public class Knockback : MonoBehaviour {
                 //if the enemy is still alive then start the timer
                 if (collision.GetComponent<Enemy>().isActiveAndEnabled) {
                     StartCoroutine(KnockCo(enemy));
-                }
-            }
-        } else if (collision.gameObject.CompareTag("Player")) {
-            //Grab the players ridgidbody
-            Rigidbody2D player = collision.GetComponent<Rigidbody2D>();
-            if (player != null) {
-                player.isKinematic = false;
-                //Calculate the knockback
-                Vector2 difference = player.transform.position - transform.position;
-                difference = difference.normalized * thrust;
-                //Add the force
-                player.AddForce(difference, ForceMode2D.Impulse);
-                //make the player take damage
-                collision.GetComponent<Player>().TakeDamage(damage);
-                //if the player is still alive start knockback timer
-                if (collision.GetComponent<Player>().isActiveAndEnabled) {
-                    StartCoroutine(KnockCo(player));
+                    Debug.Log("coroutine");
+
                 }
             }
         }
     }
 
     //function to initiate a knockback timer
-    private IEnumerator KnockCo(Rigidbody2D entity) {
+    private IEnumerator KnockCo(Rigidbody2D enemy) {
         //if entity is not null initiate timer
-        if(entity != null) {
+        if (enemy != null) {
+            Debug.Log("Entered courtine");
             //wait the knockback time
-            yield return new WaitForSeconds(knockbackTime);
+            yield return new WaitForSeconds(knockbackTime);                                             //THIS ISNT WORKING
+            Debug.Log("Finished waiting");
             //set the entity back to its original state
-            entity.velocity = Vector2.zero;
-            entity.isKinematic = true;
+            enemy.velocity = Vector2.zero;
+            //Switch enemy state
+            enemy.GetComponent<Enemy>().currentState = EnemyState.idle;
         }
     }
 }

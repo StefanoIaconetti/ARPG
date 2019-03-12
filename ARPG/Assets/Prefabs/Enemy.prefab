@@ -11,11 +11,10 @@ GameObject:
   - component: {fileID: 3611444754444479357}
   - component: {fileID: 3611444754444479358}
   - component: {fileID: 3611444754444479359}
-  - component: {fileID: 3611444754444479328}
   - component: {fileID: 3611444754444479356}
   - component: {fileID: 617556629}
-  - component: {fileID: 6114975008485072509}
   - component: {fileID: 617556630}
+  - component: {fileID: 1152604182229785522}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -46,17 +45,17 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3611444754444479329}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!212 &3611444754444479359
@@ -107,25 +106,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3611444754444479328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3611444754444479329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f0ee89fb50e3495f8c44b8e433370a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  maxHealth: 10
-  rb: {fileID: 0}
-  speed: 2
-  target: {fileID: 0}
-  chaseRange: 5
-  isTouchingTarget: 0
 --- !u!70 &3611444754444479356
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -157,21 +137,6 @@ MonoBehaviour:
   healthBarPrefab: {fileID: 4766816973832331561, guid: 8b6b70c384d4449ef91c571d9bc9554d,
     type: 3}
   enemy: {fileID: 0}
---- !u!114 &6114975008485072509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3611444754444479329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa4e21250630f4640ab7e32cd890a7a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thrust: 5
-  knockbackTime: 0.2
-  damage: 2
 --- !u!95 &617556630
 Animator:
   serializedVersion: 3
@@ -191,6 +156,26 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1152604182229785522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3611444754444479329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 284122c8ab7e84548a6636d1b9e1d174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 100
+  speed: 3
+  baseAttack: 4
+  target: {fileID: 0}
+  chaseRange: 8
+  attackRange: 5
+  originalPosition: {fileID: 0}
 --- !u!1 &3611444754654381372
 GameObject:
   m_ObjectHideFlags: 0

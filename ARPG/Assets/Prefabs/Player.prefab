@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5679200}
   - component: {fileID: 5679201}
+  - component: {fileID: 1432607741}
   m_Layer: 0
   m_Name: Up Hit Box
   m_TagString: Untagged
@@ -59,8 +60,23 @@ PolygonCollider2D:
     - - {x: -0.7833042, y: 0.34487343}
       - {x: 0.003150463, y: -0.17520761}
       - {x: 0.75095344, y: 0.30185103}
-      - {x: 0.75868845, y: 1.3272674}
-      - {x: -0.77221274, y: 1.334434}
+      - {x: 1.1388812, y: 1.9862678}
+      - {x: -1.0510206, y: 1.9427419}
+--- !u!114 &1432607741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5679199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa4e21250630f4640ab7e32cd890a7a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 40
+  knockbackTime: 0.4
+  damage: 5
 --- !u!1 &93389299
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,6 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 93389300}
   - component: {fileID: 93389301}
+  - component: {fileID: 424943287}
   m_Layer: 0
   m_Name: Left Hit Box
   m_TagString: Untagged
@@ -117,11 +134,26 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.9826906, y: 0.017309546}
+    - - {x: -0.729229, y: 0.29611766}
       - {x: -0.32441258, y: -0.6736741}
-      - {x: -0.7871716, y: -1.4499024}
-      - {x: -1.6909182, y: -1.478386}
-      - {x: -1.712178, y: 0.024179697}
+      - {x: -0.5337093, y: -1.6780177}
+      - {x: -2.2231882, y: -1.9092708}
+      - {x: -2.1937544, y: 0.70852613}
+--- !u!114 &424943287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93389299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa4e21250630f4640ab7e32cd890a7a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 40
+  knockbackTime: 0.4
+  damage: 5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,6 +246,7 @@ GameObject:
   m_Component:
   - component: {fileID: 626516528}
   - component: {fileID: 626516529}
+  - component: {fileID: 1504792051}
   m_Layer: 0
   m_Name: Down Hit Box
   m_TagString: Untagged
@@ -262,9 +295,24 @@ PolygonCollider2D:
     m_Paths:
     - - {x: 0.00000023841858, y: -0.9226557}
       - {x: -0.83712125, y: -1.1578987}
-      - {x: -0.81565547, y: -2.2047231}
-      - {x: 0.82989776, y: -2.1904812}
+      - {x: -0.9930785, y: -2.635608}
+      - {x: 1.3114749, y: -2.697405}
       - {x: 0.8371215, y: -1.1294144}
+--- !u!114 &1504792051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626516527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa4e21250630f4640ab7e32cd890a7a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 40
+  knockbackTime: 0.4
+  damage: 5
 --- !u!1 &1322217630
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,6 +323,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1322217631}
   - component: {fileID: 1322217632}
+  - component: {fileID: 939831939}
   m_Layer: 0
   m_Name: Right Hit Box
   m_TagString: Untagged
@@ -324,8 +373,23 @@ PolygonCollider2D:
     - - {x: 0.35604763, y: 0.07427716}
       - {x: 0.07436013, y: -0.7591255}
       - {x: 0.46611524, y: -1.4926281}
-      - {x: 1.3283644, y: -1.492628}
-      - {x: 1.3498299, y: 0.1140666}
+      - {x: 2.1901343, y: -1.5686666}
+      - {x: 2.1862535, y: 0.59564376}
+--- !u!114 &939831939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322217630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa4e21250630f4640ab7e32cd890a7a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 40
+  knockbackTime: 0.4
+  damage: 5
 --- !u!1 &1912882427157198
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,7 +404,6 @@ GameObject:
   - component: {fileID: 614720237}
   - component: {fileID: 614720239}
   - component: {fileID: 614720236}
-  - component: {fileID: 614720235}
   - component: {fileID: 265120982}
   m_Layer: 0
   m_Name: Player
@@ -447,14 +510,14 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!70 &614720239
 CapsuleCollider2D:
@@ -486,21 +549,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   health: 10
---- !u!114 &614720235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1912882427157198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa4e21250630f4640ab7e32cd890a7a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thrust: 10
-  knockbackTime: 0.2
-  damage: 5
 --- !u!114 &265120982
 MonoBehaviour:
   m_ObjectHideFlags: 0
