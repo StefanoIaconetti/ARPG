@@ -75,6 +75,23 @@ public class Inventory : MonoBehaviour
         return true;
     }
 
+    public void RemoveQuantity(Item item)
+    {
+        for (int i = 0; i < items.Count; i++)
+        {
+            //If the names are equal then the quantity increases
+            if (items[i].name == item.name)
+            {
+                items[i].quantity--;
+
+                break;
+            }
+        }
+
+    }
+
+
+
     //This method is for removing items from the inventory
     public void RemoveItem (Item item)
     {
