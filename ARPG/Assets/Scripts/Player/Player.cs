@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Player : Character {
 
-    public float health;
-    protected float maxHealth;
-
     // Update is called once per frame
     protected override void Update(){
 		getInput();
@@ -67,6 +64,7 @@ public class Player : Character {
         if (health <= 0) {
             //This is happening before healthbar script can get rid of the healthbar NEEDS FIX
             //this.gameObject.SetActive(false);
+
         }
     }
 

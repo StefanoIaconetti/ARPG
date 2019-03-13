@@ -7,6 +7,8 @@ public abstract class Character : MonoBehaviour{
 
 	[SerializeField]
 	private float speed;
+    public float health;
+    public float maxHealth;
 	protected Vector2 direction;
 	private Rigidbody2D characterRigid;
 
@@ -30,6 +32,7 @@ public abstract class Character : MonoBehaviour{
         //Initializes variables
 		characterRigid = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        health = maxHealth;
 	}
 
 	// Virtual update so it can be overridden
