@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3036190709523785538}
   - component: {fileID: 3036190709523785536}
   - component: {fileID: 3036190709523785539}
+  - component: {fileID: 731885791}
   m_Layer: 5
   m_Name: health
   m_TagString: Untagged
@@ -74,6 +75,20 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &731885791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3036190709523785541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70812dcdfc5a045e8bc57c932d2f9df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &3036190710106805670
 GameObject:
   m_ObjectHideFlags: 0

@@ -534,8 +534,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  health: 0
+  maxHealth: 100
   isStaggered: 0
-  health: 100
 --- !u!114 &265120982
 MonoBehaviour:
   m_ObjectHideFlags: 0
