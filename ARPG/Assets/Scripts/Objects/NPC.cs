@@ -25,6 +25,8 @@ public abstract class NPC : Interactable
     //Grabs the name and the line
     string[] lineName;
 
+    int endDialogue = 0;
+
     //Grabs the animator
     public Animator animator;
 
@@ -65,6 +67,15 @@ public abstract class NPC : Interactable
             nameText.text = lineName[0];
             StopAllCoroutines();
             StartCoroutine(SentenceWrite(lineName[1]));
+
+            endDialogue++;
+
+            if (endDialogue == 2)
+            {
+                animator.SetBool("IsOpen", false);
+                nameText.text = "";
+                endDialogue = 0;
+            }
         }
     }
 
