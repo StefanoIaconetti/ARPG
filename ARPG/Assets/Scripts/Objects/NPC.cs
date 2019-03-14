@@ -61,7 +61,7 @@ public abstract class NPC : Interactable
     void Update()
     {
         //When the e key is pressed dialogue occurs
-        if (Input.GetKeyDown(KeyCode.E) && collide)
+        if (Input.GetKeyDown(KeyCode.E) && collide && npcType == NPCType.NPC)
         {
             animator.SetBool("IsOpen", true);
             nameText.text = lineName[0];
