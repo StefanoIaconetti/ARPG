@@ -15,3 +15,4 @@ MonoBehaviour:
   name: Bomb
   icon: {fileID: 21300024, guid: 7bc2a46db18754d168a59b949a347af2, type: 3}
   cost: 5
+  quantity: 0

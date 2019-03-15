@@ -7,6 +7,7 @@ public class Rock :  NPC {
     public Rock()
     {
         nameOfCharacter = "rock";
+        npcType = NPCType.NPC;
     }
         
     
