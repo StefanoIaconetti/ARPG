@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickUp : Interactable
+public class PickUp : MonoBehaviour
 {
     //Creates an instance of item
     public Item item;
+    public bool collide = false;
 
     //When the player collides
     void OnTriggerEnter2D(Collider2D character)
