@@ -429,11 +429,7 @@ Transform:
   - {fileID: 1322217631}
   - {fileID: 5679200}
   - {fileID: 93389300}
-<<<<<<< HEAD:ARPG/Assets/Prefabs/Player/Player.prefab
   - {fileID: 661961948958374408}
-=======
-  - {fileID: 6282914299993005989}
->>>>>>> staging:ARPG/Assets/Prefabs/Player.prefab
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -618,7 +614,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4e21250630f4640ab7e32cd890a7a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD:ARPG/Assets/Prefabs/Player/Player.prefab
   thrust: 3
   knockbackTime: 0.2
   damage: 10
@@ -703,37 +698,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1463974087691846461}
   m_PrefabAsset: {fileID: 0}
-=======
-  thrust: 5
-  knockbackTime: 0.5
---- !u!1 &7431957958460659976
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6282914299993005989}
-  m_Layer: 0
-  m_Name: DropItem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6282914299993005989
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7431957958460659976}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.9, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4386762622061600}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> staging:ARPG/Assets/Prefabs/Player.prefab

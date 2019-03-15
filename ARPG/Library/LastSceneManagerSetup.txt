@@ -1,8 +1,7 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/MainScene.unity
-=======
 - path: Assets/Scenes/StefanosScene.unity
->>>>>>> staging
   isLoaded: 1
   isActive: 1
+- path: Assets/Scenes/MainScene.unity
+  isLoaded: 1
+  isActive: 0
