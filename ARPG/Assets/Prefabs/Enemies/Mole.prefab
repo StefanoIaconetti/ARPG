@@ -158,6 +158,7 @@ MonoBehaviour:
   maxHealth: 100
   speed: 3
   baseAttack: 10
+  xpDrop: 10
   target: {fileID: 4386762622061600, guid: 7a99c59d3b9064c958bbce110d3437be, type: 3}
   chaseRange: 8
   attackRange: 2

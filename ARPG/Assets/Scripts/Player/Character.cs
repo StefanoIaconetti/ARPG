@@ -9,6 +9,10 @@ public abstract class Character : MonoBehaviour{
 	private float speed;
     public float health;
     public float maxHealth;
+    public float xp;
+    public float maxLevelXP;
+    public int level;
+    public int maxLevel;
 	protected Vector2 direction;
 	private Rigidbody2D characterRigid;
 
@@ -30,6 +34,10 @@ public abstract class Character : MonoBehaviour{
 
     void Start() {
         //Initializes variables
+        level = 0;
+        maxHealth = 100;
+        maxLevel = 15;
+        maxLevelXP = 100;
 		characterRigid = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         health = maxHealth;
@@ -38,7 +46,10 @@ public abstract class Character : MonoBehaviour{
 	// Virtual update so it can be overridden
 	protected virtual void Update() {
         HandleLayers();
-	}
+        if (xp >= maxLevelXP) {
+            LevelUp();
+        }
+    }
 
     private void FixedUpdate() {
         MoveChar();
@@ -87,6 +98,25 @@ public abstract class Character : MonoBehaviour{
             IsAttackingRanged = false;
             animator.SetBool("attackRanged", IsAttackingRanged);
         }
+    }
+
+    public void LevelUp() {
+        //Upgrade level if not maxed
+        if(level < maxLevel) {
+            level++;
+
+            //Upgrade health
+            maxHealth += 10;
+            health = maxHealth;
+
+            //Reset XP
+            maxLevelXP = ((float)(maxLevelXP * 1.10));
+            xp = 0;
+        }
+    }
+
+    public void GainXP(float xpGained) {
+        xp += xpGained;
     }
 
 }

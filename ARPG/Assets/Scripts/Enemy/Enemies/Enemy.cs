@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour {
     public float maxHealth;
     public float speed;
     public float baseAttack;
+    public float xpDrop;
 
     public Transform target;
 
@@ -56,6 +57,7 @@ public class Enemy : MonoBehaviour {
     private IEnumerator DeathCo() {
         //This is happening before healthbar script can get rid of the healthbar NEEDS FIX
         animator.SetBool("IsDead", true);
+        target.gameObject.GetComponent<Player>().GainXP(xpDrop);
         yield return new WaitForSeconds(0.5f);
         gameObject.SetActive(false);
     }

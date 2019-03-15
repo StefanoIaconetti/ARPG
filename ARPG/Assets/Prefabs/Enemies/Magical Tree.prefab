@@ -155,6 +155,7 @@ MonoBehaviour:
   maxHealth: 150
   speed: 1
   baseAttack: 20
+  xpDrop: 20
   target: {fileID: 4386762622061600, guid: 7a99c59d3b9064c958bbce110d3437be, type: 3}
   chaseRange: 10
   attackRange: 2
