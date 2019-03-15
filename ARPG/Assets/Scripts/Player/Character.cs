@@ -7,8 +7,16 @@ public abstract class Character : MonoBehaviour{
 
 	[SerializeField]
 	private float speed;
+    public float health;
+    public float maxHealth;
+    public float xp;
+    public float maxLevelXP;
+    public int level;
+    public int maxLevel;
 	protected Vector2 direction;
 	private Rigidbody2D characterRigid;
+
+    public bool isStaggered = false;
 
     protected Animator animator;
 
@@ -25,15 +33,23 @@ public abstract class Character : MonoBehaviour{
 
 
     void Start() {
-		//Initializes the rigidbody
+        //Initializes variables
+        level = 0;
+        maxHealth = 100;
+        maxLevel = 15;
+        maxLevelXP = 100;
 		characterRigid = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        health = maxHealth;
 	}
 
 	// Virtual update so it can be overridden
 	protected virtual void Update() {
         HandleLayers();
-	}
+        if (xp >= maxLevelXP) {
+            LevelUp();
+        }
+    }
 
     private void FixedUpdate() {
         MoveChar();
@@ -51,9 +67,9 @@ public abstract class Character : MonoBehaviour{
             animator.SetFloat("y", direction.y);
             StopAttackClose();
             StopAttackRanged();
-        } else if (IsAttackingClose && !IsAttackingRanged) {
+        } else if (IsAttackingClose && !IsAttackingRanged && !isStaggered) {
             ActivateLayer("AttackClose");
-        } else if (IsAttackingRanged && !IsAttackingClose) {
+        } else if (IsAttackingRanged && !IsAttackingClose && !isStaggered) {
             ActivateLayer("AttackRanged");
         } else {
             ActivateLayer("Idle");
@@ -82,6 +98,33 @@ public abstract class Character : MonoBehaviour{
             IsAttackingRanged = false;
             animator.SetBool("attackRanged", IsAttackingRanged);
         }
+    }
+
+    public void LevelUp() {
+        //if not max level
+        if(level < maxLevel) {
+
+            //Upgrade health
+            maxHealth += 10;
+            health = maxHealth;
+
+            //Reset XP
+            if (level < 5) {
+                maxLevelXP = ((float)(maxLevelXP * 2));                 //Lvl 0-5 - 100,200,400,800,1600
+            } else if (level < 10) {
+                maxLevelXP = ((float)(maxLevelXP * 1.3));               //Lvl 5-10 - 2080, 2704, 3515, 4569, 5940
+            } else if (level < 15) {
+                maxLevelXP = ((float)(maxLevelXP * 1.1));              //Lvl 10-15 - 6534, 7188, 7907, 8697, 9567
+            }
+            xp = 0;
+
+            //Add level
+            level++;
+        }
+    }
+
+    public void GainXP(float xpGained) {
+        xp += xpGained;
     }
 
 }
