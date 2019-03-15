@@ -11,8 +11,8 @@
         <name>Welington District</name>
         <line>Welcome to Nevertown</line>
     </town2>
-    <empty>
-        <name></name>
-        <line></line>
-    </empty>
+    <shopkeeper>
+        <name>Shopkeeper</name>
+        <line>Hello! Welcome do my shop, feel free to purchase or sell whatever you like</line>
+	</shopkeeper>
 </script>

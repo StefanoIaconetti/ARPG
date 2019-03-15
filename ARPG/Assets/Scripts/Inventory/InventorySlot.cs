@@ -56,7 +56,11 @@ public class InventorySlot : MonoBehaviour
         }
         else
         {
-            optionsButton.gameObject.SetActive(true);
+            //If there is an item present in the inventory then the player can sell
+            if(item != null) {
+
+                optionsButton.gameObject.SetActive(true);
+            }
         }
        
         
@@ -72,20 +76,20 @@ public class InventorySlot : MonoBehaviour
         //Locates the location of "DropItem" Drop item is a empty gameobject that sits infront of the player allowing for the object thats being dropped to always appear infront of him
         var playerVector = GameObject.Find("DropItem").transform.position;
 
-        //Empty game object
-        GameObject gameObj;
+        
 
         //If there is more than 1 of the same item
         if (item.quantity > 1)
         {
+
             //Calls the remove quantitty method
             Inventory.instance.RemoveQuantity(item);
 
             //Text is changed
             quantityText.text = item.quantity + "";
-     
+
             //Object now appears right infront of the character
-            gameObj = Instantiate(Resources.Load(item.name),
+            GameObject gameObj = Instantiate(Resources.Load(item.name),
                 playerVector,
                 Quaternion.identity) as GameObject;
             
@@ -93,7 +97,7 @@ public class InventorySlot : MonoBehaviour
         else
         {
             //Object appears right infront of the character
-            gameObj = Instantiate(Resources.Load(item.name),
+            GameObject gameObj = Instantiate(Resources.Load(item.name),
                 playerVector,
                 Quaternion.identity) as GameObject;
             

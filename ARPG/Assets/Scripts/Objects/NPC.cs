@@ -18,9 +18,7 @@ public abstract class NPC : Interactable
     //Name holds the name of the character, line holds their script
     public Text nameText;
     public Text lineText;
-
-    //Seperates the strings
-    string seperator = "|";
+    
 
     //Grabs the name and the line
     string[] lineName;
@@ -61,20 +59,22 @@ public abstract class NPC : Interactable
     void Update()
     {
         //When the e key is pressed dialogue occurs
-        if (Input.GetKeyDown(KeyCode.E) && collide && npcType == NPCType.NPC)
+        if (Input.GetKeyDown(KeyCode.E) && collide)
         {
             animator.SetBool("IsOpen", true);
             nameText.text = lineName[0];
             StopAllCoroutines();
             StartCoroutine(SentenceWrite(lineName[1]));
-
             endDialogue++;
 
-            if (endDialogue == 2)
+            if (endDialogue == 2 && npcType == NPCType.NPC)
             {
                 animator.SetBool("IsOpen", false);
                 nameText.text = "";
                 endDialogue = 0;
+            }else if(endDialogue == 2 && npcType == NPCType.Shopkeeper)
+            {
+                
             }
         }
     }

@@ -111,7 +111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collide: 0
-  item: {fileID: 11400000, guid: e0499ffabdb5ba04d88ae10921d41124, type: 2}
+  npcType: 1
+  item: {fileID: 11400000, guid: 3545fcc2dd2a4ba428f16194a9556e6f, type: 2}
 --- !u!95 &1615458300
 Animator:
   serializedVersion: 3
