@@ -157,7 +157,7 @@ MonoBehaviour:
   baseAttack: 20
   xpDrop: 20
   target: {fileID: 4386762622061600, guid: 7a99c59d3b9064c958bbce110d3437be, type: 3}
-  chaseRange: 10
+  chaseRange: 6
   attackRange: 2
   originalPosition: {fileID: 0}
 --- !u!50 &7369893038100821861
