@@ -11,6 +11,7 @@ public abstract class Character : MonoBehaviour{
     public float maxHealth;
     public float xp;
     public float maxLevelXP;
+    public float gold;
     public int level;
     public int maxLevel;
 	protected Vector2 direction;

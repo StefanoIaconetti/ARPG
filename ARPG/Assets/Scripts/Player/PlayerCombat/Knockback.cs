@@ -11,6 +11,7 @@ public class Knockback : MonoBehaviour {
 
     //Function to utilize the knockback
     private void OnTriggerEnter2D(Collider2D collision) {
+
         //check if an entity is being hit
         if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Player")) {
             //grab its rigidbody
@@ -21,6 +22,7 @@ public class Knockback : MonoBehaviour {
                 //Calculate the knockback
                 Vector2 difference = entity.transform.position - transform.position;
                 difference = difference.normalized * thrust;
+                Debug.Log(difference.x + " " + difference.y);
                 //add force to the enemy
                 entity.AddForce(difference, ForceMode2D.Impulse);
 
@@ -36,6 +38,7 @@ public class Knockback : MonoBehaviour {
 
                 //If Player...
                 if (collision.gameObject.CompareTag("Player") && collision.isActiveAndEnabled) {
+                    Debug.Log("Check");
                     //change staggered state
                     entity.GetComponent<Player>().isStaggered = true;
                     //Knockback the player

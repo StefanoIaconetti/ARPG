@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : Character {
 
+    public List<Quest> questList;
+
     // Update is called once per frame
     protected override void Update(){
 		getInput();
@@ -82,6 +84,30 @@ public class Player : Character {
             rb.velocity = Vector2.zero;
             //Switch staggerd state
             isStaggered = false;
+        }
+    }
+
+    public void QuestUpdate() {
+        //For every quest the player has
+        foreach (Quest quest in questList) {
+            //Check if its active
+            if(quest.isActive) {
+                //if its kill quest use the enemykilled function
+                if(quest.goal.goalType == GoalType.Kill) {
+                    quest.goal.EnemyKilled();
+                } 
+                //if its a gather quest use the gatheredResources function
+                else if (quest.goal.goalType == GoalType.Gather) {
+                    quest.goal.GatheredResource();
+                }
+
+                //If the goal is ever reached the player gains the rewards and ends the quest
+                if (quest.goal.isReached()) {
+                    GainXP(quest.xpReward);
+                    gold += quest.goldReward;
+                    quest.Complete();
+                }
+            }
         }
     }
 
