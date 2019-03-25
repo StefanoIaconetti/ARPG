@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 4376474379978070452}
   - component: {fileID: 7369893038100821861}
   - component: {fileID: 7128111925593615067}
-  - component: {fileID: 7128111925593615065}
   - component: {fileID: 7128111925593615066}
+  - component: {fileID: 9206869418935260064}
   m_Layer: 0
   m_Name: Magical Tree
   m_TagString: Enemy
@@ -200,21 +200,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7128111925593615065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7128111925593615064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa4e21250630f4640ab7e32cd890a7a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thrust: 20
-  knockbackTime: 0.3
-  damage: 20
 --- !u!114 &7128111925593615066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,3 +215,18 @@ MonoBehaviour:
   healthBarPrefab: {fileID: 4766816973832331561, guid: 8b6b70c384d4449ef91c571d9bc9554d,
     type: 3}
   enemy: {fileID: 0}
+--- !u!114 &9206869418935260064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7128111925593615064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64bd77563b71f48719d2bec307593f39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 20
+  knockbackTime: 0.3
+  damage: 20

@@ -13417,6 +13417,7 @@ MonoBehaviour:
     description: Kill 3 enemies
     goldReward: 100
     xpReward: 100
+    goal: {fileID: 0}
   player: {fileID: 907207433}
 --- !u!1 &717463164
 GameObject:
@@ -48418,6 +48419,27 @@ PrefabInstance:
     - target: {fileID: 311966836, guid: 4ad88642807c3c6449525f2e64d3c692, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432607741, guid: 4ad88642807c3c6449525f2e64d3c692, type: 3}
+      propertyPath: damage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 424943287, guid: 4ad88642807c3c6449525f2e64d3c692, type: 3}
+      propertyPath: damage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1504792051, guid: 4ad88642807c3c6449525f2e64d3c692, type: 3}
+      propertyPath: damage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 939831939, guid: 4ad88642807c3c6449525f2e64d3c692, type: 3}
+      propertyPath: damage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1729532828428205667, guid: 4ad88642807c3c6449525f2e64d3c692,
+        type: 3}
+      propertyPath: damage
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ad88642807c3c6449525f2e64d3c692, type: 3}

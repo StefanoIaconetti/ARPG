@@ -9,7 +9,7 @@ public class Player : Character {
     // Update is called once per frame
     protected override void Update(){
 		getInput();
-		//base means im accessing character
+		//Base means im accessing character
 		base.Update();
 
 	}
@@ -70,17 +70,18 @@ public class Player : Character {
         }
     }
 
+    //Function that will knock the player back
     public void Knock(Rigidbody2D rb, float knockbackTime) {
         StartCoroutine(KnockCo(rb, knockbackTime));
     }
 
-    //function to initiate a knockback timer
+    //Function to initiate a knockback timer
     private IEnumerator KnockCo(Rigidbody2D rb, float knockbackTime) {
-        //if entity is not null initiate timer
+        //If player is not null initiate timer
         if (rb != null) {
-            //wait the knockback time
+            //Wait the knockback time
             yield return new WaitForSeconds(knockbackTime);
-            //set the entity back to its original state
+            //Set the player back to its original state
             rb.velocity = Vector2.zero;
             //Switch staggerd state
             isStaggered = false;
@@ -92,11 +93,11 @@ public class Player : Character {
         foreach (Quest quest in questList) {
             //Check if its active
             if(quest.isActive) {
-                //if its kill quest use the enemykilled function
+                //If its kill quest use the enemykilled function
                 if(quest.goal.goalType == GoalType.Kill) {
                     quest.goal.EnemyKilled();
                 } 
-                //if its a gather quest use the gatheredResources function
+                //If its a gather quest use the gatheredResources function
                 else if (quest.goal.goalType == GoalType.Gather) {
                     quest.goal.GatheredResource();
                 }

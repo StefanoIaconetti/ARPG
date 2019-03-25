@@ -102,7 +102,7 @@ public abstract class Character : MonoBehaviour{
     }
 
     public void LevelUp() {
-        //if not max level
+        //If not max level
         if(level < maxLevel) {
 
             //Upgrade health
