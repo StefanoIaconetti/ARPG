@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyKnockback : MonoBehaviour {
+
     //Variables
     public float thrust;
     public float knockbackTime;
