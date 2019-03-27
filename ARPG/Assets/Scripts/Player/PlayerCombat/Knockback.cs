@@ -22,7 +22,7 @@ public class Knockback : MonoBehaviour {
                 //Calculate the knockback
                 Vector2 difference = enemy.transform.position - transform.position;
                 difference = difference.normalized * thrust;
-                Debug.Log(difference.x + " " + difference.y);
+                //Debug.Log(difference.x + " " + difference.y);
                 //Add force to the enemy
                 enemy.AddForce(difference, ForceMode2D.Impulse);
 

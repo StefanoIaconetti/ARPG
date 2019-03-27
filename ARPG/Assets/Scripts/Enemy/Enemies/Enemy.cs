@@ -59,7 +59,8 @@ public class Enemy : MonoBehaviour {
         //This is happening before healthbar script can get rid of the healthbar NEEDS FIX
         animator.SetBool("IsDead", true);
         target.gameObject.GetComponent<Player>().GainXP(xpDrop);
-        yield return new WaitForSeconds(0.5f);
+        target.gameObject.GetComponent<Player>().UpdateKillQuests();
+        yield return new WaitForSeconds(0.3f);
         gameObject.SetActive(false);
     }
 

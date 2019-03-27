@@ -13513,6 +13513,7 @@ MonoBehaviour:
     xpReward: 100
     goal: {fileID: 0}
   player: {fileID: 907207433}
+  questGiven: 0
 --- !u!61 &382400648
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -41193,6 +41194,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4637218525462354120, guid: ee20a16de11dd40f3977302f99aa77be,
+        type: 3}
+      propertyPath: maxSpawnedEnemies
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee20a16de11dd40f3977302f99aa77be, type: 3}
 --- !u!1 &828838715
@@ -48841,7 +48847,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 47.2}
+  m_AnchoredPosition: {x: 0, y: 47.19995}
   m_SizeDelta: {x: 0, y: 94.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1024270219
@@ -48935,7 +48941,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50.2, y: -15.4}
+  m_AnchoredPosition: {x: 50.200195, y: -15.399902}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1104929363
@@ -49195,7 +49201,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 203.72, y: -12.067}
+  m_AnchoredPosition: {x: 203.72021, y: -12.067}
   m_SizeDelta: {x: 396.56, y: 75.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1846342727
@@ -77185,7 +77191,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 203.71999, y: -12.07}
+  m_AnchoredPosition: {x: 203.72021, y: -12.07}
   m_SizeDelta: {x: 396.56, y: 24.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1989773525

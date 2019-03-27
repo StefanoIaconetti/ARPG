@@ -18,4 +18,8 @@ public class Quest {
         isActive = false;
     }
 
+    public Quest() {
+        goal = new QuestGoal();
+    }
+
 }

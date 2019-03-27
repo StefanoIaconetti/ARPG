@@ -88,25 +88,39 @@ public class Player : Character {
         }
     }
 
-    public void QuestUpdate() {
-        //For every quest the player has
+    public void UpdateKillQuests() {
         foreach (Quest quest in questList) {
-            //Check if its active
-            if(quest.isActive) {
-                //If its kill quest use the enemykilled function
-                if(quest.goal.goalType == GoalType.Kill) {
+            if (quest.isActive) {
+                if (quest.goal.goalType == GoalType.Kill) {
+                    Debug.Log("Killed an enemy");
                     quest.goal.EnemyKilled();
-                } 
-                //If its a gather quest use the gatheredResources function
-                else if (quest.goal.goalType == GoalType.Gather) {
-                    quest.goal.GatheredResource();
-                }
 
-                //If the goal is ever reached the player gains the rewards and ends the quest
-                if (quest.goal.isReached()) {
-                    GainXP(quest.xpReward);
-                    gold += quest.goldReward;
-                    quest.Complete();
+                    Debug.Log(quest.goal.currentAmount);
+                    //If the goal is ever reached the player gains the rewards and ends the quest
+                    if (quest.goal.isReached()) {
+                        GainXP(quest.xpReward);
+                        gold += quest.goldReward;
+                        quest.Complete();
+                    }
+                }
+            }
+        }
+    }
+
+    public void UpdateGatherQuests() {
+        foreach (Quest quest in questList) {
+            if (quest.isActive) {
+                if (quest.goal.goalType == GoalType.Gather) {
+                    Debug.Log("Gathered");
+                    quest.goal.GatheredResource();
+
+                    Debug.Log(quest.goal.currentAmount);
+                    //If the goal is ever reached the player gains the rewards and ends the quest
+                    if (quest.goal.isReached()) {
+                        GainXP(quest.xpReward);
+                        gold += quest.goldReward;
+                        quest.Complete();
+                    }
                 }
             }
         }

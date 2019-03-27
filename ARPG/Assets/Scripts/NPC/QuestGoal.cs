@@ -13,7 +13,7 @@ public class QuestGoal : MonoBehaviour {
     public GoalType goalType;
 
     public int requiredAmount;
-    public int currentAmount;
+    public int currentAmount = 0;
 
     public bool isReached() {
         return (currentAmount >= requiredAmount);
@@ -21,6 +21,7 @@ public class QuestGoal : MonoBehaviour {
 
     public void EnemyKilled() {
         if(goalType == GoalType.Kill) {
+            Debug.Log("Incremented");
             currentAmount++;
         }
     }

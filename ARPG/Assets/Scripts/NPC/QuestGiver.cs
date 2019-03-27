@@ -9,6 +9,10 @@ public class QuestGiver : NPC {
     public Player player;
     public bool questGiven = false;
 
+    private void Start() {
+        CreateQuest();
+    }
+
     public void AcceptQuest() {
         if(!questGiven) {
             quest.isActive = true;
@@ -25,5 +29,15 @@ public class QuestGiver : NPC {
     public override void Triggered() {
         base.Triggered();
         AcceptQuest();
+    }
+
+    public void CreateQuest() {
+        quest = new Quest();
+        quest.goal.goalType = GoalType.Kill;
+        quest.goal.requiredAmount = 3;
+        quest.goldReward = 100;
+        quest.xpReward = 100;
+        quest.description = "A simple bounty";
+        quest.title = "Test Quest";
     }
 }
