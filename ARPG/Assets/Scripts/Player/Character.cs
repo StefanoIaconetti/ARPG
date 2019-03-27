@@ -21,8 +21,8 @@ public abstract class Character : MonoBehaviour{
 
     protected Animator animator;
 
-    protected bool IsAttackingClose = false;
-    protected bool IsAttackingRanged = false;
+    public bool IsAttackingClose = false;
+    public bool IsAttackingRanged = false;
     public bool IsMoving {
         get {
             return direction.x != 0 || direction.y != 0;

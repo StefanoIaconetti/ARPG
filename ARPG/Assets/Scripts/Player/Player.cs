@@ -36,10 +36,14 @@ public class Player : Character {
 		}
 
         if (Input.GetKeyDown(KeyCode.Z)) {
-            attackCloseCoroutine = StartCoroutine(AttackClose());
+            if (!IsAttackingClose) {
+                attackCloseCoroutine = StartCoroutine(AttackClose());
+            }
         }
         if (Input.GetKeyDown(KeyCode.X)) {
-            attackRangedCoroutine = StartCoroutine(AttackRanged());
+            if (!IsAttackingRanged) {
+                attackRangedCoroutine = StartCoroutine(AttackRanged());
+            }
         }
     }
 
