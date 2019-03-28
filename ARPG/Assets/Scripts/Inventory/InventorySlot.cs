@@ -21,20 +21,20 @@ public class InventorySlot : MonoBehaviour
 	private Animation anim;
 
 	//Creats an item
-	public Item item;
+	public InventoryItem item;
 
 	//This adds an item to the inventory slot
-	public void AddItem (Item newItem)
+	public void AddItem (InventoryItem newItem)
 	{
 		//Item is now the item grabbed
 		item = newItem;
 		//Debug.Log(item.name);
 		//Changes the sprite and enables the icon. Then remove button can be used
-		icon.sprite = item.icon;
+		icon.sprite = item.item.icon;
 		icon.enabled = true;
 
 		quantityText.enabled = true;
-		quantityText.text = item.quantity + "";
+		quantityText.text = item.itemQuantity + "";
 	}
 
 	//This clears the inventory slot

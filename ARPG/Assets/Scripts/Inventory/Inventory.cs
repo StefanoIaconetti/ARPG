@@ -36,10 +36,10 @@ public class Inventory : MonoBehaviour
 	public const int inventorySpace = 9;
 
 	//This creates a list of items which will then become the inventory
-	public List<Item> items = new List<Item>();
+	public List<InventoryItem> items = new List<InventoryItem>();
 
 	//This method adds the item to the inventory
-	public bool AddItem(Item item)
+	public bool AddItem(InventoryItem item)
 	{//If the items are greater than the amount of space then it returns false. Futher we will notify the user that they cannot have any more
 		if(items.Count >= inventorySpace)
 		{
@@ -50,19 +50,20 @@ public class Inventory : MonoBehaviour
 		if (items.Count == 0)
 		{
 			items.Add(item);
-			items[0].quantity = 1;
+			items[0].itemQuantity = 1;
 		} else{
 			//This goes through the current inventory
+			int counter = 0;
 			for (int i = 0; i < items.Count; i++)
 			{
 				//This counter increases every time the names are not the same
-				int counter = 0;
+
 
 				counter++;
 				//If the names are equal then the quantity increases
 				if (items[i].name == item.name)
 				{
-					items[i].quantity++;
+					items[i].itemQuantity++;
 
 					break;
 				}
@@ -70,7 +71,7 @@ public class Inventory : MonoBehaviour
 				//If there are no items that are the same then a new inventory slot is taken up
 				if (counter == items.Count) { 
 					items.Add(item);
-					items[i + 1].quantity = 1;
+					items[i + 1].itemQuantity = 1;
 					break;
 				}
 
@@ -92,7 +93,7 @@ public class Inventory : MonoBehaviour
 			//If the names are equal then the quantity increases
 			if (items[i].name == item.name)
 			{
-				items[i].quantity--;
+				items[i].itemQuantity--;
 
 				break;
 			}
@@ -101,7 +102,7 @@ public class Inventory : MonoBehaviour
 	}
 
 	//This method is for removing items from the inventory
-	public void RemoveItem (Item item)
+	public void RemoveItem (InventoryItem item)
 	{
 		//Removes item
 		items.Remove(item);
