@@ -23,10 +23,11 @@ public class PickUp : MonoBehaviour
         //If the player collided with the item
         if (collide){
             //Boolean to see if the item has picked up or not
-           bool pickedUp = Inventory.instance.AddItem(item);
+			bool pickedUp = Player.inventory.AddItem(item);
             if (pickedUp){
                 //Destroys the gameobject because it is then added into the inventory
                 Destroy(gameObject);
+				Player.UpdateUI ();
             }
         }
     }

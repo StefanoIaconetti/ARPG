@@ -12,25 +12,67 @@ public class Player : Character {
 
 	}
 
+
+	public static string directionString = "Right";
+
+	public static InventorySlot[] slots;
+
+
+	public static Inventory inventory;
+
+	public void Awake()
+	{
+		inventory = new Inventory();
+		slots = itemsParent.GetComponentsInChildren<InventorySlot>();
+	}
+
+
+	//Parent items
+	public Transform itemsParent;
+
+	//Method that updates UI
+	public static void UpdateUI()
+	{   //Goes through the amount of slots are in the inventory
+
+		for (int i = 0; i < slots.Length; i++)
+		{//If i is less than the amount in the inventory
+			if (i < inventory.items.Count)
+			{//Adds the item
+				slots[i].AddItem(inventory.items[i]);
+			}
+			else
+			{
+				//Clears the item
+				slots[i].ClearSlot();
+			}
+		}
+	}
+
+
+
     private void getInput(){
         //Resets direction
         direction = Vector2.zero;
 		//Each input moves the character in a different direction
 		if (Input.GetKey(KeyCode.RightArrow))
 		{
-            direction += Vector2.right;
+			direction += Vector2.right;
+			directionString = "Right";
 		}
 		else if (Input.GetKey(KeyCode.LeftArrow))
 		{
-            direction += Vector2.left;
+			direction += Vector2.left;
+			directionString = "Left";
 		}
 		else if (Input.GetKey(KeyCode.UpArrow))
 		{
-            direction += Vector2.up;
+			direction += Vector2.up;
+			directionString = "Up";
 		}
 		else if (Input.GetKey(KeyCode.DownArrow))
 		{
-            direction += Vector2.down;
+			direction += Vector2.down;
+			directionString = "Down";
 		}
 
         if (Input.GetKeyDown(KeyCode.Z)) {
