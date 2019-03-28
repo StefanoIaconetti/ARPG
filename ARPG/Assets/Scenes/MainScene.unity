@@ -13882,6 +13882,7 @@ MonoBehaviour:
     goal: {fileID: 0}
   player: {fileID: 907207433}
   questGiven: 0
+  level: 2
 --- !u!61 &382400648
 BoxCollider2D:
   m_ObjectHideFlags: 0
