@@ -22,6 +22,8 @@ public class Enemy : MonoBehaviour {
 
     protected Animator animator;
 
+    public Coroutine deathCoroutine;
+
     public void Start() {
         animator = GetComponent<Animator>();
     }
@@ -33,7 +35,9 @@ public class Enemy : MonoBehaviour {
     public void TakeDamage(float damage) {
         health -= damage;
         if (health <= 0) {
-            StartCoroutine(DeathCo());
+            if(deathCoroutine == null) {
+                deathCoroutine = StartCoroutine(DeathCo());
+            }
         }
     }
 
