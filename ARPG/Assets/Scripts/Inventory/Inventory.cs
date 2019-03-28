@@ -61,7 +61,7 @@ public class Inventory : MonoBehaviour
 
 				counter++;
 				//If the names are equal then the quantity increases
-				if (items[i].name == item.name)
+				if (items[i].item.name == item.item.name)
 				{
 					items[i].itemQuantity++;
 
