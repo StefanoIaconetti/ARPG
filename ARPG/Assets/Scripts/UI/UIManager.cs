@@ -11,6 +11,10 @@ public class UIManager : MonoBehaviour {
     public Image xpBar;
     public Image healthBar;
 
+    public Image hotbarClose;
+    public Image hotbarRanged;
+    public Image hotbarPotion;
+
     public Player player;
 
 
@@ -19,6 +23,8 @@ public class UIManager : MonoBehaviour {
         healthBar.fillAmount = player.health / player.maxHealth;
         healthText.text = player.health + "/" + player.maxHealth;
         xpBar.fillAmount = player.xp / player.maxLevelXP;
+
+        //hotbarClose.fillAmount = 
     }
 
 }

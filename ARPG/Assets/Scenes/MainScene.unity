@@ -49310,6 +49310,9 @@ MonoBehaviour:
   healthText: {fileID: 1413333699}
   xpBar: {fileID: 1733780233}
   healthBar: {fileID: 1628624141}
+  hotbarClose: {fileID: 0}
+  hotbarRanged: {fileID: 0}
+  hotbarPotion: {fileID: 0}
   player: {fileID: 907207433}
 --- !u!114 &907207433 stripped
 MonoBehaviour:
@@ -78812,6 +78815,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1067677881510925043, guid: 3c1d30766fb204e8bb87bddc2ab9a57c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6585332795804666716, guid: 3c1d30766fb204e8bb87bddc2ab9a57c,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c1d30766fb204e8bb87bddc2ab9a57c, type: 3}
 --- !u!224 &1426622569005109098 stripped
@@ -78942,6 +78955,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3036190709523785539, guid: 3867fd7a104c34fba8f8eefcb3f34105,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3867fd7a104c34fba8f8eefcb3f34105, type: 3}
