@@ -133,10 +133,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 576344744322841981}
-  itemButton: {fileID: 0}
+  itemButton: {fileID: 576344744944419033}
   optionsButton: {fileID: 5685291221136105764}
   buttonText: {fileID: 6838226768675349475}
   quantityText: {fileID: 8251878409649744450}
+  item: {fileID: 0}
 --- !u!1 &576344744322841923
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,7 +433,7 @@ GameObject:
   - component: {fileID: 6556944781481970918}
   - component: {fileID: 6655708895408634454}
   m_Layer: 5
-  m_Name: ItemButton (1)
+  m_Name: WhiteBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
