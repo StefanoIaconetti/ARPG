@@ -23,6 +23,8 @@ public class InventorySlot : MonoBehaviour
 	//Creats an item
 	public InventoryItem item;
 
+
+
 	//This adds an item to the inventory slot
 	public void AddItem (InventoryItem newItem)
 	{
@@ -50,6 +52,7 @@ public class InventorySlot : MonoBehaviour
 	//When the remove button is pressed then the specific item is removed
 	public void OnOptionsShowButton()
 	{
+		Player.UpdateUI ();
 		if (optionsButton.gameObject.activeSelf)
 		{
 
@@ -58,7 +61,7 @@ public class InventorySlot : MonoBehaviour
 		else
 		{
 			//If there is an item present in the inventory then the player can sell
-			if(item != null) {
+			if(item.item != null) {
 
 				optionsButton.gameObject.SetActive(true);
 			}
@@ -66,8 +69,10 @@ public class InventorySlot : MonoBehaviour
 	}
 
 	//When the player drops an item
-	public void OnDropItemButton(InventoryItem item)
+	public void OnDropItemButton()
 	{
+
+		Debug.Log (item.item.name + "asdfasdf");
 		//The options button now becomes false
 		optionsButton.gameObject.SetActive(false);
 		int changeTrans = 4;
@@ -100,29 +105,36 @@ public class InventorySlot : MonoBehaviour
 		//If there is more than 1 of the same item
 		if (item.itemQuantity > 1)
 		{
-
+			
 			//Calls the remove quantitty method
-			//Character.inventory.RemoveQuantity(item);
+			Player.inventory.RemoveQuantity(item);
 
 			//Text is changed
 			quantityText.text = item.itemQuantity + "";
 
 			//Object now appears right infront of the character
-			GameObject gameObj = Instantiate(Resources.Load(item.name),
+			GameObject gameObj = Instantiate(Resources.Load(item.item.name),
 				playerVector,
 				Quaternion.identity) as GameObject;
+			Player.UpdateUI();
 
 		}
 		else
 		{
+			Debug.Log (item.item.name + "Whats working");
+			//Item is removed from inventory
+			Player.inventory.RemoveItem(item);
+
+
 			//Object appears right infront of the character
-			GameObject gameObj = Instantiate(Resources.Load(item.name),
+			GameObject gameObj = Instantiate(Resources.Load(item.item.name),
 				playerVector,
 				Quaternion.identity) as GameObject;
 
-			//Item is removed from inventory
-			// Character.inventory.RemoveItem(item);
-			//Character.UpdateUI();
+
+
+
+			Player.UpdateUI();
 
 		}
 

@@ -86,32 +86,38 @@ public class Inventory : MonoBehaviour
 		return true;
 	}
 
-	public void RemoveQuantity(Item item)
+	public void RemoveQuantity(InventoryItem item)
 	{
-		for (int i = 0; i < items.Count; i++)
-		{
+		//for (int i = 0; i < items.Count; i++)
+		//{
 			//If the names are equal then the quantity increases
-			if (items[i].name == item.name)
-			{
-				items[i].itemQuantity--;
+			//if (items[i].name == item.name)
+			//{
+				item.itemQuantity--;
 
-				break;
-			}
-		}
+			//	break;
+			//}
+		//}
 
 	}
 
 	//This method is for removing items from the inventory
 	public void RemoveItem (InventoryItem item)
 	{
+		for (int i = 0; i < items.Count; i++)
+		//{
+		//If the names are equal then the quantity increases
+			if (items[i].item.name == item.item.name)
+		{
+		//int myItem = items.Find(item. => item.item == item);
 		//Removes item
-		items.Remove(item);
-
-
+				items.RemoveAt(i);
+			}
+	}
 		//If the callback is null then invoke
 		//if (itemChangeCallBack != null)
 		//{
 		//  itemChangeCallBack.Invoke();
 		//}
-	}
+
 }
