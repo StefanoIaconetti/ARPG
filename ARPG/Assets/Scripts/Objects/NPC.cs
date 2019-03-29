@@ -67,19 +67,16 @@ public abstract class NPC : Interactable
                 endDialogue = 0;
             }else if(endDialogue == 2 && npcType == NPCType.Shopkeeper)
             {
-<<<<<<< HEAD
 				animator.SetBool("IsOpen", false);
 				nameText.text = "";
 				endDialogue = 0;
 
 				ShopkeeperManager.canOpen = true;
-=======
                 
             } else if (endDialogue == 2 && npcType == NPCType.QuestGiver) {
                 animator.SetBool("IsOpen", false);
                 nameText.text = "";
                 endDialogue = 0;
->>>>>>> 1731f7693a66360db04d291654cada7c1d17bd33
             }
 
         }
