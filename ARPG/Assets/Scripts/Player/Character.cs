@@ -11,6 +11,7 @@ public abstract class Character : MonoBehaviour{
     public float maxHealth;
     public float xp;
     public float maxLevelXP;
+    public float gold;
     public int level;
     public int maxLevel;
 	protected Vector2 direction;
@@ -20,8 +21,8 @@ public abstract class Character : MonoBehaviour{
 
     protected Animator animator;
 
-    protected bool IsAttackingClose = false;
-    protected bool IsAttackingRanged = false;
+    public bool IsAttackingClose = false;
+    public bool IsAttackingRanged = false;
     public bool IsMoving {
         get {
             return direction.x != 0 || direction.y != 0;
@@ -101,7 +102,7 @@ public abstract class Character : MonoBehaviour{
     }
 
     public void LevelUp() {
-        //if not max level
+        //If not max level
         if(level < maxLevel) {
 
             //Upgrade health

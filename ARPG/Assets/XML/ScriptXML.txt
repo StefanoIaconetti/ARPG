@@ -15,4 +15,8 @@
         <name>Shopkeeper</name>
         <line>Hello! Welcome do my shop, feel free to purchase or sell whatever you like</line>
 	</shopkeeper>
+    <questgiver>
+        <name>QuestGiver</name>
+        <line>Hello! Here is a quest</line>
+    </questgiver>
 </script>

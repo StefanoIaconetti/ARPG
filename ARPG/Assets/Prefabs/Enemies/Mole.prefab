@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1152604182229785522}
   - component: {fileID: 1675299625}
   - component: {fileID: 1675299624}
-  - component: {fileID: 7154547458832746247}
+  - component: {fileID: 3042636846519043563}
   m_Layer: 0
   m_Name: Mole
   m_TagString: Enemy
@@ -156,11 +156,11 @@ MonoBehaviour:
   currentState: 0
   health: 0
   maxHealth: 100
-  speed: 3
+  speed: 2
   baseAttack: 10
   xpDrop: 10
   target: {fileID: 4386762622061600, guid: 7a99c59d3b9064c958bbce110d3437be, type: 3}
-  chaseRange: 8
+  chaseRange: 6
   attackRange: 2
   originalPosition: {fileID: 0}
 --- !u!61 &1675299625
@@ -215,7 +215,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0628743, y: 1.5853646}
   m_EdgeRadius: 0
---- !u!114 &7154547458832746247
+--- !u!114 &3042636846519043563
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3611444754444479329}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa4e21250630f4640ab7e32cd890a7a5, type: 3}
+  m_Script: {fileID: 11500000, guid: 64bd77563b71f48719d2bec307593f39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   thrust: 4
