@@ -75,7 +75,6 @@ public class InventorySlot : MonoBehaviour
 		Debug.Log (item.item.name + "asdfasdf");
 		//The options button now becomes false
 		optionsButton.gameObject.SetActive(false);
-		int changeTrans = 4;
 
 		//Locates the location of player and allows the object appear infront of him
 		var playerVector = GameObject.Find("Player").transform.position;
@@ -140,5 +139,15 @@ public class InventorySlot : MonoBehaviour
 
 
 
+	}
+
+
+
+
+	//Item is sold
+	public void OnSellButton()
+	{
+		//Player.UpdateUI ();
+		 
 	}
 }
