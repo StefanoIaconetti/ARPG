@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 311966835}
   - component: {fileID: 311966836}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player (1)
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -469,7 +469,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: 0f39a9205e4394ee1b6ba8269428d176, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -536,7 +536,15 @@ MonoBehaviour:
   speed: 5
   health: 0
   maxHealth: 100
+  xp: 0
+  maxLevelXP: 0
+  gold: 0
+  level: 0
+  maxLevel: 0
   isStaggered: 0
+  IsAttackingClose: 0
+  IsAttackingRanged: 0
+  questList: []
 --- !u!114 &265120982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -589,7 +597,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.02846241, y: -0.5834937}
+  m_Offset: {x: -0.0032383204, y: -0.5834937}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -600,7 +608,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9829154, y: 2.2068243}
+  m_Size: {x: 1.2365258, y: 2.2068243}
   m_EdgeRadius: 0
 --- !u!114 &1729532828428205667
 MonoBehaviour:
@@ -616,7 +624,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 3
   knockbackTime: 0.2
-  damage: 10
+  damage: 20
 --- !u!1001 &1463974087691846461
 PrefabInstance:
   m_ObjectHideFlags: 0
