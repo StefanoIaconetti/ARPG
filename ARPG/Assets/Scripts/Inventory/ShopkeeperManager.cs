@@ -15,6 +15,11 @@ public class ShopkeeperManager : MonoBehaviour
 
 	public List<Item> shopKeeperItemManager = new List<Item>();
 
+
+
+	public GameObject changePlayer;
+	public GameObject changeShop;
+
 	public void Awake()
 	{
 		inventory = new Inventory();
@@ -60,15 +65,31 @@ public class ShopkeeperManager : MonoBehaviour
 		if (canOpen) {
 			inventoryCanvas.enabled = true;
 			UpdateUI ();
+
+			//var inventoryVector = GameObject.Find("Canvas/PlayerInventory/Inventory").transform.position;
+
+			var position = changePlayer.transform.position;
+
+
+
+			changePlayer.transform.Translate (-251.7f, 0, 0);
+
+
+			//inventoryCanvas.x = 361.1f;
+
+			//position.Set (361.1f, 80, 0);
+
+
 			if(Input.GetKeyDown(KeyCode.B)){
 				canOpen = false;
+
+				//inventoryVector.x =  -69.4f;
+
 			}
 		} else {
 			inventoryCanvas.enabled = false;
 		}
 	}
-
-
 
 
 }
