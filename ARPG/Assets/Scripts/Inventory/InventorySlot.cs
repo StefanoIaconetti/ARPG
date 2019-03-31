@@ -21,20 +21,22 @@ public class InventorySlot : MonoBehaviour
 	private Animation anim;
 
 	//Creats an item
-	public Item item;
+	public InventoryItem item;
+
+
 
 	//This adds an item to the inventory slot
-	public void AddItem (Item newItem)
+	public void AddItem (InventoryItem newItem)
 	{
 		//Item is now the item grabbed
 		item = newItem;
 		//Debug.Log(item.name);
 		//Changes the sprite and enables the icon. Then remove button can be used
-		icon.sprite = item.icon;
+		icon.sprite = item.item.icon;
 		icon.enabled = true;
 
 		quantityText.enabled = true;
-		quantityText.text = item.quantity + "";
+		quantityText.text = item.itemQuantity + "";
 	}
 
 	//This clears the inventory slot
@@ -50,6 +52,7 @@ public class InventorySlot : MonoBehaviour
 	//When the remove button is pressed then the specific item is removed
 	public void OnOptionsShowButton()
 	{
+		Player.UpdateUI ();
 		if (optionsButton.gameObject.activeSelf)
 		{
 
@@ -58,7 +61,7 @@ public class InventorySlot : MonoBehaviour
 		else
 		{
 			//If there is an item present in the inventory then the player can sell
-			if(item != null) {
+			if(item.item != null) {
 
 				optionsButton.gameObject.SetActive(true);
 			}
@@ -66,11 +69,12 @@ public class InventorySlot : MonoBehaviour
 	}
 
 	//When the player drops an item
-	public void OnDropItemButton(InventoryItem item)
+	public void OnDropItemButton()
 	{
+
+		Debug.Log (item.item.name + "asdfasdf");
 		//The options button now becomes false
 		optionsButton.gameObject.SetActive(false);
-		int changeTrans = 4;
 
 		//Locates the location of player and allows the object appear infront of him
 		var playerVector = GameObject.Find("Player").transform.position;
@@ -100,33 +104,50 @@ public class InventorySlot : MonoBehaviour
 		//If there is more than 1 of the same item
 		if (item.itemQuantity > 1)
 		{
-
+			
 			//Calls the remove quantitty method
-			//Character.inventory.RemoveQuantity(item);
+			Player.inventory.RemoveQuantity(item);
 
 			//Text is changed
 			quantityText.text = item.itemQuantity + "";
 
 			//Object now appears right infront of the character
-			GameObject gameObj = Instantiate(Resources.Load(item.name),
+			GameObject gameObj = Instantiate(Resources.Load(item.item.name),
 				playerVector,
 				Quaternion.identity) as GameObject;
+			Player.UpdateUI();
 
 		}
 		else
 		{
+			Debug.Log (item.item.name + "Whats working");
+			//Item is removed from inventory
+			Player.inventory.RemoveItem(item);
+
+
 			//Object appears right infront of the character
-			GameObject gameObj = Instantiate(Resources.Load(item.name),
+			GameObject gameObj = Instantiate(Resources.Load(item.item.name),
 				playerVector,
 				Quaternion.identity) as GameObject;
 
-			//Item is removed from inventory
-			// Character.inventory.RemoveItem(item);
-			//Character.UpdateUI();
+
+
+
+			Player.UpdateUI();
 
 		}
 
 
 
+	}
+
+
+
+
+	//Item is sold
+	public void OnSellButton()
+	{
+		//Player.UpdateUI ();
+		 
 	}
 }

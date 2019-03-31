@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Player : Character {
 
+    public List<Quest> questList;
+
     // Update is called once per frame
     protected override void Update(){
 		getInput();
-		//base means im accessing character
+		//Base means im accessing character
 		base.Update();
 
 	}
@@ -76,10 +78,14 @@ public class Player : Character {
 		}
 
         if (Input.GetKeyDown(KeyCode.Z)) {
-            attackCloseCoroutine = StartCoroutine(AttackClose());
+            if (!IsAttackingClose) {
+                attackCloseCoroutine = StartCoroutine(AttackClose());
+            }
         }
         if (Input.GetKeyDown(KeyCode.X)) {
-            attackRangedCoroutine = StartCoroutine(AttackRanged());
+            if (!IsAttackingRanged) {
+                attackRangedCoroutine = StartCoroutine(AttackRanged());
+            }
         }
     }
 
@@ -110,20 +116,59 @@ public class Player : Character {
         }
     }
 
+    //Function that will knock the player back
     public void Knock(Rigidbody2D rb, float knockbackTime) {
         StartCoroutine(KnockCo(rb, knockbackTime));
     }
 
-    //function to initiate a knockback timer
+    //Function to initiate a knockback timer
     private IEnumerator KnockCo(Rigidbody2D rb, float knockbackTime) {
-        //if entity is not null initiate timer
+        //If player is not null initiate timer
         if (rb != null) {
-            //wait the knockback time
+            //Wait the knockback time
             yield return new WaitForSeconds(knockbackTime);
-            //set the entity back to its original state
+            //Set the player back to its original state
             rb.velocity = Vector2.zero;
             //Switch staggerd state
             isStaggered = false;
+        }
+    }
+
+    public void UpdateKillQuests() {
+        foreach (Quest quest in questList) {
+            if (quest.isActive) {
+                if (quest.goal.goalType == GoalType.Kill) {
+                    Debug.Log("Killed an enemy");
+                    quest.goal.EnemyKilled();
+
+                    Debug.Log(quest.goal.currentAmount);
+                    //If the goal is ever reached the player gains the rewards and ends the quest
+                    if (quest.goal.isReached()) {
+                        GainXP(quest.xpReward);
+                        gold += quest.goldReward;
+                        quest.Complete();
+                    }
+                }
+            }
+        }
+    }
+
+    public void UpdateGatherQuests() {
+        foreach (Quest quest in questList) {
+            if (quest.isActive) {
+                if (quest.goal.goalType == GoalType.Gather) {
+                    Debug.Log("Gathered");
+                    quest.goal.GatheredResource();
+
+                    Debug.Log(quest.goal.currentAmount);
+                    //If the goal is ever reached the player gains the rewards and ends the quest
+                    if (quest.goal.isReached()) {
+                        GainXP(quest.xpReward);
+                        gold += quest.goldReward;
+                        quest.Complete();
+                    }
+                }
+            }
         }
     }
 

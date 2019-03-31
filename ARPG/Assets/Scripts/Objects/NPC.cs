@@ -21,19 +21,17 @@ public abstract class NPC : Interactable
     
 
     //Grabs the name and the line
-    string[] lineName;
+    protected string[] lineName;
 
-    int endDialogue = 0;
+    protected int endDialogue = 0;
 
     //Grabs the animator
     public Animator animator;
 
     //When the NPC collides
-    void OnTriggerEnter2D(Collider2D character)
-    {
+    public void OnTriggerEnter2D(Collider2D character) {
         //When colliding with the player
-        if (character.gameObject.name == "Player")
-        {
+        if (character.gameObject.name == "Player") {
             //Strings the data in the xmlFile
             string data = xmlFile.text;
 
@@ -42,12 +40,11 @@ public abstract class NPC : Interactable
 
             //If the NPC collides with player then collide is set to true.
             collide = true;
-
         }
     }
 
     //When the player is no longer in the collider
-    void OnTriggerExit2D(Collider2D other)
+    public void OnTriggerExit2D(Collider2D other)
     {
         //The dialogue text goes down
         animator.SetBool("IsOpen", false);
@@ -56,16 +53,12 @@ public abstract class NPC : Interactable
     }
 
 
-    void Update()
+    public void Update()
     {
         //When the e key is pressed dialogue occurs
         if (Input.GetKeyDown(KeyCode.E) && collide)
         {
-            animator.SetBool("IsOpen", true);
-            nameText.text = lineName[0];
-            StopAllCoroutines();
-            StartCoroutine(SentenceWrite(lineName[1]));
-            endDialogue++;
+            Triggered();
 
             if (endDialogue == 2 && npcType == NPCType.NPC)
             {
@@ -74,13 +67,23 @@ public abstract class NPC : Interactable
                 endDialogue = 0;
             }else if(endDialogue == 2 && npcType == NPCType.Shopkeeper)
             {
+				animator.SetBool("IsOpen", false);
+				nameText.text = "";
+				endDialogue = 0;
+
+				ShopkeeperManager.canOpen = true;
                 
+            } else if (endDialogue == 2 && npcType == NPCType.QuestGiver) {
+                animator.SetBool("IsOpen", false);
+                nameText.text = "";
+                endDialogue = 0;
             }
+
         }
     }
 
     //Adds a delay when the text plays
-    IEnumerator SentenceWrite(string sentence)
+    public IEnumerator SentenceWrite(string sentence)
     {
         
         lineText.text = "";
@@ -90,5 +93,13 @@ public abstract class NPC : Interactable
             lineText.text += letter;
             yield return null;
         }
+    }
+
+    virtual public void Triggered() {
+        animator.SetBool("IsOpen", true);
+        nameText.text = lineName[0];
+        StopAllCoroutines();
+        StartCoroutine(SentenceWrite(lineName[1]));
+        endDialogue++;
     }
 }

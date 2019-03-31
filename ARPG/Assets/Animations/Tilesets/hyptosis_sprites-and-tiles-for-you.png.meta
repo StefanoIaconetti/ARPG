@@ -30,7 +30,7 @@ TextureImporter:
     21300050: hyptosis_sprites-and-tiles-for-you_25
     21300052: hyptosis_sprites-and-tiles-for-you_26
     21300054: hyptosis_sprites-and-tiles-for-you_27
-    21300056: hyptosis_sprites-and-tiles-for-you_28
+    21300056: Eye
     21300058: hyptosis_sprites-and-tiles-for-you_29
     21300060: hyptosis_sprites-and-tiles-for-you_30
     21300062: hyptosis_sprites-and-tiles-for-you_31
@@ -444,7 +444,7 @@ TextureImporter:
     21300878: hyptosis_sprites-and-tiles-for-you_439
     21300880: hyptosis_sprites-and-tiles-for-you_440
   externalObjects: {}
-  serializedVersion: 7
+  serializedVersion: 9
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -1107,7 +1107,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hyptosis_sprites-and-tiles-for-you_28
+      name: Eye
       rect:
         serializedVersion: 2
         x: 672
