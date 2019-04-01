@@ -1,12 +1,7 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/MainScene.unity
-=======
-<<<<<<< HEAD
 - path: Assets/Scenes/StefanosScene.unity
-=======
-- path: Assets/Scenes/MainScene.unity
->>>>>>> 1731f7693a66360db04d291654cada7c1d17bd33
->>>>>>> 7ecb7180672c5e0fc9f5dcf80c6ee3e3c1b0adfd
   isLoaded: 1
   isActive: 1
+- path: Assets/Scenes/MainScene.unity
+  isLoaded: 1
+  isActive: 0

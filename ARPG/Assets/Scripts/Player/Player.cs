@@ -93,7 +93,7 @@ public class Player : Character {
         if (!IsAttackingClose && !IsAttackingRanged && !IsMoving) {
             IsAttackingClose = true;
             animator.SetBool("attackClose", IsAttackingClose);
-            yield return new WaitForSeconds(.4f);
+            yield return new WaitForSeconds(.7f);
             StopAttackClose();
         }
     }
@@ -144,9 +144,7 @@ public class Player : Character {
                     Debug.Log(quest.goal.currentAmount);
                     //If the goal is ever reached the player gains the rewards and ends the quest
                     if (quest.goal.isReached()) {
-                        GainXP(quest.xpReward);
-                        gold += quest.goldReward;
-                        quest.Complete();
+                        quest.isComplete = true;
                     }
                 }
             }
@@ -158,14 +156,19 @@ public class Player : Character {
             if (quest.isActive) {
                 if (quest.goal.goalType == GoalType.Gather) {
                     Debug.Log("Gathered");
-                    quest.goal.GatheredResource();
+                    //If the quests item name matches an item in the players inventory
+                    foreach (Item item in inventory.items) {
+                        if (quest.item.name == item.name) {
+                            //change the current amount to the quantity of that item in the players inventory
+                            quest.goal.currentAmount = item.quantity;
+                        }
+                    }
+
 
                     Debug.Log(quest.goal.currentAmount);
                     //If the goal is ever reached the player gains the rewards and ends the quest
                     if (quest.goal.isReached()) {
-                        GainXP(quest.xpReward);
-                        gold += quest.goldReward;
-                        quest.Complete();
+                        quest.isComplete = true;
                     }
                 }
             }
