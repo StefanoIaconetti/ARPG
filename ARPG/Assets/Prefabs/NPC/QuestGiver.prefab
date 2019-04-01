@@ -102,16 +102,19 @@ MonoBehaviour:
   nameText: {fileID: 0}
   lineText: {fileID: 0}
   animator: {fileID: 0}
+  questManager: {fileID: 0}
   quest:
     isActive: 0
+    isComplete: 0
     title: Test
     description: Kill 3 enemies
     goldReward: 100
     xpReward: 100
+    item: {fileID: 0}
     goal: {fileID: 0}
   player: {fileID: 0}
   questGiven: 0
-  level: 2
+  level: 1
 --- !u!61 &3258617663008426768
 BoxCollider2D:
   m_ObjectHideFlags: 0
