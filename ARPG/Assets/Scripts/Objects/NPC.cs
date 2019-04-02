@@ -28,28 +28,37 @@ public abstract class NPC : Interactable
     //Grabs the animator
     public Animator animator;
 
+	public ShopkeeperManager shopMang;
+
+	public Chest chest;
+
     //When the NPC collides
     public void OnTriggerEnter2D(Collider2D character) {
         //When colliding with the player
-        if (character.gameObject.name == "Player") {
-            //Strings the data in the xmlFile
-            string data = xmlFile.text;
+		if (character.gameObject.name == "Player" && npcType != NPCType.Chest) {
+			//Strings the data in the xmlFile
+			string data = xmlFile.text;
 
-            //Sets the name and line
-            lineName = xmlReader.parseXml(data, nameOfCharacter);
+			//Sets the name and line
+			lineName = xmlReader.parseXml (data, nameOfCharacter);
 
-            //If the NPC collides with player then collide is set to true.
-            collide = true;
-        }
+			//If the NPC collides with player then collide is set to true.
+			collide = true;
+		} else {
+
+			collide = true;
+		}
     }
 
     //When the player is no longer in the collider
     public void OnTriggerExit2D(Collider2D other)
     {
-        //The dialogue text goes down
-        animator.SetBool("IsOpen", false);
-        collide = false;
-        nameText.text = "";
+		if (npcType != NPCType.Chest) {
+			//The dialogue text goes down
+			animator.SetBool ("IsOpen", false);
+			collide = false;
+			nameText.text = "";
+		}
     }
 
 
@@ -58,7 +67,12 @@ public abstract class NPC : Interactable
         //When the e key is pressed dialogue occurs
         if (Input.GetKeyDown(KeyCode.E) && collide)
         {
-            Triggered();
+			if (npcType == NPCType.Chest) {
+
+				chest.ShopOpen();
+			} else {
+				Triggered ();
+			}
 
             if (endDialogue == 2 && npcType == NPCType.NPC)
             {
@@ -67,19 +81,23 @@ public abstract class NPC : Interactable
                 endDialogue = 0;
             }else if(endDialogue == 2 && npcType == NPCType.Shopkeeper)
             {
+
 				animator.SetBool("IsOpen", false);
-				nameText.text = "";
+				//nameText.text = "";
 				endDialogue = 0;
 
-				ShopkeeperManager.canOpen = true;
-                
+				shopMang.ShopOpen ();
             } else if (endDialogue == 2 && npcType == NPCType.QuestGiver) {
                 animator.SetBool("IsOpen", false);
                 nameText.text = "";
                 endDialogue = 0;
-            }
+			}
 
         }
+
+
+
+		//shopMang.ShopOpen ();
     }
 
     //Adds a delay when the text plays

@@ -135,10 +135,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 576344744322841981}
   itemButton: {fileID: 576344744944419033}
+  sellButton: {fileID: 6529101673853852995}
   optionsButton: {fileID: 5685291221136105764}
   buttonText: {fileID: 6838226768675349475}
   quantityText: {fileID: 8251878409649744450}
   item: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &576344744322841923
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,7 +946,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5302364511666844415}
-        m_MethodName: OnDropItemButton
+        m_MethodName: OnSellButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1034,4 +1036,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Drop
+  m_Text: Sell

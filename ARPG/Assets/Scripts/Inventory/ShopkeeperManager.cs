@@ -7,6 +7,7 @@ public class ShopkeeperManager : MonoBehaviour
     
 	public static InventorySlot[] slots;
 	public bool inventoryOpen = false;
+	public static bool inventoryCanOpen = false;
 
 	public static Inventory inventory;
 	public Canvas inventoryCanvas;
@@ -20,6 +21,13 @@ public class ShopkeeperManager : MonoBehaviour
 	public GameObject changePlayer;
 	public GameObject changeShop;
 
+
+	int minused;
+
+	Vector3 originalPos;
+
+	public Canvas playerShop;
+
 	public void Awake()
 	{
 		inventory = new Inventory();
@@ -29,6 +37,8 @@ public class ShopkeeperManager : MonoBehaviour
 
 	void Start(){
 		inventoryCanvas.enabled = false;
+		originalPos = new Vector3(changePlayer.transform.position.x, changePlayer.transform.position.y, changePlayer.transform.position.z);
+
 
 		for (int i = 0; i < shopKeeperItemManager.Count; i++) {
 			InventoryItem invItem = new InventoryItem (shopKeeperItemManager [i], 1);
@@ -62,34 +72,63 @@ public class ShopkeeperManager : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (canOpen) {
-			inventoryCanvas.enabled = true;
-			UpdateUI ();
 
-			//var inventoryVector = GameObject.Find("Canvas/PlayerInventory/Inventory").transform.position;
+		if (inventoryCanOpen) {
 
-			var position = changePlayer.transform.position;
+			ShopClose ();
 
-
-
-			changePlayer.transform.Translate (-251.7f, 0, 0);
-
-
-			//inventoryCanvas.x = 361.1f;
-
-			//position.Set (361.1f, 80, 0);
-
-
-			if(Input.GetKeyDown(KeyCode.B)){
-				canOpen = false;
-
-				//inventoryVector.x =  -69.4f;
-
-			}
-		} else {
-			inventoryCanvas.enabled = false;
 		}
 	}
 
 
+
+	public void ShopOpen(){
+			inventoryCanvas.enabled = true;
+			playerShop.enabled = true;
+			UpdateUI ();
+
+
+
+
+
+		inventoryCanOpen = true;
+
+
+		Time.timeScale = 0;
+
+				//changePlayer.transform.position.Set (0, 0, 0);
+
+			//canOpen = false;
+
+
+			//inventoryVector.x =  -69.4f;
+
+
+
+		if (minused == 1) {
+
+			changePlayer.transform.position = originalPos;
+			minused = 0;
+		}
+
+
+		changePlayer.transform.Translate (-251.7f, 0, 0);
+		minused++;
+
+		}
+
+	public void ShopClose (){
+
+		if (inventoryCanOpen && Input.GetKeyDown(KeyCode.B)) {
+			inventoryCanvas.enabled = false;
+			playerShop.enabled = false;
+			changePlayer.transform.Translate (247.525f, 0, 0);
+			//canOpen = false;
+
+			inventoryCanOpen = false;
+
+			Time.timeScale = 1;
+
+		}
+	}
 }
