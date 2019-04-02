@@ -109,24 +109,24 @@ public class InventorySlot : MonoBehaviour
 		}
 
 		//If there is more than 1 of the same item
-		if (item.itemQuantity > 1)
-		{
+		//if (item.itemQuantity > 1)
+		//{
 			
 			//Calls the remove quantitty method
-			Player.inventory.RemoveQuantity(item);
+			//Player.inventory.RemoveQuantity(item);
 
 			//Text is changed
-			quantityText.text = item.itemQuantity + "";
+			//quantityText.text = item.itemQuantity + "";
 
 			//Object now appears right infront of the character
-			GameObject gameObj = Instantiate(Resources.Load(item.item.name),
-				playerVector,
-				Quaternion.identity) as GameObject;
-			Player.UpdateUI();
+		//	GameObject gameObj = Instantiate(Resources.Load(item.item.name),
+			//	playerVector,
+			////	Quaternion.identity) as GameObject;
+		//	Player.UpdateUI();
 
-		}
-		else
-		{
+		//}
+		//else
+		//{
 			Debug.Log (item.item.name + "Whats working");
 			//Item is removed from inventory
 			Player.inventory.RemoveItem(item);
@@ -142,7 +142,7 @@ public class InventorySlot : MonoBehaviour
 
 			Player.UpdateUI();
 
-		}
+		//}
 
 
 
@@ -155,14 +155,14 @@ public class InventorySlot : MonoBehaviour
 
 		ShopkeeperManager.inventory.AddItem (item);
 
-		if (item.itemQuantity > 1) {
+		//if (item.itemQuantity > 1) {
 
-			Player.inventory.RemoveQuantity (item);
-		} else {
+			//Player.inventory.RemoveQuantity (item);
+		//} else {
 
 
 			Player.inventory.RemoveItem (item);
-		}
+		//}
 		Player.UpdateUI ();
 		ShopkeeperManager.UpdateUI ();
 	}
@@ -176,13 +176,13 @@ public class InventorySlot : MonoBehaviour
 				
 			player.gold -= item.item.cost;
 
-			if (item.itemQuantity > 1) {
-				ShopkeeperManager.inventory.RemoveQuantity (item);
-			} else {
+			//if (item.itemQuantity > 1) {
+				//ShopkeeperManager.inventory.RemoveQuantity (item);
+			//} else {
 
 
 				ShopkeeperManager.inventory.RemoveItem (item);
-			}
+			//}
 
 
 			Player.inventory.AddItem(item);
@@ -198,14 +198,14 @@ public class InventorySlot : MonoBehaviour
 	public void OnGrabButton(){
 		Player.inventory.AddItem (item);
 
-		if (item.itemQuantity > 1) {
+		//if (item.itemQuantity > 1) {
 
-			Chest.inventory.RemoveQuantity (item);
-		} else {
+			//Chest.inventory.RemoveQuantity (item);
+		//} else {
 
 
 			Chest.inventory.RemoveItem (item);
-		}
+		//}
 
 		Player.UpdateUI ();
 		Chest.UpdateUI ();
