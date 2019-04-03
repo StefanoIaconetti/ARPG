@@ -28,7 +28,7 @@ public abstract class NPC : Interactable
     //Grabs the animator
     public Animator animator;
 
-	public ShopkeeperManager shopMang;
+	public ShopkeeperObject shopMang;
 
 	public Chest chest;
 

@@ -9,37 +9,38 @@ public class InventorySlot : MonoBehaviour
 	//Creats an image name icon
 	public Image icon;
 
-	//Button that removes items
+	//Button that when pressed displays the options button
 	public Button itemButton;
 
+	//This is the "sell" button, this button will only be in the players inventory
 	public Button sellButton;
+	//This button has many functions and will change depending on its onclick listener
 	public Button optionsButton;
-	Button holderButton;
-	public Text buttonText;
 
+	//Text for the quantity of an item
 	public Text quantityText;
 
-	private Animation anim;
 
 	//Creats an item
 	public InventoryItem item;
 
+
+	public ShopKeeperTown1 shopKeeper;
+
+	//Accepts a player
 	public Player player;
 
-	public void Start(){
-		holderButton = optionsButton;
-	}
-
-	//This adds an item to the inventory slot
+	//This adds an item to the inventory slot	
 	public void AddItem (InventoryItem newItem)
 	{
 		//Item is now the item grabbed
 		item = newItem;
-		//Debug.Log(item.name);
+
 		//Changes the sprite and enables the icon. Then remove button can be used
 		icon.sprite = item.item.icon;
 		icon.enabled = true;
 
+		//The quantity of the item is displayed
 		quantityText.enabled = true;
 		quantityText.text = item.itemQuantity + "";
 	}
@@ -54,11 +55,11 @@ public class InventorySlot : MonoBehaviour
 
 	}
 
-	//When the remove button is pressed then the specific item is removed
+	//When the Options button is pressed
 	public void OnOptionsShowButton()
 	{
-
-		if (ShopkeeperManager.inventoryCanOpen && sellButton != null) {
+		//If the shopkeepers inventory
+		if (shopKeeper.inventoryCanOpen && sellButton != null) {
 			sellButton.gameObject.SetActive (true);
 		} else {
 			if (sellButton != null) {
@@ -150,21 +151,15 @@ public class InventorySlot : MonoBehaviour
 
 	public void OnSellButton(){
 
-		Debug.Log (player.gold);
 		player.gold += item.item.cost;
 
-		ShopkeeperManager.inventory.AddItem (item);
 
-		//if (item.itemQuantity > 1) {
+		Player.inventory.RemoveItem (item);
 
-			//Player.inventory.RemoveQuantity (item);
-		//} else {
+		shopKeeper.inventory.AddItem (item);
 
-
-			Player.inventory.RemoveItem (item);
-		//}
 		Player.UpdateUI ();
-		ShopkeeperManager.UpdateUI ();
+		shopKeeper.UpdateUI ();
 	}
 
 
@@ -181,14 +176,14 @@ public class InventorySlot : MonoBehaviour
 			//} else {
 
 
-				ShopkeeperManager.inventory.RemoveItem (item);
+			shopKeeper.inventory.RemoveItem (item);
 			//}
 
 
 			Player.inventory.AddItem(item);
 
 			Player.UpdateUI ();
-			ShopkeeperManager.UpdateUI ();
+			shopKeeper.UpdateUI ();
 		}
 	}
 

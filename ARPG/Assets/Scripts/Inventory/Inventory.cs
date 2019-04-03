@@ -24,16 +24,19 @@ public class Inventory : MonoBehaviour
 		//If there are no items at all then add an item
 		if (items.Count == 0) {
 			items.Add(item);
+			return true;
 		} else {
 			//This checks to see if there are any of the same items, if there are then the quantity increases instead of adding a new item 
 			foreach (InventoryItem forItem in items) {
 				if (forItem.item.name == item.item.name) {
 					forItem.itemQuantity++;
+
 					return true;
 				}
 			}
 			//If there was no items that were the same then item is added to the inventory
-				items.Add (item);
+			InventoryItem newitem = new InventoryItem(item.item, 1);
+			items.Add (newitem);
 			}
 
 		return true;
@@ -47,11 +50,17 @@ public class Inventory : MonoBehaviour
 			//If the names are the same
 			if (items [i].item.name == item.item.name) {
 				//If there are more than one then remove the item
-				if (item.itemQuantity > 1) {
-					item.itemQuantity--;
+				if (items[i].itemQuantity > 1) {
+					//item.itemQuantity--;
+					items [i].itemQuantity--;
+					Debug.Log ("Yeee");
+					break;
 				} else {
 					//Otherwise remove at the index (If you do not remove at the index it can potentially find the item you are not attempting to look for)
-					items.RemoveAt (i);
+					//items.RemoveAt (i);
+					items.RemoveAt (i);Debug.Log ("Yeeehaw");
+					break;
+
 				}
 			}
 		}

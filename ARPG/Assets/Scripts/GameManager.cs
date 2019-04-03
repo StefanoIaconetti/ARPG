@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public Canvas inventory;
-    public bool inventoryOpen = false;
+    public static bool inventoryOpen = false;
 
     void Start(){
         inventory.enabled = false;
