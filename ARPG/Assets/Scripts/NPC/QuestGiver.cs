@@ -52,8 +52,7 @@ public class QuestGiver : NPC {
             if (quest.isComplete && quest.isActive) {
                 if (quest.goal.goalType == GoalType.Gather) {
                     //remove the items from players inventory
-                                                                                //NEED HELP
-                    
+                    Player.inventory.RemoveItem(quest.item);
                 }
 
                 player.GainXP(quest.xpReward);

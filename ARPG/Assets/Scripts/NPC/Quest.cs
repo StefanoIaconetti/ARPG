@@ -13,7 +13,7 @@ public class Quest {
     public int goldReward;
     public int xpReward;
 
-    public Item item;
+    public InventoryItem item;
 
     public QuestGoal goal;
 

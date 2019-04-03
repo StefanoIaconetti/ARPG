@@ -33,8 +33,11 @@ public class Player : Character {
 	public Transform itemsParent;
 
 	//Method that updates UI
-	public static void UpdateUI()
-	{   //Goes through the amount of slots are in the inventory
+	public static void UpdateUI() {
+
+        //UPDATE GATHER QUESTS HERE
+    
+        //Goes through the amount of slots are in the inventory
 
 		for (int i = 0; i < slots.Length; i++)
 		{//If i is less than the amount in the inventory
@@ -157,10 +160,10 @@ public class Player : Character {
                 if (quest.goal.goalType == GoalType.Gather) {
                     Debug.Log("Gathered");
                     //If the quests item name matches an item in the players inventory
-                    foreach (Item item in inventory.items) {
-                        if (quest.item.name == item.name) {
+                    foreach (InventoryItem item in inventory.items) {
+                        if (quest.item.item.name == item.item.name ) {
                             //change the current amount to the quantity of that item in the players inventory
-                            quest.goal.currentAmount = item.quantity;
+                            quest.goal.currentAmount = item.itemQuantity;
                         }
                     }
 

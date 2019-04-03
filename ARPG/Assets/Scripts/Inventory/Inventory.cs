@@ -76,7 +76,8 @@ public class Inventory : MonoBehaviour
 				}
 
 			}
-		}
+
+        }
 
 		//If the callback is null then invoke
 		if (itemChangeCallBack != null)
