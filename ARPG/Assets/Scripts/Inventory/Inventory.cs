@@ -57,7 +57,6 @@ public class Inventory : MonoBehaviour
 					break;
 				} else {
 					//Otherwise remove at the index (If you do not remove at the index it can potentially find the item you are not attempting to look for)
-					//items.RemoveAt (i);
 					items.RemoveAt (i);Debug.Log ("Yeeehaw");
 					break;
 

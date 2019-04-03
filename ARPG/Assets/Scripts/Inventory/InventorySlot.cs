@@ -24,11 +24,10 @@ public class InventorySlot : MonoBehaviour
 	//Creats an item
 	public InventoryItem item;
 
-
-	public ShopKeeperTown1 shopKeeper;
-
 	//Accepts a player
 	public Player player;
+
+	ShopKeeperManager shopMang;
 
 	//This adds an item to the inventory slot	
 	public void AddItem (InventoryItem newItem)
@@ -58,8 +57,13 @@ public class InventorySlot : MonoBehaviour
 	//When the Options button is pressed
 	public void OnOptionsShowButton()
 	{
+
+
+
+
+
 		//If the shopkeepers inventory
-		if (shopKeeper.inventoryCanOpen && sellButton != null) {
+		if (shopMang.inventoryCanOpen && sellButton != null) {
 			sellButton.gameObject.SetActive (true);
 		} else {
 			if (sellButton != null) {
@@ -156,10 +160,10 @@ public class InventorySlot : MonoBehaviour
 
 		Player.inventory.RemoveItem (item);
 
-		shopKeeper.inventory.AddItem (item);
+		shopMang.currentShopKeeper.inventory.AddItem (item);
 
 		Player.UpdateUI ();
-		shopKeeper.UpdateUI ();
+		shopMang.currentShopKeeper.UpdateUI ();
 	}
 
 
@@ -176,14 +180,14 @@ public class InventorySlot : MonoBehaviour
 			//} else {
 
 
-			shopKeeper.inventory.RemoveItem (item);
+			shopMang.currentShopKeeper.inventory.RemoveItem (item);
 			//}
 
 
 			Player.inventory.AddItem(item);
 
 			Player.UpdateUI ();
-			shopKeeper.UpdateUI ();
+			shopMang.currentShopKeeper.UpdateUI ();
 		}
 	}
 

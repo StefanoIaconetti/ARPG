@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 //This manages the shopkeepers
-public class ShopkeeperObject : MonoBehaviour
+public class ShopKeeperObject : MonoBehaviour
 {
     //The inventory slot
 	protected  InventorySlot[] slots;
@@ -10,33 +10,36 @@ public class ShopkeeperObject : MonoBehaviour
 	//If the inventory is open
 	protected bool inventoryOpen = false;
 
-	//This checks to see if the inventory can open
-	public  bool inventoryCanOpen = false;
 
 	//Each shopkeeper has an inventory
 	public Inventory inventory;
 
-	//This canvas holds the players inventory
+	//This canvas holds the shopkeepers inventory
 	public Canvas inventoryCanvas;
 
-	//Static bool that changes depending on conditions
-	//public static bool canOpen = false;
-
 	//This holds a list of items that a shop could have
-	public List<Item> shopKeeperItemManager = new List<Item>();
+	public List<Item> shopKeeperItemManager = new List<Item>(); 
 
+	public int townNumber;
 
 	//The change gameobjects allow me to change the position of the gameobject 
 	public GameObject changePlayer;
 	public GameObject changeShop;
 
 
+	//This prevent the user from changing the position of the inventory
 	int minused;
 
+	//This is the original position of the gameobject and is instantiated when the game starts
 	Vector3 originalPos;
 
+	//This obtains the canvas of the players inventory
 	public Canvas playerShop;
 
+
+	public ShopKeeperManager shopMang;
+
+	//Creates an instance of inventory and fills in slots
 	public void Awake()
 	{
 		inventory = new Inventory ();
@@ -44,11 +47,16 @@ public class ShopkeeperObject : MonoBehaviour
 	}
 
 
+	//Start method starts with the inventory canvas being false
 	void Start(){
 		inventoryCanvas.enabled = false;
+
+		//Gathers the original position of the inventory
 		originalPos = new Vector3(changePlayer.transform.position.x, changePlayer.transform.position.y, changePlayer.transform.position.z);
 
+		//Loops and adds random items
 
+		//TODO once items are implemented i can then add random items with random quantities, as of right now its just 2 items 
 		for (int i = 0; i < shopKeeperItemManager.Count; i++) {
 			InventoryItem invItem = new InventoryItem (shopKeeperItemManager [i], 1);
 			inventory.AddItem (invItem);
@@ -81,8 +89,8 @@ public class ShopkeeperObject : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-
-		if (inventoryCanOpen) {
+		//If the inventory is opnened the call the shopclose method
+		if (shopMang.inventoryCanOpen) {
 
 			ShopClose ();
 
@@ -90,41 +98,65 @@ public class ShopkeeperObject : MonoBehaviour
 	}
 
 
-
+	//Opens the shops menu
 	public void ShopOpen(){
+		//ShopKeeperManager.currentShopKeeper = ShopKeeperManager.shopkeeperList[townNumber];
+
+
+		//shopMang.currentTown = townNumber;
+		//shopMang.currentShopKeeper =;
+
+		//Enables the canvas
 			inventoryCanvas.enabled = true;
+
 			playerShop.enabled = true;
+
+		//Updates the UI
 			UpdateUI ();
 
-		inventoryCanOpen = true;
+		//Inventory can open is now true, this then gives the ShopClose the ability to close
+		shopMang.inventoryCanOpen = true;
 
-
+		//Game is paused
 		Time.timeScale = 0;
 
+		//Counter measure just incase they press the same button multiple times
 		if (minused == 1) {
 
 			changePlayer.transform.position = originalPos;
 			minused = 0;
 		}
 
-
+		//Translates the gameobject
 		changePlayer.transform.Translate (-251.7f, 0, 0);
 		minused++;
 
+		//Debug.Log (inventory.items[1].name);
+
 		}
 
+	//This method is called in the update, if the user pressed F then the inventory closes	
 	public void ShopClose (){
 
-		if (inventoryCanOpen && Input.GetKeyDown(KeyCode.F)) {
-			inventoryCanvas.enabled = false;
+		if (shopMang.inventoryCanOpen && Input.GetKeyDown(KeyCode.F)) {
+
+			Debug.Log (shopMang.currentShopKeeper);
+			//Closes the shop canvas
+			//inventoryCanvas = shopMang.currentShopKeeper.inventoryCanvas;
+			shopMang.currentShopKeeper.inventoryCanvas.enabled = false;
+
+			//Gives the gamemanager the ability to close the inventory
 			GameManager.inventoryOpen = true;
-			//playerShop.enabled = false;
+
+			//Translates the gameobject back
 			changePlayer.transform.Translate (247.525f, 0, 0);
-			//canOpen = false;
 
-			inventoryCanOpen = false;
+			//Resets by setting it to false
+			shopMang.inventoryCanOpen = false;
 
+			//Game is unpaused
 			Time.timeScale = 1;
+
 
 		}
 	}

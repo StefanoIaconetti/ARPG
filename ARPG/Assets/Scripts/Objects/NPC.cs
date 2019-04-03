@@ -28,7 +28,8 @@ public abstract class NPC : Interactable
     //Grabs the animator
     public Animator animator;
 
-	public ShopkeeperObject shopMang;
+	public ShopKeeperManager shopMang;
+	public ShopKeeperObject shopObj;
 
 	public Chest chest;
 
@@ -85,8 +86,14 @@ public abstract class NPC : Interactable
 				animator.SetBool("IsOpen", false);
 				//nameText.text = "";
 				endDialogue = 0;
+				//ShopKeeperManager.currentShopKeeper = 
+				shopMang.inventoryCanOpen = true;
 
-				shopMang.ShopOpen ();
+				//ShopKeeperManager.CheckShopKeeper ();
+				shopMang.currentShopKeeper = shopObj;
+				shopMang.CheckShopKeeper ();
+
+
             } else if (endDialogue == 2 && npcType == NPCType.QuestGiver) {
                 animator.SetBool("IsOpen", false);
                 nameText.text = "";
