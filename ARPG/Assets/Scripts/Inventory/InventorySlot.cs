@@ -27,7 +27,7 @@ public class InventorySlot : MonoBehaviour
 	//Accepts a player
 	public Player player;
 
-	ShopKeeperManager shopMang;
+	public ShopKeeperManager shopMang;
 
 	//This adds an item to the inventory slot	
 	public void AddItem (InventoryItem newItem)
@@ -57,11 +57,7 @@ public class InventorySlot : MonoBehaviour
 	//When the Options button is pressed
 	public void OnOptionsShowButton()
 	{
-
-
-
-
-
+		Debug.Log ("Justin");
 		//If the shopkeepers inventory
 		if (shopMang.inventoryCanOpen && sellButton != null) {
 			sellButton.gameObject.SetActive (true);

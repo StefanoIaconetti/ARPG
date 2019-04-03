@@ -10,7 +10,6 @@ public class ShopKeeperObject : MonoBehaviour
 	//If the inventory is open
 	protected bool inventoryOpen = false;
 
-
 	//Each shopkeeper has an inventory
 	public Inventory inventory;
 
@@ -26,7 +25,6 @@ public class ShopKeeperObject : MonoBehaviour
 	public GameObject changePlayer;
 	public GameObject changeShop;
 
-
 	//This prevent the user from changing the position of the inventory
 	int minused;
 
@@ -35,7 +33,6 @@ public class ShopKeeperObject : MonoBehaviour
 
 	//This obtains the canvas of the players inventory
 	public Canvas playerShop;
-
 
 	public ShopKeeperManager shopMang;
 
@@ -91,21 +88,14 @@ public class ShopKeeperObject : MonoBehaviour
 	{
 		//If the inventory is opnened the call the shopclose method
 		if (shopMang.inventoryCanOpen) {
-
 			ShopClose ();
-
 		}
+
 	}
 
 
 	//Opens the shops menu
 	public void ShopOpen(){
-		//ShopKeeperManager.currentShopKeeper = ShopKeeperManager.shopkeeperList[townNumber];
-
-
-		//shopMang.currentTown = townNumber;
-		//shopMang.currentShopKeeper =;
-
 		//Enables the canvas
 			inventoryCanvas.enabled = true;
 
@@ -131,22 +121,18 @@ public class ShopKeeperObject : MonoBehaviour
 		changePlayer.transform.Translate (-251.7f, 0, 0);
 		minused++;
 
-		//Debug.Log (inventory.items[1].name);
-
 		}
 
 	//This method is called in the update, if the user pressed F then the inventory closes	
 	public void ShopClose (){
-
 		if (shopMang.inventoryCanOpen && Input.GetKeyDown(KeyCode.F)) {
 
-			Debug.Log (shopMang.currentShopKeeper);
 			//Closes the shop canvas
-			//inventoryCanvas = shopMang.currentShopKeeper.inventoryCanvas;
 			shopMang.currentShopKeeper.inventoryCanvas.enabled = false;
+			playerShop.enabled = false;
 
 			//Gives the gamemanager the ability to close the inventory
-			GameManager.inventoryOpen = true;
+			GameManager.inventoryOpen = false;
 
 			//Translates the gameobject back
 			changePlayer.transform.Translate (247.525f, 0, 0);
@@ -156,8 +142,6 @@ public class ShopKeeperObject : MonoBehaviour
 
 			//Game is unpaused
 			Time.timeScale = 1;
-
-
 		}
 	}
 }

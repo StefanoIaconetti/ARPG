@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
         //This is with the inventory opening and closes
         if (Input.GetKeyDown(KeyCode.F))
         {
+			//Either unpauses game or pauses game depending on the boolean statement
             if (inventoryOpen)
             {
                 inventoryOpen = false;
