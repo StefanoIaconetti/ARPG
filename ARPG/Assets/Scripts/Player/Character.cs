@@ -36,7 +36,7 @@ public abstract class Character : MonoBehaviour{
     void Start() {
         //Initializes variables
         level = 0;
-        maxHealth = 100;
+        maxHealth = 50;
         maxLevel = 15;
         maxLevelXP = 100;
 		characterRigid = GetComponent<Rigidbody2D>();
