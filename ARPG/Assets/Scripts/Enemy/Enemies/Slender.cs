@@ -5,7 +5,6 @@ using UnityEngine;
 public class Slender : Enemy {
     public float chaseRange;
     public float attackRange;
-    public Transform originalPosition;
 
     private Rigidbody2D rb;
 
@@ -32,7 +31,7 @@ public class Slender : Enemy {
                     rb.MovePosition(temp);
                     ChangeState(EnemyState.walking);
                     animator.SetBool("IsWalking", true);
-                }
+                } 
             } else {
                 animator.SetBool("IsWalking", false);
             }

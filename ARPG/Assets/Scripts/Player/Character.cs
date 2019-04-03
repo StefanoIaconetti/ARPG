@@ -111,11 +111,11 @@ public abstract class Character : MonoBehaviour{
 
             //Reset XP
             if (level < 5) {
-                maxLevelXP = ((float)(maxLevelXP * 2));                 //Lvl 0-5 - 100,200,400,800,1600
+                maxLevelXP = ((float)(maxLevelXP * 2));                 //Lvl 0-4 - 100,200,400,800,1600
             } else if (level < 10) {
-                maxLevelXP = ((float)(maxLevelXP * 1.3));               //Lvl 5-10 - 2080, 2704, 3515, 4569, 5940
+                maxLevelXP = ((float)(maxLevelXP * 1.3));               //Lvl 5-9 - 2080, 2704, 3515, 4569, 5940
             } else if (level < 15) {
-                maxLevelXP = ((float)(maxLevelXP * 1.1));              //Lvl 10-15 - 6534, 7188, 7907, 8697, 9567
+                maxLevelXP = ((float)(maxLevelXP * 1.1));              //Lvl 10-14 - 6534, 7188, 7907, 8697, 9567
             }
             xp = 0;
 
