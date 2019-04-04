@@ -20,7 +20,6 @@ public class InventorySlot : MonoBehaviour
 	//Text for the quantity of an item
 	public Text quantityText;
 
-
 	//Creats an item
 	public InventoryItem item;
 
@@ -70,8 +69,10 @@ public class InventorySlot : MonoBehaviour
 				optionsButton.gameObject.SetActive (false);
 			} else {
 				//If there is an item present in the inventory then the player can sell
+				Debug.Log(optionsButton);
 				if (item.item != null) {
 					optionsButton.gameObject.SetActive (true);
+					Debug.Log(chestMang.currentchest.inventory.items [0].item.name + "Name of");
 				}
 
 			}
