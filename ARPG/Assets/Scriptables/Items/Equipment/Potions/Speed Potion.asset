@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 894ecb06489d948d4adf9c99a2b57acb, type: 3}
   m_Name: Speed Potion
   m_EditorClassIdentifier: 
-  name: New Item
+  name: Speed Potion
   icon: {fileID: 0}
-  cost: 0
+  cost: 150
   quantity: 0
-  statBoost: 0
+  statBoost: 2

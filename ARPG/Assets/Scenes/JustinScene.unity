@@ -29150,8 +29150,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemList:
-  - {fileID: 11400000, guid: 44707da039ef26f46bf18968c29b47aa, type: 2}
-  - {fileID: 11400000, guid: 3545fcc2dd2a4ba428f16194a9556e6f, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &703693194
 Transform:
   m_ObjectHideFlags: 0
@@ -29519,6 +29519,11 @@ PrefabInstance:
     - target: {fileID: 5458087148931135826, guid: 7340020340d034f2bb9a1fffb91d3abb,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376474379978070452, guid: 7340020340d034f2bb9a1fffb91d3abb,
+        type: 3}
+      propertyPath: drops.Array.size
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -29948,8 +29953,8 @@ MonoBehaviour:
   inventoryOpen: 1
   inventoryCanvas: {fileID: 882750275}
   shopKeeperItemManager:
-  - {fileID: 11400000, guid: 44707da039ef26f46bf18968c29b47aa, type: 2}
-  - {fileID: 11400000, guid: 3545fcc2dd2a4ba428f16194a9556e6f, type: 2}
+  - {fileID: 11400000, guid: ce21fc5622af547ec9a22c0c2bcf0ca8, type: 2}
+  - {fileID: 11400000, guid: 4e04b7a8920dd4be7ace63427df9ff45, type: 2}
   itemsParent: {fileID: 1883792493}
 --- !u!224 &1170079624 stripped
 RectTransform:

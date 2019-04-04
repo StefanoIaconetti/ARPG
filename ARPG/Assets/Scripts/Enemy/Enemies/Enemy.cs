@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour {
     public float baseAttack;
     public float xpDrop;
 
+    public List<InventoryItem> drops;
+
     public Transform target;
 
     protected Animator animator;
@@ -59,13 +61,42 @@ public class Enemy : MonoBehaviour {
         }
     }
 
+    //Funtion that runs when an enemy gets defeated
     private IEnumerator DeathCo() {
-        //This is happening before healthbar script can get rid of the healthbar NEEDS FIX
+        //Make the enemy play the death animation
         animator.SetBool("IsDead", true);
+        //Give the player xp and update the players quests
         target.gameObject.GetComponent<Player>().GainXP(xpDrop);
         target.gameObject.GetComponent<Player>().UpdateKillQuests();
+        //Enemy drops the loot
+        DropLoot();
+        //Wait a small amount of time
         yield return new WaitForSeconds(0.3f);
-        gameObject.SetActive(false);
+        //Destroy the gameobject
+        Destroy(gameObject);
+    }
+
+    //Function to drop loot when enemy dies
+    public void DropLoot() {
+        if (drops.Count > 0) {
+            //Generate a random amount of items that will drop 
+            int numberOfItems = Random.Range(1, 4);
+
+            //Loop through how many items will drop
+            for (int i = 0; i < numberOfItems; i++) {
+                //Generate a new item id
+                int itemID = Random.Range(0, drops.Count);
+                //Drop the item that corresponds with that id
+                DropItem(drops[i]);
+            }
+        }
+    }
+
+    //Function to drop an item onto the ground at the monsters position
+    public void DropItem(InventoryItem item) {
+        //Instantiate a new item where the enemy is
+        Instantiate(Resources.Load(item.item.name), transform.position, Quaternion.identity);
+
     }
 
 
