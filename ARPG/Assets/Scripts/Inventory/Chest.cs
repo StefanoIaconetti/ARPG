@@ -19,6 +19,9 @@ public class Chest : MonoBehaviour
 	public ChestManager chestMang;
 	public Canvas playerShop;
 
+	//This canvas holds the shopkeepers inventory
+	public Canvas inventoryCanvas;
+
 	public List<Item> chestItemManager = new List<Item>();
 
 	public void Awake()
@@ -37,7 +40,6 @@ public class Chest : MonoBehaviour
 			inventory.AddItem (invItem);
 		}
 	}
-
 
 	//Parent items
 	public Transform itemsParent;
@@ -65,6 +67,7 @@ public class Chest : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+
 		if (chestMang.inventoryCanOpen) {
 
 			ChestClose ();
@@ -89,7 +92,7 @@ public class Chest : MonoBehaviour
 	//This method is called in the update, if the user pressed F then the inventory closes	
 	public void ChestClose (){
 		if (chestMang.inventoryCanOpen && Input.GetKeyDown(KeyCode.F)) {
-			
+
 			chestMang.currentchest.chestCanvas.enabled = false;
 			playerShop.enabled = true;
 
