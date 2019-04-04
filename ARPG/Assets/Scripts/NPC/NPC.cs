@@ -72,9 +72,10 @@ public abstract class NPC : Interactable
         if (Input.GetKeyDown(KeyCode.E) && collide)
         {
 			if (npcType == NPCType.Chest) {
-
-				chest.ShopOpen();
+				chestMang.inventoryCanOpen = true;
 				chestMang.currentchest = chest;
+				chestMang.CheckShopKeeper ();
+				//chest.ShopOpen();
 
 			} else {
 				Triggered ();

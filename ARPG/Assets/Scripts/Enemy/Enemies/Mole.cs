@@ -11,7 +11,7 @@ public class Mole : Enemy {
     private Rigidbody2D rb;
 
     // Start is called before the first frame update
-    void Start() {
+   public void Start() {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         currentState = EnemyState.idle;
@@ -19,7 +19,7 @@ public class Mole : Enemy {
     }
 
     // Update is called once per frame
-    void FixedUpdate() {
+    public void FixedUpdate() {
         CheckDistance();
     }
 

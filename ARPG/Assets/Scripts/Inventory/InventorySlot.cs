@@ -58,7 +58,6 @@ public class InventorySlot : MonoBehaviour
 	//When the Options button is pressed
 	public void OnOptionsShowButton()
 	{
-		Debug.Log ("Justin");
 		//If the shopkeepers inventory
 		if (shopMang != null && shopMang.inventoryCanOpen && sellButton != null) {
 			sellButton.gameObject.SetActive (true);

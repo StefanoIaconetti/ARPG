@@ -57,6 +57,7 @@ public class ShopKeeperObject : MonoBehaviour
 		for (int i = 0; i < shopKeeperItemManager.Count; i++) {
 			InventoryItem invItem = new InventoryItem (shopKeeperItemManager [i], 1);
 			inventory.AddItem (invItem);
+			UpdateUI ();
 		}
 	}
 

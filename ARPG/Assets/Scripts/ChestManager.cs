@@ -14,7 +14,8 @@ public class ChestManager : MonoBehaviour{
 	public void CheckShopKeeper(){
 		if (inventoryCanOpen) {
 			currentchest.UpdateUI();
-			currentchest.ShopOpen();
+			currentchest.ChestOpen();
+
 	}
 
 }

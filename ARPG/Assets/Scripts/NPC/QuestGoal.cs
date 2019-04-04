@@ -8,7 +8,7 @@ public enum GoalType {
 }
 
 [System.Serializable]
-public class QuestGoal : MonoBehaviour {
+public class QuestGoal  {
 
     public GoalType goalType;
 

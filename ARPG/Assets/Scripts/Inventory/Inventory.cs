@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //Everything that has a inventory will reference to this script, the user can Add and remove from their list of items
-public class Inventory : MonoBehaviour
+public class Inventory
 {
 	//This is the amount of inventoy spaces
 	public const int inventorySpace = 9;
@@ -23,7 +23,7 @@ public class Inventory : MonoBehaviour
 
 		//If there are no items at all then add an item
 		if (items.Count == 0) {
-			items.Add(item);
+			items.Add (item);
 			return true;
 		} else {
 			//This checks to see if there are any of the same items, if there are then the quantity increases instead of adding a new item 
@@ -34,15 +34,10 @@ public class Inventory : MonoBehaviour
 					return true;
 				}
 			}
-<<<<<<< HEAD
 			//If there was no items that were the same then item is added to the inventory
-			InventoryItem newitem = new InventoryItem(item.item, 1);
-			items.Add (newitem);
-			}
-=======
-
-        }
->>>>>>> 2c978c75b090a977d4e521792dd79b1f7150cff6
+			InventoryItem newItem = new InventoryItem(item.item, 1);
+			items.Add (newItem);
+		}
 
 		return true;
 	}
