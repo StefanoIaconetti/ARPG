@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class QuestGiver : NPC {
 
+    public GameObject questManager;
+
     public Quest quest;
 
     public Player player;
@@ -29,42 +31,36 @@ public class QuestGiver : NPC {
 
     public override void Triggered() {
         base.Triggered();
+        CompleteQuests();
         AcceptQuest();
     }
 
     public void CreateQuest() {
         if (level > 0 && level <= 3) {
-            GenerateKillQuest(level);
+            int ranNum = Random.Range(1, 3);
+            if(ranNum == 1) {
+                quest = questManager.GetComponent<QuestManager>().GenerateKillQuest(level);
+            } else {
+                //quest = questManager.GetComponent<QuestManager>().GenerateGatherQuest(level);
+            }
+
         }
     }
 
-    public void GenerateKillQuest(int level) {
-        int requiredNum = 0;
-        int goldReward = 0;
-        int xpReward = 0;
+    public void CompleteQuests() {
+        foreach (Quest quest in player.questList) {
+            if (quest.isComplete && quest.isActive) {
+                if (quest.goal.goalType == GoalType.Gather) {
+                    //remove the items from players inventory
+                    Player.inventory.RemoveItem(quest.item);
+                }
 
-        quest = new Quest();
-        quest.goal.goalType = GoalType.Kill;
-
-        if (level == 1) {
-            requiredNum = Random.Range(1,3);
-            goldReward = Random.Range(100, 200);
-            xpReward = Random.Range(50, 100);
-        } else if (level == 2) {
-            requiredNum = Random.Range(5, 10);
-            goldReward = Random.Range(200, 400);
-            xpReward = Random.Range(100, 200);
-        } else if (level == 3) {
-            requiredNum = Random.Range(20, 50);
-            goldReward = Random.Range(400, 600);
-            xpReward = Random.Range(400, 500);
+                player.GainXP(quest.xpReward);
+                player.gold += quest.goldReward;
+                quest.Complete();
+            }
         }
-
-        quest.goal.requiredAmount = requiredNum;
-        quest.goldReward = goldReward;
-        quest.xpReward = xpReward;
-        quest.description = "Defeat " + requiredNum + " enemies!";
-        quest.title = "Bounty Lvl: " + level;
     }
-    
+
+
 }

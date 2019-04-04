@@ -33,8 +33,11 @@ public class Player : Character {
 	public Transform itemsParent;
 
 	//Method that updates UI
-	public static void UpdateUI()
-	{   //Goes through the amount of slots are in the inventory
+	public static void UpdateUI() {
+
+        //UPDATE GATHER QUESTS HERE
+    
+        //Goes through the amount of slots are in the inventory
 
 		for (int i = 0; i < slots.Length; i++)
 		{//If i is less than the amount in the inventory
@@ -93,7 +96,7 @@ public class Player : Character {
         if (!IsAttackingClose && !IsAttackingRanged && !IsMoving) {
             IsAttackingClose = true;
             animator.SetBool("attackClose", IsAttackingClose);
-            yield return new WaitForSeconds(.4f);
+            yield return new WaitForSeconds(.7f);
             StopAttackClose();
         }
     }
@@ -144,9 +147,7 @@ public class Player : Character {
                     Debug.Log(quest.goal.currentAmount);
                     //If the goal is ever reached the player gains the rewards and ends the quest
                     if (quest.goal.isReached()) {
-                        GainXP(quest.xpReward);
-                        gold += quest.goldReward;
-                        quest.Complete();
+                        quest.isComplete = true;
                     }
                 }
             }
@@ -158,14 +159,19 @@ public class Player : Character {
             if (quest.isActive) {
                 if (quest.goal.goalType == GoalType.Gather) {
                     Debug.Log("Gathered");
-                    quest.goal.GatheredResource();
+                    //If the quests item name matches an item in the players inventory
+                    foreach (InventoryItem item in inventory.items) {
+                        if (quest.item.item.name == item.item.name ) {
+                            //change the current amount to the quantity of that item in the players inventory
+                            quest.goal.currentAmount = item.itemQuantity;
+                        }
+                    }
+
 
                     Debug.Log(quest.goal.currentAmount);
                     //If the goal is ever reached the player gains the rewards and ends the quest
                     if (quest.goal.isReached()) {
-                        GainXP(quest.xpReward);
-                        gold += quest.goldReward;
-                        quest.Complete();
+                        quest.isComplete = true;
                     }
                 }
             }

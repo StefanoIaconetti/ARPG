@@ -34,10 +34,15 @@ public class Inventory : MonoBehaviour
 					return true;
 				}
 			}
+<<<<<<< HEAD
 			//If there was no items that were the same then item is added to the inventory
 			InventoryItem newitem = new InventoryItem(item.item, 1);
 			items.Add (newitem);
 			}
+=======
+
+        }
+>>>>>>> 2c978c75b090a977d4e521792dd79b1f7150cff6
 
 		return true;
 	}

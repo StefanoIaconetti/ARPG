@@ -6,11 +6,14 @@ using UnityEngine;
 public class Quest {
 
     public bool isActive;
+    public bool isComplete;
 
     public string title;
     public string description;
     public int goldReward;
     public int xpReward;
+
+    public InventoryItem item;
 
     public QuestGoal goal;
 
