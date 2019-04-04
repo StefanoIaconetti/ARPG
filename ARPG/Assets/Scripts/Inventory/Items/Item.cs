@@ -5,7 +5,7 @@ using UnityEngine;
 public class Item : ScriptableObject
 {
     //These are the values that a default item will have
-    public string name = "New Item";
+    public string name = "Item";
     public Sprite icon = null;
     public int cost = 0;
     public int quantity = 0;

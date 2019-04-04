@@ -67,7 +67,7 @@ public class QuestManager : MonoBehaviour {
         quest.goal.requiredAmount = requiredNum;
         quest.goldReward = goldReward;
         quest.xpReward = xpReward;
-        quest.description = "Gather " + requiredNum + " " + item.name + "(s)";
+		quest.description = "Gather " + requiredNum + " " + item.item.name + "(s)";
         quest.title = "Gather Lvl: " + level;
 
         return quest;

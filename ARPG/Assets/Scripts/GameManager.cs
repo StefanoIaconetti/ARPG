@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public Canvas inventory;
-    public bool inventoryOpen = false;
+    public static bool inventoryOpen = false;
 
     void Start(){
         inventory.enabled = false;
@@ -19,7 +19,8 @@ public class GameManager : MonoBehaviour
         //This is with the inventory opening and closes
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if (inventoryOpen)
+			//Either unpauses game or pauses game depending on the boolean statement
+			if (inventory.isActiveAndEnabled)
             {
                 inventoryOpen = false;
                 inventory.enabled = false;

@@ -14,5 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Diamond Ring
   icon: {fileID: 21300000, guid: 57192096ca98a9c4b979183fb37ec4aa, type: 3}
+<<<<<<< HEAD
   cost: 500
+=======
+  cost: 40
+>>>>>>> 1e47932f857bdc18ff9b90a4ab206f79322b86f0
   quantity: 0

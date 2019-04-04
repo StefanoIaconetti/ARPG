@@ -14,5 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Coins
   icon: {fileID: 21300000, guid: 2d148861fcbbd3a46b8f7693584b827f, type: 3}
+<<<<<<< HEAD
   cost: 1
+=======
+  cost: 0
+>>>>>>> 1e47932f857bdc18ff9b90a4ab206f79322b86f0
   quantity: 0

@@ -9,32 +9,38 @@ public class InventorySlot : MonoBehaviour
 	//Creats an image name icon
 	public Image icon;
 
-	//Button that removes items
+	//Button that when pressed displays the options button
 	public Button itemButton;
 
-
+	//This is the "sell" button, this button will only be in the players inventory
+	public Button sellButton;
+	//This button has many functions and will change depending on its onclick listener
 	public Button optionsButton;
-	public Text buttonText;
 
+	//Text for the quantity of an item
 	public Text quantityText;
 
-	private Animation anim;
 
 	//Creats an item
 	public InventoryItem item;
 
+	//Accepts a player
+	public Player player;
 
+	public ShopKeeperManager shopMang;
+	public ChestManager chestMang;
 
-	//This adds an item to the inventory slot
+	//This adds an item to the inventory slot	
 	public void AddItem (InventoryItem newItem)
 	{
 		//Item is now the item grabbed
 		item = newItem;
-		//Debug.Log(item.name);
+
 		//Changes the sprite and enables the icon. Then remove button can be used
 		icon.sprite = item.item.icon;
 		icon.enabled = true;
 
+		//The quantity of the item is displayed
 		quantityText.enabled = true;
 		quantityText.text = item.itemQuantity + "";
 	}
@@ -49,30 +55,32 @@ public class InventorySlot : MonoBehaviour
 
 	}
 
-	//When the remove button is pressed then the specific item is removed
+	//When the Options button is pressed
 	public void OnOptionsShowButton()
 	{
-		Player.UpdateUI ();
-		if (optionsButton.gameObject.activeSelf)
-		{
-
-			optionsButton.gameObject.SetActive(false);
-		}
-		else
-		{
-			//If there is an item present in the inventory then the player can sell
-			if(item.item != null) {
-
-				optionsButton.gameObject.SetActive(true);
+		//If the shopkeepers inventory
+		if (shopMang != null && shopMang.inventoryCanOpen && sellButton != null) {
+			sellButton.gameObject.SetActive (true);
+		} else {
+			if (sellButton != null) {
+				sellButton.gameObject.SetActive (false);
 			}
-		} 
+
+			if (optionsButton.gameObject.activeSelf) {
+				optionsButton.gameObject.SetActive (false);
+			} else {
+				//If there is an item present in the inventory then the player can sell
+				if (item.item != null) {
+					optionsButton.gameObject.SetActive (true);
+				}
+
+			}
+		}
 	}
 
 	//When the player drops an item
 	public void OnDropItemButton()
 	{
-
-		Debug.Log (item.item.name + "asdfasdf");
 		//The options button now becomes false
 		optionsButton.gameObject.SetActive(false);
 
@@ -99,27 +107,25 @@ public class InventorySlot : MonoBehaviour
 			break;
 		}
 
-
-
 		//If there is more than 1 of the same item
-		if (item.itemQuantity > 1)
-		{
+		//if (item.itemQuantity > 1)
+		//{
 			
 			//Calls the remove quantitty method
-			Player.inventory.RemoveQuantity(item);
+			//Player.inventory.RemoveQuantity(item);
 
 			//Text is changed
-			quantityText.text = item.itemQuantity + "";
+			//quantityText.text = item.itemQuantity + "";
 
 			//Object now appears right infront of the character
-			GameObject gameObj = Instantiate(Resources.Load(item.item.name),
-				playerVector,
-				Quaternion.identity) as GameObject;
-			Player.UpdateUI();
+		//	GameObject gameObj = Instantiate(Resources.Load(item.item.name),
+			//	playerVector,
+			////	Quaternion.identity) as GameObject;
+		//	Player.UpdateUI();
 
-		}
-		else
-		{
+		//}
+		//else
+		//{
 			Debug.Log (item.item.name + "Whats working");
 			//Item is removed from inventory
 			Player.inventory.RemoveItem(item);
@@ -135,19 +141,66 @@ public class InventorySlot : MonoBehaviour
 
 			Player.UpdateUI();
 
-		}
+		//}
 
 
 
 	}
 
+	public void OnSellButton(){
 
+		player.gold += item.item.cost;
+
+
+		Player.inventory.RemoveItem (item);
+
+		shopMang.currentShopKeeper.inventory.AddItem (item);
+
+		Player.UpdateUI ();
+		shopMang.currentShopKeeper.UpdateUI ();
+	}
 
 
 	//Item is sold
-	public void OnSellButton()
+	public void OnBuyButton()
 	{
-		//Player.UpdateUI ();
-		 
+		if (player.gold - item.item.cost >= 0) {
+
+				
+			player.gold -= item.item.cost;
+
+			//if (item.itemQuantity > 1) {
+				//ShopkeeperManager.inventory.RemoveQuantity (item);
+			//} else {
+
+
+			shopMang.currentShopKeeper.inventory.RemoveItem (item);
+			//}
+
+
+			Player.inventory.AddItem(item);
+
+			Player.UpdateUI ();
+			shopMang.currentShopKeeper.UpdateUI ();
+		}
+	}
+
+
+
+
+	public void OnGrabButton(){
+
+		//if (item.itemQuantity > 1) {
+
+			//Chest.inventory.RemoveQuantity (item);
+		//} else {
+
+		chestMang.currentchest.inventory.RemoveItem (item);
+		Player.inventory.AddItem (item);
+
+		//}
+
+		Player.UpdateUI ();
+		chestMang.currentchest.UpdateUI ();
 	}
 }

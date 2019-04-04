@@ -14,5 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Ruby Necklace
   icon: {fileID: 21300000, guid: 0ce1afaca42416a42b99a06d18cdf525, type: 3}
+<<<<<<< HEAD
   cost: 100
+=======
+  cost: 8
+>>>>>>> 1e47932f857bdc18ff9b90a4ab206f79322b86f0
   quantity: 0

@@ -14,5 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Ring
   icon: {fileID: 21300000, guid: 77001c9f6aa217c4c94af1bd360b565c, type: 3}
+<<<<<<< HEAD
   cost: 10
+=======
+  cost: 4
+>>>>>>> 1e47932f857bdc18ff9b90a4ab206f79322b86f0
   quantity: 0
