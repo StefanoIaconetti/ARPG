@@ -32,7 +32,7 @@ public class ShopKeeperObject : MonoBehaviour
 	Vector3 originalPos;
 
 	//This obtains the canvas of the players inventory
-	public Canvas playerShop;
+	public Canvas playerInventory;
 
 	public ShopKeeperManager shopMang;
 
@@ -64,7 +64,7 @@ public class ShopKeeperObject : MonoBehaviour
 	public Transform itemsParent;
 
 	//Method that updates UI
-	public  void UpdateUI()
+	public void UpdateUI()
 	{   //Goes through the amount of slots are in the inventory
 
 		for (int i = 0; i < slots.Length; i++)
@@ -99,7 +99,7 @@ public class ShopKeeperObject : MonoBehaviour
 		//Enables the canvas
 			inventoryCanvas.enabled = true;
 
-			playerShop.enabled = true;
+		playerInventory.enabled = true;
 
 		//Updates the UI
 			UpdateUI ();
@@ -129,10 +129,10 @@ public class ShopKeeperObject : MonoBehaviour
 
 			//Closes the shop canvas
 			shopMang.currentShopKeeper.inventoryCanvas.enabled = false;
-			playerShop.enabled = false;
+			playerInventory.enabled = false;
 
 			//Gives the gamemanager the ability to close the inventory
-			GameManager.inventoryOpen = false;
+			//GameManager.inventoryOpen = false;
 
 			//Translates the gameobject back
 			changePlayer.transform.Translate (247.525f, 0, 0);

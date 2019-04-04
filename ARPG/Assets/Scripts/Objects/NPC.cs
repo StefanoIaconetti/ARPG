@@ -32,6 +32,7 @@ public abstract class NPC : Interactable
 	public ShopKeeperObject shopObj;
 
 	public Chest chest;
+	public ChestManager chestMang;
 
     //When the NPC collides
     public void OnTriggerEnter2D(Collider2D character) {
@@ -59,6 +60,8 @@ public abstract class NPC : Interactable
 			animator.SetBool ("IsOpen", false);
 			collide = false;
 			nameText.text = "";
+		} else {
+			collide = false;
 		}
     }
 
@@ -71,6 +74,8 @@ public abstract class NPC : Interactable
 			if (npcType == NPCType.Chest) {
 
 				chest.ShopOpen();
+				chestMang.currentchest = chest;
+
 			} else {
 				Triggered ();
 			}

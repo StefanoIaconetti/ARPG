@@ -2,27 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShopKeeperManager : MonoBehaviour
-{
-	//public List<ShopKeeperObject> shopkeeperList = new List<ShopKeeperObject>();
+public class ShopKeeperManager : MonoBehaviour{
 
+	//This will helpw whenever we waant to figure out what the current shopkeeper is
 	public ShopKeeperObject currentShopKeeper;
 
 	//This checks to see if the inventory can open
 	public bool inventoryCanOpen = false;
 
-
+	//Checks the current shopkeeper then updates its UI
 	public void CheckShopKeeper(){
 		if (inventoryCanOpen) {
-			//currentShopKeeper = shopkeeperList [currentShopKeeper.townNumber];
 			currentShopKeeper.UpdateUI();
 			currentShopKeeper.ShopOpen();
-		//shopkeeperList [0].ShopOpen ();
 	}
 
 }
-
-	public void bridge(){
-
-	}
 }

@@ -28,6 +28,7 @@ public class InventorySlot : MonoBehaviour
 	public Player player;
 
 	public ShopKeeperManager shopMang;
+	public ChestManager chestMang;
 
 	//This adds an item to the inventory slot	
 	public void AddItem (InventoryItem newItem)
@@ -59,7 +60,7 @@ public class InventorySlot : MonoBehaviour
 	{
 		Debug.Log ("Justin");
 		//If the shopkeepers inventory
-		if (shopMang.inventoryCanOpen && sellButton != null) {
+		if (shopMang != null && shopMang.inventoryCanOpen && sellButton != null) {
 			sellButton.gameObject.SetActive (true);
 		} else {
 			if (sellButton != null) {
@@ -81,8 +82,6 @@ public class InventorySlot : MonoBehaviour
 	//When the player drops an item
 	public void OnDropItemButton()
 	{
-
-		Debug.Log (item.item.name + "asdfasdf");
 		//The options button now becomes false
 		optionsButton.gameObject.SetActive(false);
 
@@ -191,18 +190,18 @@ public class InventorySlot : MonoBehaviour
 
 
 	public void OnGrabButton(){
-		Player.inventory.AddItem (item);
 
 		//if (item.itemQuantity > 1) {
 
 			//Chest.inventory.RemoveQuantity (item);
 		//} else {
 
+		chestMang.currentchest.inventory.RemoveItem (item);
+		Player.inventory.AddItem (item);
 
-			Chest.inventory.RemoveItem (item);
 		//}
 
 		Player.UpdateUI ();
-		Chest.UpdateUI ();
+		chestMang.currentchest.UpdateUI ();
 	}
 }

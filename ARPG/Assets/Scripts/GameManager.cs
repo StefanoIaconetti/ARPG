@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
 			//Either unpauses game or pauses game depending on the boolean statement
-            if (inventoryOpen)
+			if (inventory.isActiveAndEnabled)
             {
                 inventoryOpen = false;
                 inventory.enabled = false;
