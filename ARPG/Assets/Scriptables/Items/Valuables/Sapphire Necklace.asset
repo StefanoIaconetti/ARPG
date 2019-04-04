@@ -14,9 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Sapphire Necklace
   icon: {fileID: 21300000, guid: d1f89d577ee44f14c918cd9565e6423a, type: 3}
-<<<<<<< HEAD:ARPG/Assets/Scriptables/Items/Valuables/Sapphire Necklace.asset
   cost: 100
-=======
-  cost: 20
->>>>>>> 1e47932f857bdc18ff9b90a4ab206f79322b86f0:ARPG/Assets/Scriptables/Items/Valuables/Saphire Necklace.asset
   quantity: 0

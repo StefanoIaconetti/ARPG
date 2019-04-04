@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 084b047471f61e84aa335393f9aff0dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 0c31cb9ce311a4d81a03460d401de779, type: 2}
+  item: {fileID: 11400000, guid: 37300dbd439fe41f3a7794a808e61c88, type: 2}
   collide: 0
 --- !u!95 &1919356150671265778
 Animator:

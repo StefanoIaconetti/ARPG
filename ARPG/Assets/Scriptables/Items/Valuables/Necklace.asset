@@ -13,11 +13,6 @@ MonoBehaviour:
   m_Name: Necklace
   m_EditorClassIdentifier: 
   name: Necklace
-<<<<<<< HEAD
   icon: {fileID: 21300000, guid: cb1b399a2b92c594f9d4f316f8ce68b9, type: 3}
   cost: 20
-=======
-  icon: {fileID: 21300000, guid: 2304f605eebe1ac48b2dec3c4c48b253, type: 3}
-  cost: 5
->>>>>>> 1e47932f857bdc18ff9b90a4ab206f79322b86f0
   quantity: 0

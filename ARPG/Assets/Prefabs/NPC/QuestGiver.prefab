@@ -102,6 +102,10 @@ MonoBehaviour:
   nameText: {fileID: 0}
   lineText: {fileID: 0}
   animator: {fileID: 0}
+  shopMang: {fileID: 0}
+  shopObj: {fileID: 0}
+  chest: {fileID: 0}
+  chestMang: {fileID: 0}
   questManager: {fileID: 0}
   quest:
     isActive: 0
@@ -110,8 +114,10 @@ MonoBehaviour:
     description: Kill 3 enemies
     goldReward: 100
     xpReward: 100
-    item: {fileID: 0}
-    goal: {fileID: 0}
+    goal:
+      goalType: 0
+      requiredAmount: 0
+      currentAmount: 0
   player: {fileID: 0}
   questGiven: 0
   level: 1
