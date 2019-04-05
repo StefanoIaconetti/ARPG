@@ -20,7 +20,6 @@ public class InventorySlot : MonoBehaviour
 	//Text for the quantity of an item
 	public Text quantityText;
 
-
 	//Creats an item
 	public InventoryItem item;
 
@@ -57,7 +56,7 @@ public class InventorySlot : MonoBehaviour
 
 	//When the Options button is pressed
 	public void OnOptionsShowButton()
-	{
+	{Debug.Log (item.item.name);
 		//If the shopkeepers inventory
 		if (shopMang != null && shopMang.inventoryCanOpen && sellButton != null) {
 			sellButton.gameObject.SetActive (true);
@@ -70,6 +69,7 @@ public class InventorySlot : MonoBehaviour
 				optionsButton.gameObject.SetActive (false);
 			} else {
 				//If there is an item present in the inventory then the player can sell
+				Debug.Log(optionsButton);
 				if (item.item != null) {
 					optionsButton.gameObject.SetActive (true);
 				}

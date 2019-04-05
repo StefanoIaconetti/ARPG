@@ -92,8 +92,8 @@ public class Chest : MonoBehaviour
 	//This method is called in the update, if the user pressed F then the inventory closes	
 	public void ChestClose (){
 		if (chestMang.inventoryCanOpen && Input.GetKeyDown(KeyCode.F)) {
-			
-			chestMang.currentchest.inventoryCanvas.enabled = false;
+
+			chestMang.currentchest.chestCanvas.enabled = false;
 			playerShop.enabled = true;
 
 			chestMang.inventoryCanOpen = false;

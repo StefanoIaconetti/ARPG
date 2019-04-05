@@ -6,10 +6,15 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public Canvas inventory;
+	public Canvas inventoryPotions;
+	public Canvas inventoryEquipment;
+
     public static bool inventoryOpen = false;
 
     void Start(){
-        inventory.enabled = false;
+		inventory.enabled = false;
+		inventoryPotions.enabled = false;
+		inventoryEquipment.enabled = false;
     }
 
 
@@ -23,15 +28,24 @@ public class GameManager : MonoBehaviour
 			if (inventory.isActiveAndEnabled)
             {
                 inventoryOpen = false;
-                inventory.enabled = false;
+				inventory.enabled = false;
+				inventoryPotions.enabled = false;
+				inventoryEquipment.enabled = false;
                 Time.timeScale = 1;
             }
             else
             {
                 inventoryOpen = true;
-                inventory.enabled = true;
+				inventory.enabled = true;
+				inventoryPotions.enabled = true;
+				inventoryEquipment.enabled = true;
                 Time.timeScale = 0;
             }
         }
     }
+
+
+
+
+
 }
