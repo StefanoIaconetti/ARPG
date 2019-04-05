@@ -100,10 +100,12 @@ public class ShopKeeperObject : MonoBehaviour
 		//Enables the canvas
 			inventoryCanvas.enabled = true;
 
-		playerInventory.enabled = true;
-
 		//Updates the UI
 			UpdateUI ();
+
+
+
+		playerInventory.enabled = true;
 
 		//Inventory can open is now true, this then gives the ShopClose the ability to close
 		shopMang.inventoryCanOpen = true;
@@ -119,7 +121,7 @@ public class ShopKeeperObject : MonoBehaviour
 		}
 
 		//Translates the gameobject
-		changePlayer.transform.Translate (-251.7f, 0, 0);
+		changePlayer.transform.Translate (-251.7f, -117.98f, 0);
 		minused++;
 
 		}
@@ -130,13 +132,13 @@ public class ShopKeeperObject : MonoBehaviour
 
 			//Closes the shop canvas
 			shopMang.currentShopKeeper.inventoryCanvas.enabled = false;
-			playerInventory.enabled = false;
+			//playerInventory.enabled = true;
 
 			//Gives the gamemanager the ability to close the inventory
 			//GameManager.inventoryOpen = false;
 
 			//Translates the gameobject back
-			changePlayer.transform.Translate (247.525f, 0, 0);
+			changePlayer.transform.Translate (251.7f, 117.98f, 0);
 
 			//Resets by setting it to false
 			shopMang.inventoryCanOpen = false;
