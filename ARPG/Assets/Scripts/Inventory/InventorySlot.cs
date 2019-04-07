@@ -17,6 +17,8 @@ public class InventorySlot : MonoBehaviour
 	//This button has many functions and will change depending on its onclick listener
 	public Button optionsButton;
 
+	public Button equipButton;
+
 	//Text for the quantity of an item
 	public Text quantityText;
 
@@ -28,10 +30,21 @@ public class InventorySlot : MonoBehaviour
 
 	public ShopKeeperManager shopMang;
 	public ChestManager chestMang;
+	public EquipmentManager equipMang; 
+
+	public Equipable equipableItem;
+
+	bool alreadyTrans = false;
+
 
 	//This adds an item to the inventory slot	
 	public void AddItem (InventoryItem newItem)
 	{
+		//If the item is an item that can be equiped, then it casts it 
+		if (newItem.item.canEquip) {
+			equipableItem = (Equipable)newItem.item;
+		}
+
 		//Item is now the item grabbed
 		item = newItem;
 
@@ -48,6 +61,7 @@ public class InventorySlot : MonoBehaviour
 	public void ClearSlot() { 
 		//Everything becomes null and unusable
 		item = null;
+		equipableItem = null;
 		icon.sprite = null;
 		icon.enabled = false;
 		quantityText.enabled = false;
@@ -56,33 +70,49 @@ public class InventorySlot : MonoBehaviour
 
 	//When the Options button is pressed
 	public void OnOptionsShowButton()
-	{Debug.Log (item.item.name);
-		//If the shopkeepers inventory
-		if (shopMang != null && shopMang.inventoryCanOpen && sellButton != null) {
-			sellButton.gameObject.SetActive (true);
-		} else {
-			if (sellButton != null) {
-				sellButton.gameObject.SetActive (false);
-			}
+	{
 
-			if (optionsButton.gameObject.activeSelf) {
-				optionsButton.gameObject.SetActive (false);
+		if (alreadyTrans == true) {
+			
+			equipButton.gameObject.SetActive (false);
+			optionsButton.transform.Translate (0, -10f, 0);
+			optionsButton.gameObject.SetActive (false);
+			alreadyTrans = false;
+		}
+
+		if (equipableItem != null && alreadyTrans == false) {
+			equipButton.gameObject.SetActive (true);
+			optionsButton.transform.Translate (0, 10, 0);
+			optionsButton.gameObject.SetActive (true);
+			alreadyTrans = true;
+		} else {
+			if (shopMang != null && shopMang.inventoryCanOpen && sellButton != null) {
+				sellButton.gameObject.SetActive (true);
 			} else {
-				//If there is an item present in the inventory then the player can sell
-				Debug.Log(optionsButton);
-				if (item.item != null) {
-					optionsButton.gameObject.SetActive (true);
+				if (sellButton != null) {
+					sellButton.gameObject.SetActive (false);
 				}
 
+				if (optionsButton.gameObject.activeSelf) {
+					optionsButton.gameObject.SetActive (false);
+				} else {
+					//If there is an item present in the inventory then the player can sell
+					if (item.item != null) {
+						optionsButton.gameObject.SetActive (true);
+					}
+
+				}
 			}
 		}
 	}
+
 
 	//When the player drops an item
 	public void OnDropItemButton()
 	{
 		//The options button now becomes false
 		optionsButton.gameObject.SetActive(false);
+		equipButton.gameObject.SetActive (false);
 
 		//Locates the location of player and allows the object appear infront of him
 		var playerVector = GameObject.Find("Player").transform.position;
@@ -202,5 +232,17 @@ public class InventorySlot : MonoBehaviour
 
 		Player.UpdateUI ();
 		chestMang.currentchest.UpdateUI ();
+	}
+
+
+	public void OnEquipButton(){
+		//The options button now becomes false
+		optionsButton.gameObject.SetActive(false);
+		equipButton.gameObject.SetActive (false);
+
+		equipMang.Equip (equipableItem);
+		Player.inventory.RemoveItem (item);
+		Player.UpdateUI();
+
 	}
 }

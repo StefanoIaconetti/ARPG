@@ -8,7 +8,7 @@ public class Item : ScriptableObject
     public string name = "Item";
     public Sprite icon = null;
     public int cost = 0;
-    public int quantity = 0;
+	public bool canEquip = false;
 
     public static implicit operator Item(InventoryItem v) {
         throw new NotImplementedException();
