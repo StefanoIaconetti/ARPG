@@ -19,4 +19,8 @@
         <name>QuestGiver</name>
         <line>Hello! Here is a quest</line>
     </questgiver>
+    <genericnpc>
+        <name>Generic NPC</name>
+        <line>Im a nobody</line>
+    </genericnpc>
 </script>
