@@ -172,6 +172,7 @@ MonoBehaviour:
   targetDown: {fileID: 2855546560244268450}
   targetLeft: {fileID: 3180025090920123927}
   targetRight: {fileID: 8270865114579328788}
+  shootSpeed: 2
 --- !u!61 &1675299625
 BoxCollider2D:
   m_ObjectHideFlags: 0
