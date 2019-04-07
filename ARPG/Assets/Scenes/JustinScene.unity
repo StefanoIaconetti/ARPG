@@ -83789,11 +83789,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4623845606140223586, guid: fa04f3bc4bb9c409ca06367282c7d3a9,
         type: 3}
-      propertyPath: targets.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4623845606140223586, guid: fa04f3bc4bb9c409ca06367282c7d3a9,
-        type: 3}
       propertyPath: nameText
       value: 
       objectReference: {fileID: 493696713}
@@ -83807,11 +83802,6 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 387231755}
-    - target: {fileID: 4623845606140223586, guid: fa04f3bc4bb9c409ca06367282c7d3a9,
-        type: 3}
-      propertyPath: speed
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4623845606140223586, guid: fa04f3bc4bb9c409ca06367282c7d3a9,
         type: 3}
       propertyPath: targets.Array.data[0]
