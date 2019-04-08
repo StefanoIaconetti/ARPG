@@ -158,9 +158,13 @@ MonoBehaviour:
   numberOfRooms: 2
   numberOfObstacles: 2
   possibleObstacleSizes:
-  - {x: 0, y: 0}
-  numberOfEnemies: 0
-  possibleEnemies: []
+  - {x: 1, y: 1}
+  numberOfEnemies: 1
+  possibleEnemies:
+  - {fileID: 1912882427157198, guid: 7a99c59d3b9064c958bbce110d3437be, type: 3}
+  - {fileID: 1912882427157198, guid: 7a99c59d3b9064c958bbce110d3437be, type: 3}
+  - {fileID: 1912882427157198, guid: 7a99c59d3b9064c958bbce110d3437be, type: 3}
+  - {fileID: 1912882427157198, guid: 7a99c59d3b9064c958bbce110d3437be, type: 3}
   goalPrefab: {fileID: 1648284490830996, guid: af17063cd16feee40853cf68bbad8ed1, type: 3}
   obstacleTile: {fileID: 11400000, guid: 6a29baf07425f9542b1a7687a7eb4287, type: 2}
 --- !u!1001 &968225901

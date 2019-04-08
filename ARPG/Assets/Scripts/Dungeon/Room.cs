@@ -1,27 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-
-public class Room : MonoBehaviour
+public class Room
 {
-    //Creating variables for room coordinates
-    public Vector2Int roomLocation;
-    //Creating an array of neighbouring rooms
-    public Dictionary<string, Room> others;
+    public Vector2Int roomCoordinate;
+    public Dictionary<string, Room> neighbors;
 
     private string[,] population;
 
     private Dictionary<string, GameObject> name2Prefab;
 
-    //Room function
     public Room(int xCoordinate, int yCoordinate)
     {
-        //Setting the room coordinate
-        this.roomLocation = new Vector2Int(xCoordinate, yCoordinate);
-        //Setting the neighbouring rooms
-        this.others = new Dictionary<string, Room>();
+        this.roomCoordinate = new Vector2Int(xCoordinate, yCoordinate);
+        this.neighbors = new Dictionary<string, Room>();
         this.population = new string[18, 10];
         for (int xIndex = 0; xIndex < 18; xIndex += 1)
         {
@@ -34,10 +27,10 @@ public class Room : MonoBehaviour
         this.name2Prefab = new Dictionary<string, GameObject>();
     }
 
-    public Room(Vector2Int roomLocation)
+    public Room(Vector2Int roomCoordinate)
     {
-        this.roomLocation = roomLocation;
-        this.others = new Dictionary<string, Room>();
+        this.roomCoordinate = roomCoordinate;
+        this.neighbors = new Dictionary<string, Room>();
         this.population = new string[18, 10];
         for (int xIndex = 0; xIndex < 18; xIndex += 1)
         {
@@ -53,42 +46,40 @@ public class Room : MonoBehaviour
     public List<Vector2Int> NeighborCoordinates()
     {
         List<Vector2Int> neighborCoordinates = new List<Vector2Int>();
-        neighborCoordinates.Add(new Vector2Int(this.roomLocation.x, this.roomLocation.y - 1));
-        neighborCoordinates.Add(new Vector2Int(this.roomLocation.x + 1, this.roomLocation.y));
-        neighborCoordinates.Add(new Vector2Int(this.roomLocation.x, this.roomLocation.y + 1));
-        neighborCoordinates.Add(new Vector2Int(this.roomLocation.x - 1, this.roomLocation.y));
+        neighborCoordinates.Add(new Vector2Int(this.roomCoordinate.x, this.roomCoordinate.y - 1));
+        neighborCoordinates.Add(new Vector2Int(this.roomCoordinate.x + 1, this.roomCoordinate.y));
+        neighborCoordinates.Add(new Vector2Int(this.roomCoordinate.x, this.roomCoordinate.y + 1));
+        neighborCoordinates.Add(new Vector2Int(this.roomCoordinate.x - 1, this.roomCoordinate.y));
 
         return neighborCoordinates;
     }
 
-    //Function to connect the rooms
     public void Connect(Room neighbor)
     {
         string direction = "";
-        if (neighbor.roomLocation.y < this.roomLocation.y)
+        if (neighbor.roomCoordinate.y < this.roomCoordinate.y)
         {
             direction = "N";
         }
-        if (neighbor.roomLocation.x > this.roomLocation.x)
+        if (neighbor.roomCoordinate.x > this.roomCoordinate.x)
         {
             direction = "E";
         }
-        if (neighbor.roomLocation.y > this.roomLocation.y)
+        if (neighbor.roomCoordinate.y > this.roomCoordinate.y)
         {
             direction = "S";
         }
-        if (neighbor.roomLocation.x < this.roomLocation.x)
+        if (neighbor.roomCoordinate.x < this.roomCoordinate.x)
         {
             direction = "W";
         }
-        this.others.Add(direction, neighbor);
+        this.neighbors.Add(direction, neighbor);
     }
 
-    //Setting the prefab names from the neighours array and concatonating the room direction
     public string PrefabName()
     {
         string name = "Room_";
-        foreach (KeyValuePair<string, Room> neighborPair in others)
+        foreach (KeyValuePair<string, Room> neighborPair in neighbors)
         {
             name += neighborPair.Key;
         }
@@ -97,10 +88,9 @@ public class Room : MonoBehaviour
 
     public Room Neighbor(string direction)
     {
-        return this.others[direction];
+        return this.neighbors[direction];
     }
 
-    //Setting the obsticals in the room randomly
     public void PopulateObstacles(int numberOfObstacles, Vector2Int[] possibleSizes)
     {
         for (int obstacleIndex = 0; obstacleIndex < numberOfObstacles; obstacleIndex += 1)

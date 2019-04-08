@@ -9,11 +9,7 @@ public class DungeonGeneration : MonoBehaviour
     [SerializeField]
     private int numberOfRooms;
 
-    [SerializeField]
-    private int numberOfObstacles;
-    [SerializeField]
-    private Vector2Int[] possibleObstacleSizes;
-
+    
     [SerializeField]
     private int numberOfEnemies;
     [SerializeField]
@@ -21,9 +17,6 @@ public class DungeonGeneration : MonoBehaviour
 
     [SerializeField]
     private GameObject goalPrefab;
-
-    [SerializeField]
-    private TileBase obstacleTile;
 
     private Room[,] rooms;
 
@@ -44,7 +37,6 @@ public class DungeonGeneration : MonoBehaviour
             string roomPrefabName = instance.currentRoom.PrefabName();
             GameObject roomObject = (GameObject)Instantiate(Resources.Load(roomPrefabName));
             Tilemap tilemap = roomObject.GetComponentInChildren<Tilemap>();
-            instance.currentRoom.AddPopulationToTilemap(tilemap, instance.obstacleTile);
             Destroy(this.gameObject);
         }
     }
@@ -52,9 +44,9 @@ public class DungeonGeneration : MonoBehaviour
     void Start()
     {
         string roomPrefabName = this.currentRoom.PrefabName();
+        Debug.Log(roomPrefabName);
         GameObject roomObject = (GameObject)Instantiate(Resources.Load(roomPrefabName));
         Tilemap tilemap = roomObject.GetComponentInChildren<Tilemap>();
-        this.currentRoom.AddPopulationToTilemap(tilemap, this.obstacleTile);
     }
 
     private Room GenerateDungeon()
@@ -71,7 +63,7 @@ public class DungeonGeneration : MonoBehaviour
         while (roomsToCreate.Count > 0 && createdRooms.Count < numberOfRooms)
         {
             Room currentRoom = roomsToCreate.Dequeue();
-            this.rooms[currentRoom.roomLocation.x, currentRoom.roomLocation.y] = currentRoom;
+            this.rooms[currentRoom.roomCoordinate.x, currentRoom.roomCoordinate.y] = currentRoom;
             createdRooms.Add(currentRoom);
             AddNeighbors(currentRoom, roomsToCreate);
         }
@@ -89,10 +81,9 @@ public class DungeonGeneration : MonoBehaviour
                     room.Connect(neighbor);
                 }
             }
-            room.PopulateObstacles(this.numberOfObstacles, this.possibleObstacleSizes);
             room.PopulatePrefabs(this.numberOfEnemies, this.possibleEnemies);
 
-            int distanceToInitialRoom = Mathf.Abs(room.roomLocation.x - initialRoomCoordinate.x) + Mathf.Abs(room.roomLocation.y - initialRoomCoordinate.y);
+            int distanceToInitialRoom = Mathf.Abs(room.roomCoordinate.x - initialRoomCoordinate.x) + Mathf.Abs(room.roomCoordinate.y - initialRoomCoordinate.y);
             if (distanceToInitialRoom > maximumDistanceToInitialRoom)
             {
                 maximumDistanceToInitialRoom = distanceToInitialRoom;
