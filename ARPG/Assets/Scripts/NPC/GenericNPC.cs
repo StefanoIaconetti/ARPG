@@ -12,7 +12,7 @@ public class GenericNPC : NPC {
     public Animator anim;
     public Rigidbody2D rb;
 
-    public void Awake() {
+    public void Start() {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -23,7 +23,7 @@ public class GenericNPC : NPC {
     }
 
     private void Update() {
-        if(targets != null) {
+        if(targets.Count > 0) {
             //Move towards the first target
             Vector3 temp = Vector3.MoveTowards(transform.position, targets[counter].transform.position, speed * Time.deltaTime);
             ChangeAnimation(temp - transform.position);
