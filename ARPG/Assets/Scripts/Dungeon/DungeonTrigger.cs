@@ -5,12 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class DungeonTrigger : MonoBehaviour
 {
-    public double playerX;
-    public double playery;
+    
+    public static float playerX;
+    public static float playery;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private GameObject player = null;
+
+    public void Awake()
     {
-            Debug.Log("Should Switch");
-            SceneManager.LoadScene("Dungeon");
+        player = GameObject.FindGameObjectWithTag("Player");
+        
+    }
+
+     void OnTriggerEnter2D(Collider2D collision)
+    {
+        playerX = player.transform.position.x;
+        playery = player.transform.position.y;
+        SceneManager.LoadScene("Dungeon");
     }
 }

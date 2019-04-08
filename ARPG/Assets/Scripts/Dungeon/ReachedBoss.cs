@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class ReachedBoss : MonoBehaviour
 {
+
+    private float playerX;
+    private float playerY;
+
+    public static bool isDone = false;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")
@@ -15,6 +21,7 @@ public class ReachedBoss : MonoBehaviour
                 GameObject dungeon = GameObject.FindGameObjectWithTag("Dungeon");
                 DungeonGeneration dungeonGeneration = dungeon.GetComponent<DungeonGeneration>();
                 SceneManager.LoadScene("NicksScene");
+                isDone = true;
             }
         }
     }
