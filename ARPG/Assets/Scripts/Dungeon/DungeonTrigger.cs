@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class DungeonTrigger : MonoBehaviour
 {
+    public double playerX;
+    public double playery;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

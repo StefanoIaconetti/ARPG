@@ -368,10 +368,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfRooms: 2
-  numberOfEnemies: 1
-  possibleEnemies:
-  - {fileID: 7128111925593615064, guid: 7340020340d034f2bb9a1fffb91d3abb, type: 3}
-  - {fileID: 7128111925593615064, guid: 7340020340d034f2bb9a1fffb91d3abb, type: 3}
   goalPrefab: {fileID: 1648284490830996, guid: af17063cd16feee40853cf68bbad8ed1, type: 3}
 --- !u!1001 &888959901
 PrefabInstance:

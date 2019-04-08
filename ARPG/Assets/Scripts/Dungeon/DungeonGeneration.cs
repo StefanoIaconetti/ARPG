@@ -9,14 +9,11 @@ public class DungeonGeneration : MonoBehaviour
     [SerializeField]
     private int numberOfRooms;
 
-    
-    [SerializeField]
-    private int numberOfEnemies;
-    [SerializeField]
-    private GameObject[] possibleEnemies;
-
     [SerializeField]
     private GameObject goalPrefab;
+
+    [SerializeField]
+    private TileBase obstacleTile;
 
     private Room[,] rooms;
 
@@ -35,8 +32,11 @@ public class DungeonGeneration : MonoBehaviour
         else
         {
             string roomPrefabName = instance.currentRoom.PrefabName();
+            Debug.Log(roomPrefabName);
             GameObject roomObject = (GameObject)Instantiate(Resources.Load(roomPrefabName));
+            Debug.Log(roomPrefabName);
             Tilemap tilemap = roomObject.GetComponentInChildren<Tilemap>();
+            instance.currentRoom.AddPopulationToTilemap(tilemap, instance.obstacleTile);
             Destroy(this.gameObject);
         }
     }
@@ -44,9 +44,9 @@ public class DungeonGeneration : MonoBehaviour
     void Start()
     {
         string roomPrefabName = this.currentRoom.PrefabName();
-        Debug.Log(roomPrefabName);
         GameObject roomObject = (GameObject)Instantiate(Resources.Load(roomPrefabName));
         Tilemap tilemap = roomObject.GetComponentInChildren<Tilemap>();
+        this.currentRoom.AddPopulationToTilemap(tilemap, this.obstacleTile);
     }
 
     private Room GenerateDungeon()
@@ -81,7 +81,6 @@ public class DungeonGeneration : MonoBehaviour
                     room.Connect(neighbor);
                 }
             }
-            room.PopulatePrefabs(this.numberOfEnemies, this.possibleEnemies);
 
             int distanceToInitialRoom = Mathf.Abs(room.roomCoordinate.x - initialRoomCoordinate.x) + Mathf.Abs(room.roomCoordinate.y - initialRoomCoordinate.y);
             if (distanceToInitialRoom > maximumDistanceToInitialRoom)

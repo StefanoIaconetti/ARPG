@@ -66,11 +66,12 @@ public class Enemy : MonoBehaviour {
         animator.SetBool("IsDead", true);
         target.gameObject.GetComponent<Player>().GainXP(xpDrop);
         target.gameObject.GetComponent<Player>().UpdateKillQuests();
-        DropItems();
-        yield return new WaitForSeconds(0.3f);
-        gameObject.SetActive(false);
+        //DropItems();
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
+        Debug.Log("Enemy should die");
     }
-
+    
     public void DropItems() {
         int numberOfItemsDrop = Random.Range(1, 4);
         for (int i = 0; i <= numberOfItemsDrop; i++) {
@@ -78,6 +79,7 @@ public class Enemy : MonoBehaviour {
             //Drop item
             //Instantiate(drops[itemID], transform, true);
         }
+        
     }
 
 
