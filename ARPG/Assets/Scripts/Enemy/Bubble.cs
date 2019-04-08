@@ -16,4 +16,8 @@ public class Bubble : MonoBehaviour {
         //transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
     }
 
+    public void OnTriggerEnter2D(Collider2D collision) {
+        Destroy(gameObject);
+    }
+
 }

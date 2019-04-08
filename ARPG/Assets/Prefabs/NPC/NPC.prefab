@@ -160,7 +160,9 @@ MonoBehaviour:
   shopObj: {fileID: 0}
   chest: {fileID: 0}
   chestMang: {fileID: 0}
-  targets: []
+  targets:
+  - {fileID: 0}
+  - {fileID: 0}
   IsWalking: 0
   speed: 1
   anim: {fileID: 0}
