@@ -67,11 +67,11 @@ public class Enemy : MonoBehaviour {
         target.gameObject.GetComponent<Player>().GainXP(xpDrop);
         target.gameObject.GetComponent<Player>().UpdateKillQuests();
         //DropItems();
-        yield return new WaitForSeconds(0.3f);
-        gameObject.SetActive(false);
-        //Destroy(gameObject);
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
+        Debug.Log("Enemy should die");
     }
-
+    
     public void DropItems() {
         int numberOfItemsDrop = Random.Range(1, 4);
         for (int i = 0; i <= numberOfItemsDrop; i++) {
@@ -79,6 +79,7 @@ public class Enemy : MonoBehaviour {
             //Drop item
             GameObject gameObject = Instantiate(Resources.Load(drops[itemID].item.name), transform.position, Quaternion.identity) as GameObject;
         }
+        
     }
 
 
