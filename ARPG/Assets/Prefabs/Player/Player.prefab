@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5679200}
   - component: {fileID: 5679201}
   - component: {fileID: 1432607741}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Up Hit Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 93389300}
   - component: {fileID: 93389301}
   - component: {fileID: 424943287}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Left Hit Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   - component: {fileID: 626516528}
   - component: {fileID: 626516529}
   - component: {fileID: 1504792051}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Down Hit Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -324,7 +324,7 @@ GameObject:
   - component: {fileID: 1322217631}
   - component: {fileID: 1322217632}
   - component: {fileID: 939831939}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Right Hit Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 614720236}
   - component: {fileID: 311966835}
   - component: {fileID: 311966836}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -623,6 +623,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Projectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1729532828428205666, guid: bf84e9a7b2c25457f89e52c101ea4be1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2125371711225526581, guid: bf84e9a7b2c25457f89e52c101ea4be1,
         type: 3}

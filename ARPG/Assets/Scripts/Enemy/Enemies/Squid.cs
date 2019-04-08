@@ -9,11 +9,8 @@ public class Squid : Enemy {
     public Transform originalPosition;
 
     public GameObject bubblePrefab;
-    public Transform targetUp;
-    public Transform targetDown;
-    public Transform targetLeft;
-    public Transform targetRight;
     public int shootSpeed;
+    public bool isBubbleShot = false;
 
     private Rigidbody2D rb;
 
@@ -45,17 +42,22 @@ public class Squid : Enemy {
                 animator.SetBool("IsWalking", false);
             }
 
-
+            // Change to only shoot one at a time
             if (Vector3.Distance(target.position, transform.position) <= attackRange) {
-                ChangeState(EnemyState.attacking);
-                //Create a bubble
-                GameObject bubble = Instantiate(bubblePrefab, transform);
-                //find the direction the squid is facing
-                Vector2 direction = target.transform.position - transform.position;
-                //Set the target the bubble will shoot at
-                SetBubbleTarget(bubble, direction);
-                //Shoot the bubble
-                bubble.GetComponent<Bubble>().Shoot(shootSpeed);
+                if(!isBubbleShot) {
+                    ChangeState(EnemyState.attacking);
+                    //Create a bubble
+                    GameObject bubble = Instantiate(bubblePrefab, transform);
+                    //find the direction the squid is facing
+                    //Vector2 direction = target.transform.position - transform.position;
+                    //Set the target the bubble will shoot at
+                    //SetBubbleTarget(bubble, direction);
+                    //bubble.GetComponent<Bubble>().target = target.transform;
+                    //Shoot the bubble
+                    //bubble.GetComponent<Bubble>().Shoot(shootSpeed);
+                    isBubbleShot = true;
+                }
+
 
             } else {
                 ChangeState(EnemyState.idle);
@@ -90,7 +92,7 @@ public class Squid : Enemy {
         }
     }
 
-    public void SetBubbleTarget(GameObject bubble, Vector2 direction) {
+/*    public void SetBubbleTarget(GameObject bubble, Vector2 direction) {
         if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y)) {
             //Shooting right
             if (direction.x > 0) {
@@ -110,7 +112,7 @@ public class Squid : Enemy {
                 bubble.GetComponent<Bubble>().target = targetDown;
             }
         }
-    }
+    }*/
 
 
 }

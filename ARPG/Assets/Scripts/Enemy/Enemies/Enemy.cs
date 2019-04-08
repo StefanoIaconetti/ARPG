@@ -66,9 +66,10 @@ public class Enemy : MonoBehaviour {
         animator.SetBool("IsDead", true);
         target.gameObject.GetComponent<Player>().GainXP(xpDrop);
         target.gameObject.GetComponent<Player>().UpdateKillQuests();
-        DropItems();
+        //DropItems();
         yield return new WaitForSeconds(0.3f);
         gameObject.SetActive(false);
+        //Destroy(gameObject);
     }
 
     public void DropItems() {
@@ -76,7 +77,7 @@ public class Enemy : MonoBehaviour {
         for (int i = 0; i <= numberOfItemsDrop; i++) {
             int itemID = Random.Range(0, drops.Count);
             //Drop item
-            //Instantiate(drops[itemID], transform, true);
+            GameObject gameObject = Instantiate(Resources.Load(drops[itemID].item.name), transform.position, Quaternion.identity) as GameObject;
         }
     }
 

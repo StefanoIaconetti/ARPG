@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 493448975}
   - component: {fileID: 493448977}
   - component: {fileID: 493448976}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HitboxDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 830154859}
   - component: {fileID: 830154861}
   - component: {fileID: 830154860}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HitboxRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 1593554490}
   - component: {fileID: 1593554492}
   - component: {fileID: 1593554491}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HitboxLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 1618733294}
   - component: {fileID: 1618733296}
   - component: {fileID: 1618733295}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HitboxUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -324,7 +324,7 @@ GameObject:
   - component: {fileID: 7128111925593615067}
   - component: {fileID: 7128111925593615066}
   - component: {fileID: 8937347724933304432}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Slender
   m_TagString: Enemy
   m_Icon: {fileID: 0}

@@ -164,6 +164,8 @@ MonoBehaviour:
   - {fileID: 0}
   IsWalking: 0
   speed: 1
+  animator: {fileID: 0}
+  rb: {fileID: 0}
 --- !u!95 &4623845606140223589
 Animator:
   serializedVersion: 3
