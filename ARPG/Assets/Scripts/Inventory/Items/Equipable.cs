@@ -1,6 +1,8 @@
 ﻿using System;
 using UnityEngine;
+using System;
 
+[Serializable]
 [CreateAssetMenu(fileName = "New Item", menuName = "Objects/Equipable")]
 public class Equipable : Item {
 

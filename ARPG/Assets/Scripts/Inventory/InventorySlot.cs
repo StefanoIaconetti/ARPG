@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
+using System;
 
 public class InventorySlot : MonoBehaviour
 {
@@ -156,7 +157,6 @@ public class InventorySlot : MonoBehaviour
 		//}
 		//else
 		//{
-			Debug.Log (item.item.name + "Whats working");
 			//Item is removed from inventory
 			Player.inventory.RemoveItem(item);
 

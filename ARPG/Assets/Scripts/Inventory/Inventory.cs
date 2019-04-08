@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
+[Serializable]
 //Everything that has a inventory will reference to this script, the user can Add and remove from their list of items
 public class Inventory
 {
