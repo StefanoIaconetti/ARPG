@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour {
     public float baseAttack;
     public float xpDrop;
 
+    public List<InventoryItem> drops;
+
     public Transform target;
 
     protected Animator animator;
@@ -64,8 +66,18 @@ public class Enemy : MonoBehaviour {
         animator.SetBool("IsDead", true);
         target.gameObject.GetComponent<Player>().GainXP(xpDrop);
         target.gameObject.GetComponent<Player>().UpdateKillQuests();
+        DropItems();
         yield return new WaitForSeconds(0.3f);
         gameObject.SetActive(false);
+    }
+
+    public void DropItems() {
+        int numberOfItemsDrop = Random.Range(1, 4);
+        for (int i = 0; i <= numberOfItemsDrop; i++) {
+            int itemID = Random.Range(0, drops.Count);
+            //Drop item
+            //Instantiate(drops[itemID], transform, true);
+        }
     }
 
 
