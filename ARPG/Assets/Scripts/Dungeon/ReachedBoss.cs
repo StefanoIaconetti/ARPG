@@ -20,7 +20,7 @@ public class ReachedBoss : MonoBehaviour
             {
                 GameObject dungeon = GameObject.FindGameObjectWithTag("Dungeon");
                 DungeonGeneration dungeonGeneration = dungeon.GetComponent<DungeonGeneration>();
-                SceneManager.LoadScene("NicksScene");
+                SceneManager.LoadScene("JustinScene");
                 isDone = true;
             }
         }
