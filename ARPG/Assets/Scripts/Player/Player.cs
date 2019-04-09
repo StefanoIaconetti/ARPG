@@ -8,7 +8,6 @@ public class Player : Character {
 
     public GameObject projectilePrefab;
 
-    public GameObject currentTarget;
     public GameObject upTarget;
     public GameObject downTarget;
     public GameObject leftTarget;
@@ -43,7 +42,9 @@ public class Player : Character {
 	//Method that updates UI
 	public static void UpdateUI() {
 
-        //UPDATE GATHER QUESTS HERE
+        //UPDATE GATHER QUESTS IN THE MOST RIDICULOUS WAY POSSIBLE
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<Player>().UpdateGatherQuests();
     
         //Goes through the amount of slots are in the inventory
 

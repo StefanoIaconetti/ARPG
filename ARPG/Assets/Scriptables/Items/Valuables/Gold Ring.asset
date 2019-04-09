@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Gold Ring
   icon: {fileID: 21300000, guid: cc9d2eee0c4a5fd4aa240cbdfb6f824a, type: 3}
-  cost: 10
-  quantity: 0
+  cost: 50
+  canEquip: 0

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 894ecb06489d948d4adf9c99a2b57acb, type: 3}
   m_Name: Strength Potion
   m_EditorClassIdentifier: 
-  name: New Item
-  icon: {fileID: 0}
-  cost: 0
+  name: Strength Potion
+  icon: {fileID: 21300000, guid: c091b9d8debe53446ae8d6cb6b68e089, type: 3}
+  cost: 150
   canEquip: 1
-  statBoost: 0
-  equipType: 0
+  statBoost: 2
+  equipType: 3

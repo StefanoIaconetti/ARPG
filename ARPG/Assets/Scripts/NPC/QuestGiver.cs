@@ -40,10 +40,9 @@ public class QuestGiver : NPC {
             int ranNum = Random.Range(1, 3);
             if(ranNum == 1) {
                 quest = questManager.GetComponent<QuestManager>().GenerateKillQuest(level);
-            } else {
-                //quest = questManager.GetComponent<QuestManager>().GenerateGatherQuest(level);
+            } else if (ranNum == 2) {
+                quest = questManager.GetComponent<QuestManager>().GenerateGatherQuest(level);
             }
-
         }
     }
 
@@ -51,10 +50,14 @@ public class QuestGiver : NPC {
         foreach (Quest quest in player.questList) {
             if (quest.isComplete && quest.isActive) {
                 if (quest.goal.goalType == GoalType.Gather) {
+                    Debug.Log("quest is being completed and is a gather quest");
                     //remove the items from players inventory
                     Player.inventory.RemoveItem(quest.item);
                 }
-
+                Item reward = questManager.GetComponent<QuestManager>().GetLoot();
+                InventoryItem item = new InventoryItem(reward, 1);
+                Player.inventory.AddItem(item);
+                Player.UpdateUI();
                 player.GainXP(quest.xpReward);
                 player.gold += quest.goldReward;
                 quest.Complete();
