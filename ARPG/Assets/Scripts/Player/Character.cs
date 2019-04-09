@@ -7,6 +7,9 @@ public abstract class Character : MonoBehaviour{
 
 	[SerializeField]
 	private float speed;
+	public int wandDamage;
+	public int swordDamage;
+	public int protection;
     public float health;
     public float maxHealth;
     public float xp;
@@ -14,8 +17,10 @@ public abstract class Character : MonoBehaviour{
     public float gold;
     public int level;
     public int maxLevel;
+	public Equipable currentPotion;
 	protected Vector2 direction;
 	private Rigidbody2D characterRigid;
+
 
     public bool isStaggered = false;
 
@@ -36,9 +41,13 @@ public abstract class Character : MonoBehaviour{
     void Start() {
         //Initializes variables
         level = 0;
+		speed = 8;
         maxHealth = 50;
         maxLevel = 15;
         maxLevelXP = 100;
+		swordDamage = 5;
+		wandDamage = 5;
+		protection = 0;
 		characterRigid = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         health = maxHealth;

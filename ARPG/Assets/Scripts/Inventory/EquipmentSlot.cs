@@ -28,6 +28,8 @@ public class EquipmentSlot : MonoBehaviour
 	//Holds an equipable item
 	Equipable item;
 
+	public Player player;
+
 	//This adds an item to the inventory slot	
 	public void AddItem (Equipable newItem)
 	{
@@ -37,15 +39,56 @@ public class EquipmentSlot : MonoBehaviour
 		icon.enabled = true;
 		icon.color = Color.white;
 		defaultImage.enabled = false;
+
+		switch (indexVal){
+		case 0:
+			player.protection += item.statBoost;
+			break;
+
+		case 1:
+			player.wandDamage += item.statBoost;
+			break;
+
+		case 2:
+			player.swordDamage += item.statBoost;
+			break;
+
+		case 3:
+			player.currentPotion = item;
+			break;
+		}
 	}
 
 	//This clears the inventory slot
 	public void ClearSlot() { 
+		
+		switch (indexVal){
+		case 0:
+			player.protection -= item.statBoost;
+			break;
+
+		case 1:
+			player.wandDamage -= item.statBoost;
+			break;
+
+		case 2:
+			player.swordDamage -= item.statBoost;
+			break;
+
+		case 3:
+			player.currentPotion = null;
+			break;
+		}
+
 		//If the slot is cleared then everything is null
 		item = null;
 		icon.sprite = null;
 		icon.enabled = false;
 		defaultImage.enabled = true;
+
+
+
+
 	}
 
 	//When the unequip button is pressed
