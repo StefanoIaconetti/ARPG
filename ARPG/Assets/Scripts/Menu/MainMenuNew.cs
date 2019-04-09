@@ -80,6 +80,14 @@ public class MainMenuNew : MonoBehaviour {
 		}
 	}
 
+	public void LoadGame(){
+		if(sceneName != ""){
+			SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+
+			DontDestroyOnLoad (GameObject.Find("LoadChecker"));
+		}
+	}
+
 	public void  DisablePlayCampaign (){
 		continueBtn.gameObject.SetActive(false);
 		newGameBtn.gameObject.SetActive(false);

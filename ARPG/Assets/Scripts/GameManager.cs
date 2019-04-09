@@ -14,9 +14,38 @@ public class GameManager : MonoBehaviour
 	public EquipmentManager equipManag;
 	public Player player;
 
+	public GameObject saveButton;
+
+	private GameObject checkLoad;
+
     void Start(){
 		inventory.enabled = false;
 		inventoryEquipment.enabled = false;
+
+		checkLoad = GameObject.Find ("LoadChecker");
+
+		if (checkLoad) {
+			var levelFileJsonContent = File.ReadAllText(Application.dataPath + "\\playerinfo.json");
+			var levelData = JsonUtility.FromJson<SavingData>(levelFileJsonContent);
+
+			Player.inventory = levelData.playerInventory;
+			player.gold = levelData.currency;
+			player.xp = levelData.experience;
+			player.health = levelData.health;
+
+			var playerVector = GameObject.Find ("Player");
+
+			playerVector.transform.Translate (levelData.playerPosition[0], levelData.playerPosition[1], levelData.playerPosition[2]);
+
+			equipManag.currentEquipment = levelData.equipableItems;
+			equipManag.UpdateUI ();
+
+			Player.UpdateUI ();
+
+			Destroy (checkLoad);
+		}
+
+
     }
 
 
@@ -42,6 +71,15 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 0;
             }
         }
+
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			if (saveButton.activeSelf) {
+				saveButton.SetActive (false);
+			} else {
+				saveButton.SetActive (true);
+
+			}
+		}
     }
 
 	public void OnSaveButton(){
@@ -61,24 +99,7 @@ public class GameManager : MonoBehaviour
 
 
 	public void OnLoadButton(){
-
-
-		var levelFileJsonContent = File.ReadAllText(Application.dataPath + "\\playerinfo.json");
-		var levelData = JsonUtility.FromJson<SavingData>(levelFileJsonContent);
-
-		Player.inventory = levelData.playerInventory;
-		player.gold = levelData.currency;
-		player.xp = levelData.experience;
-		player.health = levelData.health;
-
-		var playerVector = GameObject.Find ("Player");
-
-		playerVector.transform.Translate (levelData.playerPosition[0], levelData.playerPosition[1], levelData.playerPosition[2]);
-
-		equipManag.currentEquipment = levelData.equipableItems;
-		equipManag.UpdateUI ();
-
-		Player.UpdateUI ();
+		
 
 
 	}

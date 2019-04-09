@@ -301,5 +301,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 96b892885c124804cb391b04ab5f0e9c,
         type: 3}
+    - target: {fileID: 5738816856296983945, guid: 8ae8ae0f38710ce48b4bb5add5883b7f,
+        type: 3}
+      propertyPath: sceneName
+      value: JustinScene
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ae8ae0f38710ce48b4bb5add5883b7f, type: 3}
