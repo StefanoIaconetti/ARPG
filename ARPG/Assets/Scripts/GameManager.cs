@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour
 	//This will check if there is currently a loading gameobject, if there is load the recent save
 	private GameObject checkLoad;
 
+	public string fileLoadName = @"/playerinfo.json";
+	public string fileSaveName = "playerinfo.json";
+
 	//When the game starts
     void Start(){
 		//Inventory is no longer active same with inventory equipment
@@ -40,7 +43,7 @@ public class GameManager : MonoBehaviour
 		//If they did just load in
 		if (checkLoad) {
 			//This finds the file by using Application.data path then finds the file playerinfo.json
-			var jsonContent = File.ReadAllText(Application.dataPath + "\\playerinfo.json");
+			var jsonContent = File.ReadAllText(Application.persistentDataPath + fileLoadName);
 			var playerData = JsonUtility.FromJson<SavingData>(jsonContent);
 
 			//This now sets all the values to the corresponding variables
@@ -114,7 +117,7 @@ public class GameManager : MonoBehaviour
 		var jsonData = JsonUtility.ToJson(savingData);
 
 		//Creates a savepath (Where the file will actually save)
-		var savePath = System.IO.Path.Combine(Application.dataPath, "playerinfo" + ".json");
+		var savePath = System.IO.Path.Combine(Application.persistentDataPath, fileSaveName);
 
 		//Writes the json data to the savepath
 		System.IO.File.WriteAllText(savePath, jsonData);
