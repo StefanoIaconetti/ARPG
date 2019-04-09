@@ -7,10 +7,12 @@ public class Knockback : MonoBehaviour {
     //Variables
     public float thrust;
     public float knockbackTime;
-    public float damage;
+	public Player player;
 
     //Function to utilize the knockback
     private void OnTriggerEnter2D(Collider2D collision) {
+
+		float damage = player.swordDamage;
 
         //Check if an enemy is being hit
         if (collision.gameObject.CompareTag("Enemy")) {

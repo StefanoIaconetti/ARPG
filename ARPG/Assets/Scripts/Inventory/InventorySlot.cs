@@ -44,6 +44,7 @@ public class InventorySlot : MonoBehaviour
 	bool alreadyTrans = false;
 
 
+
 	//This adds an item to the inventory slot	
 	public void AddItem (InventoryItem newItem)
 	{
@@ -78,45 +79,12 @@ public class InventorySlot : MonoBehaviour
 	//When the Options button is pressed
 	public void OnOptionsShowButton()
 	{
+
 		//If there is no item then null is displayed
 		if (item == null) {
 			Debug.Log ("Null");
 		}else{
-			//If the options button has already been translated then it returns it to normal
-			if (alreadyTrans == true) {
-				equipButton.gameObject.SetActive (false);
-				optionsButton.transform.Translate (0, -10f, 0);
-				optionsButton.gameObject.SetActive (false);
-				alreadyTrans = false;
-			}
-
-			//If the item is equipable and the button has not been translated
-			if (equipableItem != null && alreadyTrans == false) {
-				equipButton.gameObject.SetActive (true);
-				optionsButton.transform.Translate (0, 10, 0);
-				optionsButton.gameObject.SetActive (true);
-				alreadyTrans = true;
-			} else {
-				//If the shopmanager can open
-				if (shopMang != null && shopMang.inventoryCanOpen && sellButton != null) {
-					sellButton.gameObject.SetActive (true);
-				} else {
-					//If the sell button is not null then make it false
-					if (sellButton != null) {
-						sellButton.gameObject.SetActive (false);
-					}
-					//If the options button is active then set it false
-					if (optionsButton.gameObject.activeSelf) {
-						optionsButton.gameObject.SetActive (false);
-					} else {
-						//If there is an item present in the inventory then the player can sell
-						if (item.item != null) {
-							optionsButton.gameObject.SetActive (true);
-						}
-
-					}
-				}
-			}
+			EnableDisable ();
 		}
 	}
 
@@ -234,5 +202,44 @@ public class InventorySlot : MonoBehaviour
 		//UI is updated
 		Player.UpdateUI();
 
+	}
+
+
+
+
+
+	public void EnableDisable(){
+		//If the options button has already been translated then it returns it to normal
+		if (alreadyTrans == true) {
+			equipButton.gameObject.SetActive (false);
+			optionsButton.transform.Translate (0, -10f, 0);
+			optionsButton.gameObject.SetActive (false);
+			alreadyTrans = false;
+		}else if (equipableItem != null && alreadyTrans == false) {
+			equipButton.gameObject.SetActive (true);
+			optionsButton.transform.Translate (0, 10, 0);
+			optionsButton.gameObject.SetActive (true);
+			alreadyTrans = true;
+		} else {
+			//If the shopmanager can open
+			if (shopMang != null && shopMang.inventoryCanOpen && sellButton != null) {
+				sellButton.gameObject.SetActive (true);
+			} else {
+				//If the sell button is not null then make it false
+				if (sellButton != null) {
+					sellButton.gameObject.SetActive (false);
+				}
+				//If the options button is active then set it false
+				if (optionsButton.gameObject.activeSelf) {
+					optionsButton.gameObject.SetActive (false);
+				} else {
+					//If there is an item present in the inventory then the player can sell
+					if (item.item != null) {
+						optionsButton.gameObject.SetActive (true);
+					}
+
+				}
+			}
+		}
 	}
 }
