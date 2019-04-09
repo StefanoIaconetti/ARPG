@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4623845606140223586}
   - component: {fileID: 4623845606140223589}
   - component: {fileID: 935908664}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: NPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300002, guid: 93634b6592ada4a11af2dcdbe3d15c29, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -164,7 +164,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   IsWalking: 0
-  speed: 1
+  speed: 3
   anim: {fileID: 0}
   rb: {fileID: 0}
 --- !u!95 &4623845606140223589
@@ -198,7 +198,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0

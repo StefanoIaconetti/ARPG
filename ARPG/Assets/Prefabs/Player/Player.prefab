@@ -74,8 +74,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4e21250630f4640ab7e32cd890a7a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 5
-  knockbackTime: 0.2
+  thrust: 15000000
+  knockbackTime: 0.3
   damage: 5
 --- !u!1 &93389299
 GameObject:
@@ -151,8 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4e21250630f4640ab7e32cd890a7a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 5
-  knockbackTime: 0.2
+  thrust: 15000000
+  knockbackTime: 0.3
   damage: 5
 --- !u!1 &519420028
 GameObject:
@@ -212,7 +212,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -310,8 +310,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4e21250630f4640ab7e32cd890a7a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 5
-  knockbackTime: 0.2
+  thrust: 15000000
+  knockbackTime: 0.3
   damage: 5
 --- !u!1 &1322217630
 GameObject:
@@ -387,8 +387,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4e21250630f4640ab7e32cd890a7a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 5
-  knockbackTime: 0.2
+  thrust: 15000000
+  knockbackTime: 0.3
   damage: 5
 --- !u!1 &1912882427157198
 GameObject:
@@ -421,7 +421,7 @@ Transform:
   m_GameObject: {fileID: 1912882427157198}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.15, y: 0.646, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 519420032}
   - {fileID: 626516528}
@@ -468,7 +468,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300038, guid: 23d79fa1b706c425aacae656ee8e24c8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -511,7 +511,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 50
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -532,14 +532,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0177c29167dd742418bfe260fb1b4ed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 8
   health: 0
   maxHealth: 50
   xp: 0
   maxLevelXP: 0
   gold: 0
   level: 0
-  maxLevel: 0
+  maxLevel: 15
   isStaggered: 0
   IsAttackingClose: 0
   IsAttackingRanged: 0
@@ -558,7 +558,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.03096211, y: -1.0864592}
+  m_Offset: {x: -0.03096211, y: -0.8690722}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -569,7 +569,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1017644, y: 1.4855251}
+  m_Size: {x: 1.1431715, y: 1.6718574}
   m_EdgeRadius: 0
 --- !u!61 &311966836
 BoxCollider2D:
@@ -609,7 +609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4e21250630f4640ab7e32cd890a7a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 3
+  thrust: 0
   knockbackTime: 0.2
   damage: 5
 --- !u!1001 &1463974087691846461
