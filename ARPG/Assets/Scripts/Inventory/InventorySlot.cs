@@ -166,7 +166,8 @@ public class InventorySlot : MonoBehaviour
 				playerVector,
 				Quaternion.identity) as GameObject;
 
-
+		//If you for any reason get an error that it cant find it or whater
+		//Then that means this name is different than the prefab name
 
 
 			Player.UpdateUI();

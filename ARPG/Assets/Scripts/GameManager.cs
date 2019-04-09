@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class GameManager : MonoBehaviour
 {
@@ -60,18 +61,24 @@ public class GameManager : MonoBehaviour
 
 
 	public void OnLoadButton(){
-		//SavingData data = SaveSystem.LoadPlayer ();
 
-		//player.health = data.health;
-		//player.xp = data.experience;
-		//Player.inventory = data.playerInventory;
-		//player.gold = data.currency;
 
-		//var playerVector = GameObject.Find("Player").transform.position;
+		var levelFileJsonContent = File.ReadAllText(Application.dataPath + "\\playerinfo.json");
+		var levelData = JsonUtility.FromJson<SavingData>(levelFileJsonContent);
 
-		//playerVector.x = data.playerPosition [0];
-		//playerVector.y = data.playerPosition [1];
-		//playerVector.z = data.playerPosition [2];
+		Player.inventory = levelData.playerInventory;
+		player.gold = levelData.currency;
+		player.xp = levelData.experience;
+		player.health = levelData.health;
+
+		var playerVector = GameObject.Find ("Player");
+
+		playerVector.transform.Translate (levelData.playerPosition[0], levelData.playerPosition[1], levelData.playerPosition[2]);
+
+		equipManag.currentEquipment = levelData.equipableItems;
+		equipManag.UpdateUI ();
+
+		Player.UpdateUI ();
 
 
 	}
