@@ -10,7 +10,9 @@ public class Squid : Enemy {
 
     public GameObject bubblePrefab;
     public int shootSpeed;
-    public bool isBubbleShot = false;
+    public bool canFire = true;
+    public float fireDelay;
+    private float fireDelaySeconds;
 
     private Rigidbody2D rb;
 
@@ -20,6 +22,14 @@ public class Squid : Enemy {
         rb = GetComponent<Rigidbody2D>();
         currentState = EnemyState.idle;
         target = GameObject.FindWithTag("Player").transform;
+    }
+
+    public void Update() {
+        fireDelaySeconds -= Time.deltaTime;
+        if(fireDelaySeconds <= 0) {
+            canFire = true;
+            fireDelaySeconds = fireDelay;
+        }
     }
 
     // Update is called once per frame
@@ -44,18 +54,16 @@ public class Squid : Enemy {
 
             // Change to only shoot one at a time
             if (Vector3.Distance(target.position, transform.position) <= attackRange) {
-                if(!isBubbleShot) {
+                Debug.Log(canFire);
+                if(canFire) {
                     ChangeState(EnemyState.attacking);
                     //Create a bubble
-                    GameObject bubble = Instantiate(bubblePrefab, transform);
-                    //find the direction the squid is facing
-                    //Vector2 direction = target.transform.position - transform.position;
-                    //Set the target the bubble will shoot at
-                    //SetBubbleTarget(bubble, direction);
-                    //bubble.GetComponent<Bubble>().target = target.transform;
-                    //Shoot the bubble
-                    //bubble.GetComponent<Bubble>().Shoot(shootSpeed);
-                    isBubbleShot = true;
+                    GameObject currentBubble = Instantiate(bubblePrefab, transform);
+                    //Find direction
+                    Vector3 temp = target.transform.position - transform.position;
+                    //Shoot bubble
+                    currentBubble.GetComponent<Bubble>().Shoot(temp);
+                    canFire = false;
                 }
 
 
@@ -91,28 +99,6 @@ public class Squid : Enemy {
             currentState = newState;
         }
     }
-
-/*    public void SetBubbleTarget(GameObject bubble, Vector2 direction) {
-        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y)) {
-            //Shooting right
-            if (direction.x > 0) {
-                bubble.GetComponent<Bubble>().target = targetRight;
-            }
-            //Shooting left
-            else if (direction.x < 0) {
-                bubble.GetComponent<Bubble>().target = targetLeft;
-            }
-        } else if (Mathf.Abs(direction.x) < Mathf.Abs(direction.y)) {
-            //Shooting up
-            if (direction.y > 0) {
-                bubble.GetComponent<Bubble>().target = targetUp;
-            }
-            //Shooting down
-            else if (direction.y < 0) {
-                bubble.GetComponent<Bubble>().target = targetDown;
-            }
-        }
-    }*/
 
 
 }
