@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Emerald Sword
   icon: {fileID: 21300000, guid: 696d61e62aeabf942b0d79a9fd043dec, type: 3}
   cost: 1000
-  quantity: 0
+  canEquip: 1
   statBoost: 8
   equipType: 2

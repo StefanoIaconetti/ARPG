@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Balsa Wand
   icon: {fileID: 21300000, guid: 341c4ac269a431241b355b07c024ad5f, type: 3}
   cost: 10
-  quantity: 0
+  canEquip: 1
   statBoost: 1
   equipType: 1

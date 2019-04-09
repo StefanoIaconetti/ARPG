@@ -15,5 +15,6 @@ MonoBehaviour:
   name: Scaled Armour
   icon: {fileID: 21300000, guid: 915665560e2b8e049837fe4fdd3bd89d, type: 3}
   cost: 500
-  quantity: 0
+  canEquip: 1
   statBoost: 30
+  equipType: 0

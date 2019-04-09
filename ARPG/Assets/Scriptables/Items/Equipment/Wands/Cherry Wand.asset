@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Cherry Wand
   icon: {fileID: 21300000, guid: 7b926f4bdde2f0d4793923c25441aadb, type: 3}
   cost: 1300
-  quantity: 0
+  canEquip: 1
   statBoost: 9
   equipType: 1

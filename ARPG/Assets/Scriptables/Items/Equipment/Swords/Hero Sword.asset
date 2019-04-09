@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Hero Sword
   icon: {fileID: 21300000, guid: 00f9bb9bcf88e9243841ac2a62db24b6, type: 3}
   cost: 9999
-  quantity: 0
+  canEquip: 1
   statBoost: 10
   equipType: 2

@@ -15,5 +15,6 @@ MonoBehaviour:
   name: Hero Armour
   icon: {fileID: 21300000, guid: 06c51dab11e76b34c9bc517b9a5ab61d, type: 3}
   cost: 1000
-  quantity: 0
+  canEquip: 1
   statBoost: 40
+  equipType: 0

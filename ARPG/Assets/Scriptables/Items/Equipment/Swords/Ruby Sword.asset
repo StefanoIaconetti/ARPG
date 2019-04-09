@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Ruby Sword
   icon: {fileID: 21300000, guid: 63fbc01373a64884fbc7abd9cafd5aea, type: 3}
   cost: 700
-  quantity: 0
+  canEquip: 1
   statBoost: 7
   equipType: 2

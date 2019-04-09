@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Iron Sword
   icon: {fileID: 21300000, guid: 2aa23519edd44194695f85bb2eff071a, type: 3}
   cost: 100
-  quantity: 0
+  canEquip: 1
   statBoost: 3
   equipType: 2

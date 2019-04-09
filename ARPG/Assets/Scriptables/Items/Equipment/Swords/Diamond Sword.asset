@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Diamond Sword
   icon: {fileID: 21300000, guid: 326abda98af4c0d459882b6b62d7125c, type: 3}
   cost: 1500
-  quantity: 0
+  canEquip: 1
   statBoost: 9
   equipType: 2

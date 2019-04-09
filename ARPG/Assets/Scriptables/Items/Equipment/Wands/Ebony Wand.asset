@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Ebony Wand
   icon: {fileID: 21300000, guid: 6c229ecf3e5e7524dbca42b01ca34112, type: 3}
   cost: 1500
-  quantity: 0
+  canEquip: 1
   statBoost: 10
   equipType: 1

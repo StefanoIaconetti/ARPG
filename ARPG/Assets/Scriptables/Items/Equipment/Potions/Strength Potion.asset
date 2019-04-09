@@ -15,5 +15,6 @@ MonoBehaviour:
   name: New Item
   icon: {fileID: 0}
   cost: 0
-  quantity: 0
+  canEquip: 1
   statBoost: 0
+  equipType: 0

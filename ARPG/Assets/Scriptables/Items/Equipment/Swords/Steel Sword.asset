@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Steel Sword
   icon: {fileID: 21300000, guid: d1d81e873e13a8649a1b719e1d90131b, type: 3}
   cost: 300
-  quantity: 0
+  canEquip: 1
   statBoost: 5
   equipType: 2

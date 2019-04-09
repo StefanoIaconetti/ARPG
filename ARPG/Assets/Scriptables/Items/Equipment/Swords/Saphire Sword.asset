@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Saphire Sword
   icon: {fileID: 21300000, guid: aa598e945319a1040b7709899e7677c4, type: 3}
   cost: 700
-  quantity: 0
+  canEquip: 1
   statBoost: 7
   equipType: 2

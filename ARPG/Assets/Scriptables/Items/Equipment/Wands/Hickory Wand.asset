@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Hickory Wand
   icon: {fileID: 21300000, guid: 2933946f134ce3b43a5f3c47a5c1f51d, type: 3}
   cost: 1000
-  quantity: 0
+  canEquip: 1
   statBoost: 8
   equipType: 1

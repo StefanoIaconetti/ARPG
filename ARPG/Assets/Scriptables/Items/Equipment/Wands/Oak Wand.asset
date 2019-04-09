@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Oak Wand
   icon: {fileID: 21300000, guid: 1bbf80da9ac5e194881c050771a583fa, type: 3}
   cost: 700
-  quantity: 0
+  canEquip: 1
   statBoost: 7
   equipType: 1

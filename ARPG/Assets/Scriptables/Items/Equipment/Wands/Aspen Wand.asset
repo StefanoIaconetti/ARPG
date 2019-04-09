@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Aspen Wand
   icon: {fileID: 21300000, guid: 4780c8fe5a11fa44ba986c5150c64875, type: 3}
   cost: 300
-  quantity: 0
+  canEquip: 1
   statBoost: 4
   equipType: 1

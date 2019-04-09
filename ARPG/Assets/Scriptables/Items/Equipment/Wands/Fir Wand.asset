@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Fir Wand
   icon: {fileID: 21300000, guid: eef9c6790d79eec4a8b04641df697ad4, type: 3}
   cost: 100
-  quantity: 0
+  canEquip: 1
   statBoost: 3
   equipType: 1
