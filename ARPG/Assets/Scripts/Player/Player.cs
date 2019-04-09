@@ -6,6 +6,8 @@ public class Player : Character {
 
     public List<Quest> questList;
 
+    public bool isBoosted = false;
+
     public GameObject projectilePrefab;
 
     public GameObject upTarget;
@@ -97,6 +99,12 @@ public class Player : Character {
         if (Input.GetKeyDown(KeyCode.X)) {
             if (!IsAttackingRanged) {
                 attackRangedCoroutine = StartCoroutine(AttackRanged());
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.C)) {
+            if (!isBoosted && currentPotion != null) {
+                //Use the function in the potion script UsePotion();
+                //current potion is an equipable and i need it to be a potion?
             }
         }
     }
