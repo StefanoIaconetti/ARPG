@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2125371711225526581}
   - component: {fileID: 1988812214557107923}
   - component: {fileID: 7927747696891188002}
-  - component: {fileID: 1814430538793806085}
   - component: {fileID: 7527266912773425528}
   - component: {fileID: 6125468432823144067}
+  - component: {fileID: 1075147051002516578}
   m_Layer: 12
   m_Name: Projectile
   m_TagString: Untagged
@@ -99,21 +99,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1814430538793806085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1729532828428205666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa4e21250630f4640ab7e32cd890a7a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thrust: 0
-  knockbackTime: 0.3
-  damage: 5
 --- !u!114 &7527266912773425528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,3 +135,17 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &1075147051002516578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729532828428205666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37c303a879b6e4ebda9e243790b899f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  player: {fileID: 0}
