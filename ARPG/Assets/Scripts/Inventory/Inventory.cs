@@ -1,123 +1,71 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class Inventory : MonoBehaviour
+[Serializable]
+//Everything that has a inventory will reference to this script, the user can Add and remove from their list of items
+public class Inventory
 {
-	//This creates an instance of inventory
-	//public static Inventory instance;
-
-	//public static Inventory shopKeepingInstance;
-
-	//In the awake method it checks to see if theres an instance of inventory, if there is a warning occurs. 
-	//Unless another instance is made by accident in our code then the warning will never occur
-
-	void Awake(){
-		//if(instance != null)
-		//{
-		//    Debug.LogWarning("More than one instance found");
-		//    return;
-		// }
-		//  if (shopKeepingInstance != null)
-		//{
-		//  Debug.LogWarning("More than one instance found");
-		//return;
-		// }
-
-		//shopKeepingInstance = this;
-		//instance = this;
-	}
-
-	//Creates a delegate OnItemChanged
-	public delegate void OnItemChanged();
-	public OnItemChanged itemChangeCallBack;
-
 	//This is the amount of inventoy spaces
 	public const int inventorySpace = 9;
 
-	//This creates a list of items which will then become the inventory
+	//This creates a list of inventoryitems which will then become the inventory
 	public List<InventoryItem> items = new List<InventoryItem>();
 
 	//This method adds the item to the inventory
 	public bool AddItem(InventoryItem item)
-	{//If the items are greater than the amount of space then it returns false. Futher we will notify the user that they cannot have any more
+	{
+		//If the items are greater than the amount of space then it returns false. Futher we will notify the user that they cannot have any more
 		if(items.Count >= inventorySpace)
 		{
 			return false;
 		}
 
-		//This checks to see if there are any items in the inventory, if there is not then it adds it to the inventory
-		if (items.Count == 0)
-		{
-			items.Add(item);
-			items[0].itemQuantity = 1;
-		} else{
-			//This goes through the current inventory
-			int counter = 0;
-			for (int i = 0; i < items.Count; i++)
-			{
-				//This counter increases every time the names are not the same
 
+		//If there are no items at all then add an item
+		if (items.Count == 0) {
+			items.Add (item);
+			return true;
+		} else {
+			//This checks to see if there are any of the same items, if there are then the quantity increases instead of adding a new item 
+			foreach (InventoryItem forItem in items) {
+				if (forItem.item.name == item.item.name) {
+					forItem.itemQuantity++;
 
-				counter++;
-				//If the names are equal then the quantity increases
-				if (items[i].item.name == item.item.name)
-				{
-					items[i].itemQuantity++;
-
-					break;
+					return true;
 				}
-
-				//If there are no items that are the same then a new inventory slot is taken up
-				if (counter == items.Count) { 
-					items.Add(item);
-					items[i + 1].itemQuantity = 1;
-					break;
-				}
-
 			}
+			//If there was no items that were the same then item is added to the inventory
+			InventoryItem newItem = new InventoryItem(item.item, 1);
+			items.Add (newItem);
 		}
 
-		//If the callback is null then invoke
-		if (itemChangeCallBack != null)
-		{
-			itemChangeCallBack.Invoke();
-		}
 		return true;
 	}
 
-	public void RemoveQuantity(InventoryItem item)
-	{
-		//for (int i = 0; i < items.Count; i++)
-		//{
-			//If the names are equal then the quantity increases
-			//if (items[i].name == item.name)
-			//{
-				item.itemQuantity--;
-
-			//	break;
-			//}
-		//}
-
-	}
-
 	//This method is for removing items from the inventory
-	public void RemoveItem (InventoryItem item)
+	public bool RemoveItem (InventoryItem item)
 	{
-		for (int i = 0; i < items.Count; i++)
-		//{
-		//If the names are equal then the quantity increases
-			if (items[i].item.name == item.item.name)
-		{
-		//int myItem = items.Find(item. => item.item == item);
-		//Removes item
-				items.RemoveAt(i);
+		//This iterates through the list of items
+		for (int i = 0; i < items.Count; i++) {
+			//If the names are the same
+			if (items [i].item.name == item.item.name) {
+				//If there are more than one then remove the item
+				if (items[i].itemQuantity > 1) {
+					//item.itemQuantity--;
+					items [i].itemQuantity--;
+					Debug.Log ("Yeee");
+					break;
+				} else {
+					//Otherwise remove at the index (If you do not remove at the index it can potentially find the item you are not attempting to look for)
+					items.RemoveAt (i);Debug.Log ("Yeeehaw");
+					break;
+
+				}
 			}
+		}
+		return true;
 	}
-		//If the callback is null then invoke
-		//if (itemChangeCallBack != null)
-		//{
-		//  itemChangeCallBack.Invoke();
-		//}
 
 }

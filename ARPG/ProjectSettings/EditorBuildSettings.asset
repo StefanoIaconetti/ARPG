@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/StefanosScene.unity
+    path: Assets/Scenes/MainMenuScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Dungeon.unity
+    guid: 709902e7715f75f4b9517b46ab7a976e
+  - enabled: 1
+    path: Assets/Scenes/JustinScene.unity
+    guid: edbaefb492e644af78246b8e4dfac1ba
   m_configObjects: {}

@@ -18,9 +18,13 @@ public class Enemy : MonoBehaviour {
     public float baseAttack;
     public float xpDrop;
 
+    public LootTable drops;
+
     public Transform target;
 
     protected Animator animator;
+
+    public Coroutine deathCoroutine;
 
     public void Start() {
         animator = GetComponent<Animator>();
@@ -33,21 +37,24 @@ public class Enemy : MonoBehaviour {
     public void TakeDamage(float damage) {
         health -= damage;
         if (health <= 0) {
-            StartCoroutine(DeathCo());
+            if(deathCoroutine == null) {
+                deathCoroutine = StartCoroutine(DeathCo());
+            }
         }
     }
 
+    //Function to knock the enemy back
     public void Knock(Rigidbody2D rb, float knockbackTime) {
         StartCoroutine(KnockCo(rb, knockbackTime));
     }
 
-    //function to initiate a knockback timer
+    //Function to initiate a knockback timer
     private IEnumerator KnockCo(Rigidbody2D rb, float knockbackTime) {
-        //if entity is not null initiate timer
+        //If enemy is not null initiate timer
         if (rb != null) {
-            //wait the knockback time
+            //Wait the knockback time
             yield return new WaitForSeconds(knockbackTime);
-            //set the entity back to its original state
+            //Set the enemy back to its original state
             rb.velocity = Vector2.zero;
             //Switch enemy state
             rb.GetComponent<Enemy>().currentState = EnemyState.idle;
@@ -58,8 +65,21 @@ public class Enemy : MonoBehaviour {
         //This is happening before healthbar script can get rid of the healthbar NEEDS FIX
         animator.SetBool("IsDead", true);
         target.gameObject.GetComponent<Player>().GainXP(xpDrop);
-        yield return new WaitForSeconds(0.5f);
-        gameObject.SetActive(false);
+        target.gameObject.GetComponent<Player>().UpdateKillQuests();
+        DropItem();
+        yield return new WaitForSeconds(0.6f);
+        Destroy(gameObject);
+        Debug.Log("Enemy should die");
+    }
+    
+    public void DropItem() {
+        if (drops != null) {
+            Item loot = drops.LootItem();
+            if (loot != null) {
+                Debug.Log("Dropped a " + loot.name);
+                GameObject gameObject = Instantiate(Resources.Load(loot.name), transform.position, Quaternion.identity) as GameObject;
+            }
+        }
     }
 
 

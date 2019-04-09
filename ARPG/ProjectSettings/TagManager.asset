@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Item
+  - Room
+  - Dungeon
   layers:
   - Default
   - TransparentFX
@@ -14,11 +17,11 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Projectile
+  - Player
+  - Enemy
+  - NPC
+  - PlayerProjectile
   - 
   - 
   - 
