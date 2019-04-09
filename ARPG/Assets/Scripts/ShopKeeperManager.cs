@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//This holds the current shopkeeper
 public class ShopKeeperManager : MonoBehaviour{
 
 	//This will helpw whenever we waant to figure out what the current shopkeeper is

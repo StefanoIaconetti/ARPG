@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//This chestmanager manages the current chests
 public class ChestManager : MonoBehaviour{
 
 	//This will helpw whenever we waant to figure out what the current shopkeeper is

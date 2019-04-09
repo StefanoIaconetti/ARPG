@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//If the player picks the item
 public class PickUp : MonoBehaviour
 {
     //Creates an instance of item

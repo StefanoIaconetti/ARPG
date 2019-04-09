@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 //This manages the shopkeepers
 public class ShopKeeperObject : MonoBehaviour
 {
@@ -53,7 +54,6 @@ public class ShopKeeperObject : MonoBehaviour
 
 		//Loops and adds random items
 
-		//TODO once items are implemented i can then add random items with random quantities, as of right now its just 2 items 
 		for (int i = 0; i < shopKeeperItemManager.Count; i++) {
 			InventoryItem invItem = new InventoryItem (shopKeeperItemManager [i], 1);
 			inventory.AddItem (invItem);
@@ -102,8 +102,6 @@ public class ShopKeeperObject : MonoBehaviour
 
 		//Updates the UI
 			UpdateUI ();
-
-
 
 		playerInventory.enabled = true;
 
