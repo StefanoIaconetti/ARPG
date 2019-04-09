@@ -6,6 +6,14 @@ public class Player : Character {
 
     public List<Quest> questList;
 
+    public GameObject projectilePrefab;
+
+    public GameObject currentTarget;
+    public GameObject upTarget;
+    public GameObject downTarget;
+    public GameObject leftTarget;
+    public GameObject rightTarget;
+
     // Update is called once per frame
     protected override void Update(){
 		getInput();
@@ -105,6 +113,11 @@ public class Player : Character {
         if (!IsAttackingClose && !IsAttackingRanged && !IsMoving) {
             IsAttackingRanged = true;
             animator.SetBool("attackRanged", IsAttackingRanged);
+            GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+            //Find direction
+            Vector3 temp = FindDirection();
+            //Shoot bubble
+            projectile.GetComponent<Bubble>().Shoot(temp);
             yield return new WaitForSeconds(.6f);
             StopAttackRanged();
         }
@@ -176,6 +189,28 @@ public class Player : Character {
                 }
             }
         }
+    }
+
+    public Vector3 FindDirection() {
+
+        Vector3 temp = new Vector3();
+
+        switch(directionString) {
+            case "Up":
+                temp = upTarget.transform.position - transform.position;
+                break;
+            case "Down":
+                temp = downTarget.transform.position - transform.position;
+                break;
+            case "Left":
+                temp = leftTarget.transform.position - transform.position;
+                break;
+            case "Right":
+                temp = rightTarget.transform.position - transform.position;
+                break;
+        }
+
+        return temp;
     }
 
 }

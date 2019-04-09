@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour {
     public float baseAttack;
     public float xpDrop;
 
-    public List<InventoryItem> drops;
+    public LootTable drops;
 
     public Transform target;
 
@@ -66,20 +66,20 @@ public class Enemy : MonoBehaviour {
         animator.SetBool("IsDead", true);
         target.gameObject.GetComponent<Player>().GainXP(xpDrop);
         target.gameObject.GetComponent<Player>().UpdateKillQuests();
-        //DropItems();
-        yield return new WaitForSeconds(1f);
+        DropItem();
+        yield return new WaitForSeconds(0.6f);
         Destroy(gameObject);
         Debug.Log("Enemy should die");
     }
     
-    public void DropItems() {
-        int numberOfItemsDrop = Random.Range(1, 4);
-        for (int i = 0; i <= numberOfItemsDrop; i++) {
-            int itemID = Random.Range(0, drops.Count);
-            //Drop item
-            GameObject gameObject = Instantiate(Resources.Load(drops[itemID].item.name), transform.position, Quaternion.identity) as GameObject;
+    public void DropItem() {
+        if (drops != null) {
+            Item loot = drops.LootItem();
+            if (loot != null) {
+                Debug.Log("Dropped a " + loot.name);
+                GameObject gameObject = Instantiate(Resources.Load(loot.name), transform.position, Quaternion.identity) as GameObject;
+            }
         }
-        
     }
 
 

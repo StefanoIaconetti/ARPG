@@ -5,15 +5,26 @@ using UnityEngine;
 public class Bubble : MonoBehaviour {
 
     public int speed = 4;
-    public Transform target;
 
-    public void OnEnable() {
-        target = GameObject.FindWithTag("Player").transform;
+    public float lifetime;
+    private float lifetimeSeconds;
+
+    public Rigidbody2D rb;
+
+    private void Start() {
+        rb = GetComponent<Rigidbody2D>();
+        lifetimeSeconds = lifetime;
     }
 
     public void Update() {
-        GetComponent<Rigidbody2D>().velocity = (target.transform.position - transform.position).normalized * speed; 
-        //transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        lifetimeSeconds -= Time.deltaTime;
+        if(lifetimeSeconds <= 0) {
+            Destroy(gameObject);
+        }
+    }
+
+    public void Shoot(Vector2 direction) {
+        rb.velocity = direction * speed;
     }
 
     public void OnTriggerEnter2D(Collider2D collision) {
