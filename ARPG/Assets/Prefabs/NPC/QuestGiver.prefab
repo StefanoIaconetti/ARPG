@@ -114,6 +114,9 @@ MonoBehaviour:
     description: Kill 3 enemies
     goldReward: 100
     xpReward: 100
+    item:
+      item: {fileID: 0}
+      itemQuantity: 0
     goal:
       goalType: 0
       requiredAmount: 0
