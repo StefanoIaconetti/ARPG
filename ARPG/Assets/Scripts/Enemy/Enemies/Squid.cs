@@ -100,27 +100,5 @@ public class Squid : Enemy {
         }
     }
 
-/*    public void SetBubbleTarget(GameObject bubble, Vector2 direction) {
-        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y)) {
-            //Shooting right
-            if (direction.x > 0) {
-                bubble.GetComponent<Bubble>().target = targetRight;
-            }
-            //Shooting left
-            else if (direction.x < 0) {
-                bubble.GetComponent<Bubble>().target = targetLeft;
-            }
-        } else if (Mathf.Abs(direction.x) < Mathf.Abs(direction.y)) {
-            //Shooting up
-            if (direction.y > 0) {
-                bubble.GetComponent<Bubble>().target = targetUp;
-            }
-            //Shooting down
-            else if (direction.y < 0) {
-                bubble.GetComponent<Bubble>().target = targetDown;
-            }
-        }
-    }*/
-
 
 }
