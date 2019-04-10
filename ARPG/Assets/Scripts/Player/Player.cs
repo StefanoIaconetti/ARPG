@@ -7,6 +7,7 @@ public class Player : Character {
     public List<Quest> questList;
 
     public bool isBoosted = false;
+    public bool isInTown = true;
 
     public GameObject projectilePrefab;
 
