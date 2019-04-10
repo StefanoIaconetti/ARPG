@@ -38,7 +38,11 @@ public class GameManager : MonoBehaviour
 	//This holds the save button so when this button is pressed the game saves
 	public GameObject saveButton;
 
+    //This holds the settings button so when it is pressed it loads the settings window
     public GameObject saveButton1;
+
+    //This holds the Settings Canvas
+    public GameObject Settings;
 
 	//This will check if there is currently a loading gameobject, if there is load the recent save
 	private GameObject checkLoad;
@@ -145,6 +149,7 @@ public class GameManager : MonoBehaviour
 			} else {
 				saveButton.SetActive (true);
                 saveButton1.SetActive(true);
+                Settings.SetActive(false);
 
 			}
 		}
@@ -173,6 +178,7 @@ public class GameManager : MonoBehaviour
     {
         saveButton.SetActive(false);
         saveButton1.SetActive(false);
+        Settings.SetActive(true);
         //MenuScript.menuPanel.gameObject.SetActive(true);
 
         //Escape key will open or close the panel
