@@ -7,18 +7,24 @@ public class AfterExit : MonoBehaviour
 
     private float playerX;
     private float playerY;
+	DungeonTrigger dungeonTrigger;
 
     // Start is called before the first frame update
     void Start()
-    {
-        if (ReachedBoss.isDone == true)
-        {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            playerX = DungeonTrigger.playerX - 1;
-            playerY = DungeonTrigger.playery - 1;
-            player.transform.position = new Vector2(playerX, playerY);
-            ReachedBoss.isDone = false;
-            Debug.Log(ReachedBoss.isDone);
-        }
+    {	
+		DontDestroyOnLoad (dungeonTrigger.playerObj);
+		DontDestroyOnLoad (dungeonTrigger.managers);
+		DontDestroyOnLoad (dungeonTrigger.canvas);
+		DontDestroyOnLoad (dungeonTrigger.canvasUI);
+
+       // if (ReachedBoss.isDone == true)
+       // {
+         //   GameObject player = GameObject.FindGameObjectWithTag("Player");
+         //   playerX = DungeonTrigger.playerXPos - 1;
+          //  playerY = DungeonTrigger.playerYPos - 1;
+           // player.transform.position = new Vector2(playerX, playerY);
+          //  ReachedBoss.isDone = false;
+           // Debug.Log(ReachedBoss.isDone);
+       // }
     }    
 }
