@@ -67,33 +67,33 @@ public class Player : Character {
         //Resets direction
         direction = Vector2.zero;
 		//Each input moves the character in a different direction
-		if (Input.GetKey(KeyCode.RightArrow))
+		if (Input.GetKey(GameManager.GM.right))
 		{
 			direction += Vector2.right;
 			directionString = "Right";
 		}
-		else if (Input.GetKey(KeyCode.LeftArrow))
+		else if (Input.GetKey(GameManager.GM.left))
 		{
 			direction += Vector2.left;
 			directionString = "Left";
 		}
-		else if (Input.GetKey(KeyCode.UpArrow))
+		else if (Input.GetKey(GameManager.GM.forward))
 		{
 			direction += Vector2.up;
 			directionString = "Up";
 		}
-		else if (Input.GetKey(KeyCode.DownArrow))
+		else if (Input.GetKey(GameManager.GM.backward))
 		{
 			direction += Vector2.down;
 			directionString = "Down";
 		}
 
-        if (Input.GetKeyDown(KeyCode.Z)) {
+        if (Input.GetKeyDown(GameManager.GM.attackClose)) {
             if (!IsAttackingClose) {
                 attackCloseCoroutine = StartCoroutine(AttackClose());
             }
         }
-        if (Input.GetKeyDown(KeyCode.X)) {
+        if (Input.GetKeyDown(GameManager.GM.attackRanged)) {
             if (!IsAttackingRanged) {
                 attackRangedCoroutine = StartCoroutine(AttackRanged());
             }
