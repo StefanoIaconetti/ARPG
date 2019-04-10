@@ -117,7 +117,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         //This is with the inventory opening and closes
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(GM.openInventory))
         {
 			//Either unpauses game or pauses game depending on the boolean statement
 			//Game is paused and unpaused depending on if the inventory is active or not

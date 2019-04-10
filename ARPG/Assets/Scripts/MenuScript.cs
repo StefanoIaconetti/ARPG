@@ -140,7 +140,7 @@ public class MenuScript : MonoBehaviour {
 			buttonText.text = GameManager.GM.openInventory.ToString(); //set button text to new key
 			PlayerPrefs.SetString("openInventory", GameManager.GM.openInventory.ToString()); //save new key to playerprefs
 			break;
-        case "use":
+        case "useKey":
             GameManager.GM.use = newKey; //set jump to new keycode
             buttonText.text = GameManager.GM.use.ToString(); //set button text to new key
             PlayerPrefs.SetString("useKey", GameManager.GM.use.ToString()); //save new key to playerprefs

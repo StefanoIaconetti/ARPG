@@ -69,7 +69,7 @@ public abstract class NPC : Interactable
     public void Update()
     {
         //When the e key is pressed dialogue occurs
-        if (Input.GetKeyDown(KeyCode.E) && collide)
+        if (Input.GetKeyDown(GameManager.GM.use) && collide)
         {
 			if (npcType == NPCType.Chest) {
 				chestMang.inventoryCanOpen = true;

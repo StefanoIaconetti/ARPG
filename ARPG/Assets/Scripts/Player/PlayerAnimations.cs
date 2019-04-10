@@ -24,22 +24,22 @@ public class PlayerAnimations : MonoBehaviour {
     void Update () {
 
         //Each input moves the character in a different direction
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(GameManager.GM.right))
         {
             isWalking = true;
             sprite.flipX = false;
         }
-        else if (Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(GameManager.GM.left))
         {
             isWalking = true;
             sprite.flipX = true;
 
         }
-        else if (Input.GetKey(KeyCode.UpArrow))
+        else if (Input.GetKey(GameManager.GM.forward))
         {
             isWalking = true;
         }
-        else if (Input.GetKey(KeyCode.DownArrow))
+        else if (Input.GetKey(GameManager.GM.backward))
         {
             isWalking = true;
         }
