@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour {
 
-    public List<Item> itemList = new List<Item>();
+    public LootTable questItems;
+    public LootTable rewardLoot;
+
+    public Item GetLoot() {
+        return rewardLoot.LootItem();
+    }
 
 
     public Quest GenerateKillQuest(int level) {
@@ -61,7 +66,8 @@ public class QuestManager : MonoBehaviour {
         }
 
         //Generate random item here
-        InventoryItem item = new InventoryItem(itemList[0] , 1);
+        Item questItem = questItems.LootItem();
+        InventoryItem item = new InventoryItem(questItem, 1);
         quest.item = item;
 
         quest.goal.requiredAmount = requiredNum;

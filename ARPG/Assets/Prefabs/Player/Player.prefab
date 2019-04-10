@@ -549,7 +549,6 @@ MonoBehaviour:
   questList: []
   projectilePrefab: {fileID: 1729532828428205666, guid: bf84e9a7b2c25457f89e52c101ea4be1,
     type: 3}
-  currentTarget: {fileID: 0}
   upTarget: {fileID: 5679199}
   downTarget: {fileID: 626516527}
   leftTarget: {fileID: 93389299}

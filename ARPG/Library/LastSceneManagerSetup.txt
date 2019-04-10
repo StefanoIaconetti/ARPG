@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/Dungeon.unity
+=======
+- path: Assets/Scenes/JustinScene.unity
+>>>>>>> c92b948cbb33dcf81fd8ef5a5b91f1e317f35ee8
   isLoaded: 1
   isActive: 1

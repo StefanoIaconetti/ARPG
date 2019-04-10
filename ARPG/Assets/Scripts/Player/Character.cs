@@ -6,7 +6,7 @@ using UnityEngine;
 public abstract class Character : MonoBehaviour{
 
 	[SerializeField]
-	private float speed;
+	public int speed;
 	public int wandDamage;
 	public int swordDamage;
 	public int protection;

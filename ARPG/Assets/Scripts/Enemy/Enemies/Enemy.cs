@@ -67,7 +67,7 @@ public class Enemy : MonoBehaviour {
         target.gameObject.GetComponent<Player>().GainXP(xpDrop);
         target.gameObject.GetComponent<Player>().UpdateKillQuests();
         DropItem();
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
         Debug.Log("Enemy should die");
     }
