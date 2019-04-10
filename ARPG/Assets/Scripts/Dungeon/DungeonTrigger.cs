@@ -9,6 +9,7 @@ public class DungeonTrigger : MonoBehaviour
     public static float playerXPos;
     public static float playerYPos;
 
+	//Grabs the gameobjects that wont be destroyed
 	public GameObject playerObj;
 	public GameObject managers;
 	public GameObject canvas;
@@ -16,20 +17,15 @@ public class DungeonTrigger : MonoBehaviour
 
     private GameObject player = null;
 
-    public void Awake()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-        
-    }
-
+	//When the player enters 
      void OnTriggerEnter2D(Collider2D collision)
 	{	DontDestroyOnLoad (playerObj);
 		DontDestroyOnLoad (managers);
 		DontDestroyOnLoad (canvas);
 		DontDestroyOnLoad (canvasUI);
 
-		playerXPos = player.transform.position.x;
-		playerYPos = player.transform.position.y;
+		playerXPos = playerObj.transform.position.x;
+		playerYPos = playerObj.transform.position.y;
         SceneManager.LoadScene("Dungeon");
 
 
