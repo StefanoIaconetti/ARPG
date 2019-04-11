@@ -2,26 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+//When the player enters the dungeon trigger radius
 public class DungeonTrigger : MonoBehaviour
 {
-    
-    public static float playerX;
-    public static float playery;
+    //Grabs the players X and y positions
+    public static float playerXPos;
+    public static float playerYPos;
 
+	//Grabs the gameobjects that wont be destroyed
+	public GameObject playerObj;
+	public GameObject managers;
+	public GameObject canvas;
+	public GameObject canvasUI;
 
     private GameObject player = null;
 
-    public void Awake()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-        
-    }
-
+	//When the player enters 
      void OnTriggerEnter2D(Collider2D collision)
-    {
-        playerX = player.transform.position.x;
-        playery = player.transform.position.y;
+	{	DontDestroyOnLoad (playerObj);
+		DontDestroyOnLoad (managers);
+		DontDestroyOnLoad (canvas);
+		DontDestroyOnLoad (canvasUI);
+
+		playerXPos = playerObj.transform.position.x;
+		playerYPos = playerObj.transform.position.y;
         SceneManager.LoadScene("Dungeon");
-    }
+
+
+	} 	
 }

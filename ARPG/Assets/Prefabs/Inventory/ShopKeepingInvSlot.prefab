@@ -136,10 +136,12 @@ MonoBehaviour:
   itemButton: {fileID: 576344744944419033}
   sellButton: {fileID: 0}
   optionsButton: {fileID: 5685291221136105764}
+  equipButton: {fileID: 0}
   quantityText: {fileID: 8251878409649744450}
-  item: {fileID: 0}
+  item:
+    item: {fileID: 0}
+    itemQuantity: 0
   player: {fileID: 0}
-  shopMang: {fileID: 0}
 --- !u!1 &576344744322841923
 GameObject:
   m_ObjectHideFlags: 0

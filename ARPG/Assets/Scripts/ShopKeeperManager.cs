@@ -17,6 +17,5 @@ public class ShopKeeperManager : MonoBehaviour{
 			currentShopKeeper.UpdateUI();
 			currentShopKeeper.ShopOpen();
 	}
-
 }
 }

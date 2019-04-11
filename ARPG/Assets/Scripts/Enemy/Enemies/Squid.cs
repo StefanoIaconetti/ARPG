@@ -54,7 +54,6 @@ public class Squid : Enemy {
 
             // Change to only shoot one at a time
             if (Vector3.Distance(target.position, transform.position) <= attackRange) {
-                Debug.Log(canFire);
                 if(canFire) {
                     ChangeState(EnemyState.attacking);
                     //Create a bubble

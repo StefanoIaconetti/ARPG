@@ -15,7 +15,7 @@ public class ShopKeeperObject : MonoBehaviour
 	public Inventory inventory;
 
 	//This canvas holds the shopkeepers inventory
-	public Canvas inventoryCanvas;
+	public GameObject inventoryObject;
 
 	//This holds a list of items that a shop could have
 	public List<Item> shopKeeperItemManager = new List<Item>(); 
@@ -33,9 +33,9 @@ public class ShopKeeperObject : MonoBehaviour
 	Vector3 originalPos;
 
 	//This obtains the canvas of the players inventory
-	public Canvas playerInventory;
+	//public Canvas playerInventory;
 
-	public ShopKeeperManager shopMang;
+	ShopKeeperManager shopMang;
 
 	//Creates an instance of inventory and fills in slots
 	public void Awake()
@@ -47,7 +47,9 @@ public class ShopKeeperObject : MonoBehaviour
 
 	//Start method starts with the inventory canvas being false
 	void Start(){
-		inventoryCanvas.enabled = false;
+		shopMang = GameObject.Find("ShopKeeperManager").GetComponent<ShopKeeperManager>();
+		Debug.Log (shopMang);
+		inventoryObject.SetActive (false);
 
 		//Gathers the original position of the inventory
 		originalPos = new Vector3(changePlayer.transform.position.x, changePlayer.transform.position.y, changePlayer.transform.position.z);
@@ -98,12 +100,12 @@ public class ShopKeeperObject : MonoBehaviour
 	//Opens the shops menu
 	public void ShopOpen(){
 		//Enables the canvas
-			inventoryCanvas.enabled = true;
+		inventoryObject.SetActive (true);
 
 		//Updates the UI
 			UpdateUI ();
 
-		playerInventory.enabled = true;
+		changePlayer.SetActive (true);
 
 		//Inventory can open is now true, this then gives the ShopClose the ability to close
 		shopMang.inventoryCanOpen = true;
@@ -119,7 +121,7 @@ public class ShopKeeperObject : MonoBehaviour
 		}
 
 		//Translates the gameobject
-		changePlayer.transform.Translate (-251.7f, -117.98f, 0);
+		changePlayer.transform.Translate (-150.7f, -117.98f, 0);
 		minused++;
 
 		}
@@ -129,14 +131,12 @@ public class ShopKeeperObject : MonoBehaviour
 		if (shopMang.inventoryCanOpen && Input.GetKeyDown(KeyCode.F)) {
 
 			//Closes the shop canvas
-			shopMang.currentShopKeeper.inventoryCanvas.enabled = false;
-			//playerInventory.enabled = true;
+			shopMang.currentShopKeeper.inventoryObject.SetActive (false);
 
 			//Gives the gamemanager the ability to close the inventory
-			//GameManager.inventoryOpen = false;
 
 			//Translates the gameobject back
-			changePlayer.transform.Translate (251.7f, 117.98f, 0);
+			changePlayer.transform.Translate (150.7f, 117.98f, 0);
 
 			//Resets by setting it to false
 			shopMang.inventoryCanOpen = false;

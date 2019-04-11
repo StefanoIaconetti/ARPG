@@ -30,19 +30,26 @@ public class InventorySlot : MonoBehaviour
 	public InventoryItem item;
 
 	//Accepts a player
-	public Player player;
+	 Player player;
 
-	//This accepts all the managers
-	public ShopKeeperManager shopMang;
-	public ChestManager chestMang;
-	public EquipmentManager equipMang; 
-
+	ShopKeeperManager shopMang;
+	ChestManager chestMang;
+	EquipmentManager equipMang;
 	//Creates a public equipable item, if the item is equipable then this is populated
-	public Equipable equipableItem;
+	Equipable equipableItem;
 
 	//boolean that checks if the optionsbutton has already translated
 	bool alreadyTrans = false;
 
+
+	public void Start(){
+		//This accepts all the managers
+
+		player = GameObject.Find("Player").GetComponent<Player>();
+		 shopMang = GameObject.Find("ShopKeeperManager").GetComponent<ShopKeeperManager>();
+		 chestMang = GameObject.Find("ChestManager").GetComponent<ChestManager>();
+		 equipMang = GameObject.Find("EquipmentManager").GetComponent<EquipmentManager>(); 
+	}
 
 
 	//This adds an item to the inventory slot	
@@ -189,6 +196,7 @@ public class InventorySlot : MonoBehaviour
 
 	//If the item is equipable the button holding this onclick will be called
 	public void OnEquipButton(){
+
 		//The options button and equip button now becomes false
 		optionsButton.gameObject.SetActive(false);
 		equipButton.gameObject.SetActive (false);
@@ -215,7 +223,7 @@ public class InventorySlot : MonoBehaviour
 			optionsButton.transform.Translate (0, -10f, 0);
 			optionsButton.gameObject.SetActive (false);
 			alreadyTrans = false;
-		}else if (equipableItem != null && alreadyTrans == false) {
+		}else if (equipableItem != null && alreadyTrans == false && shopMang.inventoryCanOpen == false) {
 			equipButton.gameObject.SetActive (true);
 			optionsButton.transform.Translate (0, 10, 0);
 			optionsButton.gameObject.SetActive (true);

@@ -4,25 +4,31 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class EnterDoor : MonoBehaviour {
-
-	[SerializeField]
-	string direction;
-
-    private float currentHealth;
-
-
- 
+	
+	public GameObject[] listOfEnemies;
+	int counter;
 
 	void OnCollisionEnter2D(Collision2D col) {
-		if (col.gameObject.tag == "Player") {
-			GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
-			if (enemies.Length == 0) {
-                GameObject dungeon = GameObject.FindGameObjectWithTag ("Dungeon");
-				DungeonGeneration dungeonGeneration = dungeon.GetComponent<DungeonGeneration> ();
-				Room room = dungeonGeneration.CurrentRoom ();
-				dungeonGeneration.MoveToRoom (room.Neighbor (this.direction));
-				SceneManager.LoadScene ("Dungeon");
+		for (int i = 0; i < listOfEnemies.Length; i++) {
+
+			if(listOfEnemies[i] == null){
+				counter++;
+				Debug.Log (counter + listOfEnemies.Length);
+			}
+
+
+			if (col.gameObject.tag == "Player" && counter == listOfEnemies.Length) {
+				counter = 0;
+				Debug.Log ("Ooooofer tooofer");
+				GameObject dungeonManag = GameObject.Find ("Dungeon Manager");
+				DungeonManager dungeon = dungeonManag.GetComponent<DungeonManager> ();
+				dungeon.RandomDungeon ();
+				dungeon.roomCounter++;
+
 			}
 		}
 	}
-}
+
+
+	}
+

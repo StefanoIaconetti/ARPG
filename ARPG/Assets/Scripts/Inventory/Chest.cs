@@ -15,16 +15,16 @@ public class Chest : MonoBehaviour
 	public Inventory inventory;
 
 	//Canvas for the chest
-	public Canvas chestCanvas;
+	public GameObject chestCanvas;
 
 	//This holds the chestManager
-	public ChestManager chestMang;
+	ChestManager chestMang;
 
 	//This holds the canvas of the playershop
-	public Canvas playerShop;
+	public GameObject playerShop;
 
 	//This canvas holds the shopkeepers inventory
-	public Canvas inventoryCanvas;
+	//public Canvas inventoryCanvas;
 
 	//This is the list of items 
 	public List<Item> chestItemManager = new List<Item>();
@@ -38,8 +38,10 @@ public class Chest : MonoBehaviour
 
 	//When game starts
 	void Start(){
+
+		chestMang = GameObject.Find("ChestManager").GetComponent<ChestManager>();
 		//canvas is false
-		chestCanvas.enabled = false;
+		chestCanvas.SetActive (false);
 
 		//Inventory of the chest is added
 		for (int i = 0; i < chestItemManager.Count; i++) {
@@ -75,17 +77,14 @@ public class Chest : MonoBehaviour
 	{
 		//If the inventory can open then call the chest close method
 		if (chestMang.inventoryCanOpen) {
-
 			ChestClose ();
-
 		}
 	}
-
 
 	//Opens the chest
 	public void ChestOpen(){
 		//Enables the canvas 
-		chestCanvas.enabled = true;
+		chestCanvas.SetActive (true);
 
 		//Updates the UI
 		UpdateUI ();
@@ -104,10 +103,10 @@ public class Chest : MonoBehaviour
 		if (chestMang.inventoryCanOpen && Input.GetKeyDown(KeyCode.F)) {
 
 			//Canvas is now disabled
-			chestMang.currentchest.chestCanvas.enabled = false;
+			chestMang.currentchest.chestCanvas.SetActive(false);
 
 			//Players inventory is true
-			playerShop.enabled = true;
+			playerShop.SetActive (true); 
 
 			//variable is set to false
 			chestMang.inventoryCanOpen = false;
