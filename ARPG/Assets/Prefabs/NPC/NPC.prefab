@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 935908664}
   m_Layer: 11
   m_Name: NPC
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,7 +161,6 @@ MonoBehaviour:
   chest: {fileID: 0}
   chestMang: {fileID: 0}
   targets:
-  - {fileID: 0}
   - {fileID: 0}
   IsWalking: 0
   speed: 3
