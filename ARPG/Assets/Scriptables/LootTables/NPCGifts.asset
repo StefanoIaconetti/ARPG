@@ -12,4 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d6f96e0e178410cb4b56077be28603, type: 3}
   m_Name: NPCGifts
   m_EditorClassIdentifier: 
-  loots: []
+  loots:
+  - loot: {fileID: 11400000, guid: 4be90167fa91c46469155612559302f4, type: 2}
+    lootChance: 10
+  - loot: {fileID: 11400000, guid: 12a6d6a7783974b17a809f54209daed0, type: 2}
+    lootChance: 10
+  - loot: {fileID: 11400000, guid: 390d38fc9ddbb4c248284e28ea17aafd, type: 2}
+    lootChance: 10
+  - loot: {fileID: 11400000, guid: 5de62c80c0dc347d88e740b33439b015, type: 2}
+    lootChance: 10
+  - loot: {fileID: 11400000, guid: 3f07f689649e345a49400a7e3afa1091, type: 2}
+    lootChance: 10
+  - loot: {fileID: 11400000, guid: 56c8cc562a21647bd8e686e69d40f3b0, type: 2}
+    lootChance: 10
+  - loot: {fileID: 11400000, guid: a2f376a9f3b1b414e8834a3588c268af, type: 2}
+    lootChance: 10
+  - loot: {fileID: 11400000, guid: 2ff8a8368aafe4039b548c5f8e95957b, type: 2}
+    lootChance: 10
+  - loot: {fileID: 11400000, guid: 18b8526d8bb7240b39a4116e702f8f48, type: 2}
+    lootChance: 10
+  - loot: {fileID: 11400000, guid: 78daa1940d7b44c0dbbfb808c01ac558, type: 2}
+    lootChance: 10
