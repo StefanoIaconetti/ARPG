@@ -8,6 +8,7 @@ TagManager:
   - Item
   - Room
   - Dungeon
+  - NPC
   layers:
   - Default
   - TransparentFX
