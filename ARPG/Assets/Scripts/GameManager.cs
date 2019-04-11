@@ -7,7 +7,20 @@ using System.IO;
 //This game managers handles most of the things occuring in the game, there will only be one gamemanager
 public class GameManager : MonoBehaviour
 {
-	//This holds the players inventory
+    public static GameManager GM;
+
+    public KeyCode forward { get; set; }
+    public KeyCode backward { get; set; }
+    public KeyCode left { get; set; }
+    public KeyCode right { get; set; }
+    public KeyCode openInventory { get; set; }
+    public KeyCode use { get; set; }
+    public KeyCode attackClose { get; set; }
+    public KeyCode attackRanged { get; set; }
+    public KeyCode usePotion { get; set; }
+
+
+    //This holds the players inventory
     public Canvas inventory;
 
 	//This holds the players equipment
@@ -24,6 +37,12 @@ public class GameManager : MonoBehaviour
 
 	//This holds the save button so when this button is pressed the game saves
 	public GameObject saveButton;
+
+    //This holds the settings button so when it is pressed it loads the settings window
+    public GameObject saveButton1;
+
+    //This holds the Settings Canvas
+    public GameObject Settings;
 
 	//This will check if there is currently a loading gameobject, if there is load the recent save
 	private GameObject checkLoad;
@@ -72,12 +91,37 @@ public class GameManager : MonoBehaviour
 
     }
 
+    void Awake()
+    {
+        if (GM == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            GM = this;
+        }
+        else if (GM != this)
+        {
+            Destroy(gameObject);
+        }
+
+
+        forward = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("forwardKey", "W"));
+        backward = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("backwardKey", "S"));
+        left = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("leftKey", "A"));
+        right = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("rightKey", "D"));
+        openInventory = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("inventoryKey", "F"));
+        attackClose = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("attackCloseKey", "Z"));
+        attackRanged = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("attackRangedKey", "X"));
+        use = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("useKey", "E"));
+        usePotion = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("usePotion", "C"));
+
+    }
+
 
     // Update is called once per frame
     void Update()
     {
         //This is with the inventory opening and closes
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(GM.openInventory))
         {
 			//Either unpauses game or pauses game depending on the boolean statement
 			//Game is paused and unpaused depending on if the inventory is active or not
@@ -101,8 +145,11 @@ public class GameManager : MonoBehaviour
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 			if (saveButton.activeSelf) {
 				saveButton.SetActive (false);
+                saveButton1.SetActive(false);
 			} else {
 				saveButton.SetActive (true);
+                saveButton1.SetActive(true);
+                Settings.SetActive(false);
 
 			}
 		}
@@ -127,4 +174,19 @@ public class GameManager : MonoBehaviour
 
 	}
 
-}
+    public void OnSettingButton()
+    {
+        saveButton.SetActive(false);
+        saveButton1.SetActive(false);
+        Settings.SetActive(true);
+        //MenuScript.menuPanel.gameObject.SetActive(true);
+
+        //Escape key will open or close the panel
+        if (Input.GetKeyDown(KeyCode.Escape) && !MenuScript.menuPanel.gameObject.activeSelf)
+            MenuScript.menuPanel.gameObject.SetActive(true);
+    }
+
+  }
+
+
+
