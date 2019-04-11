@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class BossExit : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	//DontDestroyOnLoad (dungeonTrigger.playerObj);
+	//DontDestroyOnLoad (dungeonTrigger.managers);
+	//DontDestroyOnLoad (dungeonTrigger.canvas);
+	//DontDestroyOnLoad (dungeonTrigger.canvasUI);
 }
