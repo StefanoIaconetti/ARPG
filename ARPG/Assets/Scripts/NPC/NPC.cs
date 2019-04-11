@@ -28,12 +28,18 @@ public abstract class NPC : Interactable
     //Grabs the animator
     public Animator animator;
 
-	public ShopKeeperManager shopMang;
-	public ShopKeeperObject shopObj;
+	Chest chest;
+	ChestManager chestMang;
+	ShopKeeperManager shopManag;
+	ShopKeeperObject shopObj;
 
-	public Chest chest;
-	public ChestManager chestMang;
 
+	public void Start (){
+		shopManag = GameObject.Find("ShopKeeperManager").GetComponent<ShopKeeperManager>();
+		chestMang = GameObject.Find("ChestManager").GetComponent<ChestManager>();
+		shopObj = GetComponent<ShopKeeperObject>();
+		chest = GetComponent<Chest>();
+	}
     //When the NPC collides
     public void OnTriggerEnter2D(Collider2D character) {
         //When colliding with the player
@@ -91,13 +97,14 @@ public abstract class NPC : Interactable
 
 				animator.SetBool("IsOpen", false);
 				//nameText.text = "";
-				endDialogue = 0;
+				shopManag.inventoryCanOpen = true;
+
 				//ShopKeeperManager.currentShopKeeper = 
-				shopMang.inventoryCanOpen = true;
 
 				//ShopKeeperManager.CheckShopKeeper ();
-				shopMang.currentShopKeeper = shopObj;
-				shopMang.CheckShopKeeper ();
+				shopManag.currentShopKeeper = shopObj;
+				shopManag.CheckShopKeeper ();
+				endDialogue = 0;
 
 
             } else if (endDialogue == 2 && npcType == NPCType.QuestGiver) {
@@ -107,10 +114,6 @@ public abstract class NPC : Interactable
 			}
 
         }
-
-
-
-		//shopMang.ShopOpen ();
     }
 
     //Adds a delay when the text plays

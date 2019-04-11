@@ -21,10 +21,10 @@ public class GameManager : MonoBehaviour
 
 
     //This holds the players inventory
-    public Canvas inventory;
+	public GameObject playerInventory;
 
 	//This holds the players equipment
-	public Canvas inventoryEquipment;
+	public GameObject inventoryEquipment;
 
 	//This checks to see if the inventory is open
     public static bool inventoryOpen = false;
@@ -53,8 +53,8 @@ public class GameManager : MonoBehaviour
 	//When the game starts
     void Start(){
 		//Inventory is no longer active same with inventory equipment
-		inventory.enabled = false;
-		inventoryEquipment.enabled = false;
+		playerInventory.SetActive (false);	
+		inventoryEquipment.SetActive (false);
 
 		//This populates the gameobject if it can find that they have loaded
 		checkLoad = GameObject.Find ("LoadChecker");
@@ -125,18 +125,18 @@ public class GameManager : MonoBehaviour
         {
 			//Either unpauses game or pauses game depending on the boolean statement
 			//Game is paused and unpaused depending on if the inventory is active or not
-			if (inventory.isActiveAndEnabled)
+			if (playerInventory.activeSelf)
             {
                 inventoryOpen = false;
-				inventory.enabled = false;
-				inventoryEquipment.enabled = false;
+				playerInventory.SetActive (false);	
+				inventoryEquipment.SetActive (false);	
                 Time.timeScale = 1;
             }
             else
             {
                 inventoryOpen = true;
-				inventory.enabled = true;
-				inventoryEquipment.enabled = true;
+				playerInventory.SetActive (true);	
+				inventoryEquipment.SetActive (true);
                 Time.timeScale = 0;
             }
         }

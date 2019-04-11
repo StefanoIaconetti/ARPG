@@ -251,5 +251,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1989489236724510594, guid: 1d9690ecb54d5124b8fd136608750e41,
         type: 3}
+    - target: {fileID: 1591895608236504018, guid: 62487ce3fa3e95e46ae825aabee4fe60,
+        type: 3}
+      propertyPath: caveMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: acfbbd79cb51c4af297183ef7e9089fe, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62487ce3fa3e95e46ae825aabee4fe60, type: 3}

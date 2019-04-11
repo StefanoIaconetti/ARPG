@@ -8,13 +8,20 @@ public class DungeonManager : MonoBehaviour
 	public GameObject currentDungeon;
 	public GameObject bossRoom;
 	public int roomCounter = 0;
+	SoundManager soundManag;
+	public AudioClip caveMusic;
 
     void Start()
     {
 		RandomDungeon ();
 
 		GameObject player =  GameObject.Find("Player");
+
 		player.transform.position = new Vector3(0,0,0);
+
+		soundManag = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+		//Tell the soundManager to play town music
+		soundManag.GetComponent<SoundManager>().ChangeMusic(caveMusic);
     }
 
 
