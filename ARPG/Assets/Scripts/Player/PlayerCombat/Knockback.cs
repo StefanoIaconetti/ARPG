@@ -39,6 +39,13 @@ public class Knockback : MonoBehaviour {
                 }
 
             }
+        } else if (collision.gameObject.CompareTag("Boss")) {
+                //If enemy is alive
+                if (collision.isActiveAndEnabled) {
+                    //Make the enemy take damage
+                    collision.GetComponent<Boss>().TakeDamage(damage);
+                }
+
         }
     }
 

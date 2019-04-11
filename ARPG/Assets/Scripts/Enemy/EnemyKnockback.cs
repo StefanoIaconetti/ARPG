@@ -9,6 +9,14 @@ public class EnemyKnockback : MonoBehaviour {
     public float knockbackTime;
     public float damage;
 
+    private void Start() {
+        try {
+            damage = gameObject.GetComponentInParent<Enemy>().baseAttack;
+        } catch {
+            damage = gameObject.GetComponentInParent<Boss>().baseAttack;
+        }
+    }
+
     //Function to utilize the knockback
     private void OnTriggerEnter2D(Collider2D collision) {
 
@@ -17,7 +25,7 @@ public class EnemyKnockback : MonoBehaviour {
             //Grab its rigidbody
             Rigidbody2D player = collision.GetComponent<Rigidbody2D>();
             //If the enemy has a rigidbody then initiate knockback
-            if (player != null) {
+            if (player != null && !collision.GetComponent<Player>().isStaggered) {
 
                 //Calculate the knockback
                 Vector2 difference = player.transform.position - transform.position;
