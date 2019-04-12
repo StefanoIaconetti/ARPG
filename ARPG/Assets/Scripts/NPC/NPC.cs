@@ -67,7 +67,7 @@ public abstract class NPC : Interactable
     //When the player is no longer in the collider
     public void OnTriggerExit2D(Collider2D other)
     {
-		if (npcType != NPCType.Chest) {
+		if (npcType != NPCType.Chest && npcType != NPCType.Crafter) {
 			//The dialogue text goes down
 			animator.SetBool ("IsOpen", false);
 			collide = false;

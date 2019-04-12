@@ -26,7 +26,10 @@ public class GameManager : MonoBehaviour
 	//This holds the players equipment
 	public GameObject inventoryEquipment;
 
-	//This checks to see if the inventory is open
+    public GameObject questLog;
+
+
+    //This checks to see if the inventory is open
     public static bool inventoryOpen = false;
 
 	//This holds the equipment manager, there will only be one
@@ -56,10 +59,16 @@ public class GameManager : MonoBehaviour
 		//Inventory is no longer active same with inventory equipment
 		playerInventory.SetActive (false);	
 		inventoryEquipment.SetActive (false);
+<<<<<<< HEAD
 
 		//This populates the gameobject if it can find that they have loaded
 		checkLoad = GameObject.Find ("LoadChecker");
 		checkDungeon = GameObject.Find ("Dungeon Manager");
+=======
+        questLog.SetActive(false);
+        //This populates the gameobject if it can find that they have loaded
+        checkLoad = GameObject.Find ("LoadChecker");
+>>>>>>> 0815cff3429fc5094bfcef412ba9b9641a3ab49f
 
 		if(checkDungeon){
 			GameObject playerDestroy = GameObject.Find ("Destroy me");
@@ -127,14 +136,17 @@ public class GameManager : MonoBehaviour
             {
                 inventoryOpen = false;
 				playerInventory.SetActive (false);	
-				inventoryEquipment.SetActive (false);	
+				inventoryEquipment.SetActive (false);
+                questLog.SetActive(false);
                 Time.timeScale = 1;
             }
             else
             {
                 inventoryOpen = true;
-				playerInventory.SetActive (true);	
-				inventoryEquipment.SetActive (true);
+				playerInventory.SetActive (true);
+                questLog.SetActive(true);
+                questLog.GetComponent<QuestCanvasManager>().ShowQuests();
+                inventoryEquipment.SetActive (true);
                 Time.timeScale = 0;
             }
         }
