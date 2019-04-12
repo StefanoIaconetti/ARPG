@@ -12,7 +12,8 @@ public class UIManager : MonoBehaviour {
     public Image healthBar;
 
     public Image potionImage;
-    public Image defaultImage;
+
+    public Text goldText;
 
     public Player player;
 
@@ -24,6 +25,7 @@ public class UIManager : MonoBehaviour {
         healthBar.fillAmount = player.health / player.maxHealth;
         healthText.text = player.health + "/" + player.maxHealth;
         xpBar.fillAmount = player.xp / player.maxLevelXP;
+        goldText.text = "Gold: " + player.gold;
 
         if (player.currentPotion != null) {
             potionImage.enabled = true;
