@@ -12,3 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d6f96e0e178410cb4b56077be28603, type: 3}
   m_Name: SlenderDrops
   m_EditorClassIdentifier: 
+  loots:
+  - loot: {fileID: 11400000, guid: e67fa073ae38c4833b8e9122ac720e49, type: 2}
+    lootChance: 40
+  - loot: {fileID: 11400000, guid: b5a11156b22c6450398e33c258cc462d, type: 2}
+    lootChance: 40
+  - loot: {fileID: 11400000, guid: 78daa1940d7b44c0dbbfb808c01ac558, type: 2}
+    lootChance: 9
+  - loot: {fileID: 11400000, guid: a2f376a9f3b1b414e8834a3588c268af, type: 2}
+    lootChance: 9
+  - loot: {fileID: 11400000, guid: 3a257bf9dadd745d7bf26952be9b0e30, type: 2}
+    lootChance: 1
+  - loot: {fileID: 11400000, guid: 27ce9be7b3c924edeb0149ea154cf0fb, type: 2}
+    lootChance: 1

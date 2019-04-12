@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: SquidDrops
   m_EditorClassIdentifier: 
   loots:
-  - loot: {fileID: 11400000, guid: 767c01d39ded046049eddfe303d052dc, type: 2}
-    lootChance: 50
-  - loot: {fileID: 11400000, guid: 79f04d056ebea48159a010e01fe079b5, type: 2}
-    lootChance: 25
-  - loot: {fileID: 11400000, guid: 56c8cc562a21647bd8e686e69d40f3b0, type: 2}
-    lootChance: 25
+  - loot: {fileID: 11400000, guid: c118d4187d97c420fbcaf53ce49f532c, type: 2}
+    lootChance: 40
+  - loot: {fileID: 11400000, guid: 64f1dcbb828a246ecb5328ad20b55f47, type: 2}
+    lootChance: 40
+  - loot: {fileID: 11400000, guid: 78daa1940d7b44c0dbbfb808c01ac558, type: 2}
+    lootChance: 9
+  - loot: {fileID: 11400000, guid: a2f376a9f3b1b414e8834a3588c268af, type: 2}
+    lootChance: 9
+  - loot: {fileID: 11400000, guid: 34465e939993a444da0dd70e94af7660, type: 2}
+    lootChance: 2
