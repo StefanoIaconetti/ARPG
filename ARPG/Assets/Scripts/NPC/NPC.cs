@@ -16,8 +16,8 @@ public abstract class NPC : Interactable
     public TextAsset xmlFile;
 
     //Name holds the name of the character, line holds their script
-    public Text nameText;
-    public Text lineText;
+	Text nameText;
+	Text lineText;
     
 
     //Grabs the name and the line
@@ -26,7 +26,7 @@ public abstract class NPC : Interactable
     protected int endDialogue = 0;
 
     //Grabs the animator
-    public Animator animator;
+     Animator animator;
 
 	Chest chest;
 	ChestManager chestMang;
@@ -37,11 +37,17 @@ public abstract class NPC : Interactable
 	public void Start (){
 		shopManag = GameObject.Find("ShopKeeperManager").GetComponent<ShopKeeperManager>();
 		chestMang = GameObject.Find("ChestManager").GetComponent<ChestManager>();
+
+
+
 		shopObj = GetComponent<ShopKeeperObject>();
 		chest = GetComponent<Chest>();
 	}
     //When the NPC collides
-    public void OnTriggerEnter2D(Collider2D character) {
+	public void OnTriggerEnter2D(Collider2D character) {
+		nameText = GameObject.Find("CanvasUI/PlayerDialogue/DialogueBox/NameText").GetComponent<Text>();
+		lineText = GameObject.Find("CanvasUI/PlayerDialogue/DialogueBox/LineText").GetComponent<Text>();
+		animator= GameObject.Find("CanvasUI/PlayerDialogue/DialogueBox").GetComponent<Animator>();
         //When colliding with the player
 		if (character.gameObject.name == "Player" && npcType != NPCType.Chest) {
 			//Strings the data in the xmlFile

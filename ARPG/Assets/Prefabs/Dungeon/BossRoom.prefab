@@ -5206,6 +5206,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chest: {fileID: 5034237022131927154}
+  bossPrefabs:
+  - {fileID: 7060406128988799943, guid: f1c13a3877580824eb028cd41d113a3d, type: 3}
+  - {fileID: 7060406128988799943, guid: f1c13a3877580824eb028cd41d113a3d, type: 3}
+  - {fileID: 7060406128988799943, guid: f1c13a3877580824eb028cd41d113a3d, type: 3}
+  - {fileID: 7060406128988799943, guid: f1c13a3877580824eb028cd41d113a3d, type: 3}
 --- !u!1001 &5490898256533128061
 PrefabInstance:
   m_ObjectHideFlags: 0
