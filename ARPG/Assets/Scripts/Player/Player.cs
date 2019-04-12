@@ -137,10 +137,29 @@ public class Player : Character {
     }
 
     public void TakeDamage(float damage) {
-        health -= damage;
+        //If player has protection
+        if (protection != 0) {
+            //Protection is an int display of how much percentage is taken off an enemies attack
+            //Turn to decimal
+            float calculation = protection / 100f;
+            //find how much health the players protection saved
+            float damageDifference = damage * calculation;
+            //take it away from the enemies damage
+            float finalDamage = damage - damageDifference;
+            //round it to nearst whole number
+            finalDamage = (int)Mathf.Round(finalDamage);
+            //Player takes damage from the new damage
+            health -= finalDamage;
+        } else {
+            //Just take the damage
+            health -= damage;
+        }
+
+        //If any point the player dies
         if (health <= 0) {
-            //This is happening before healthbar script can get rid of the healthbar NEEDS FIX
-            //this.gameObject.SetActive(false);
+            //Display her death
+
+            //Reset the player health and spawn her back at the player shop
 
         }
     }

@@ -16,5 +16,5 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 3f83607f197d6224c87feb482fe507df, type: 3}
   cost: 10
   canEquip: 1
-  statBoost: 5
+  statBoost: 10
   equipType: 0
