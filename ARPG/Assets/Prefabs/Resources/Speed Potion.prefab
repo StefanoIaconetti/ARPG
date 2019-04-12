@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8033153446346948805}
   - component: {fileID: 3646422261118808953}
   - component: {fileID: 7981302278371636443}
+  - component: {fileID: 8954538785378840074}
   m_Layer: 0
   m_Name: Speed Potion
   m_TagString: Item
@@ -131,3 +132,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8954538785378840074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327811279555136493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc3e2122559941a18fbb44cbc245e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionType: 4
+  player: {fileID: 0}
