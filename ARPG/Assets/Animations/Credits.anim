@@ -50,7 +50,11 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
+<<<<<<< HEAD
         value: -975
+=======
+        value: -976
+>>>>>>> c41bbf17f2231cc3844c20e50a0aac02b9d84ed2
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -150,7 +154,11 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
+<<<<<<< HEAD
         value: -975
+=======
+        value: -976
+>>>>>>> c41bbf17f2231cc3844c20e50a0aac02b9d84ed2
         inSlope: 0
         outSlope: 0
         tangentMode: 136

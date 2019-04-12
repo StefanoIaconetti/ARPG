@@ -13,6 +13,7 @@ public class MainMenuManager : MonoBehaviour
     public GameObject settingsButton = GameObject.Find("Settings Button");
     public GameObject creditsButton = GameObject.Find("Credits Button");
     public GameObject creditsText = GameObject.Find("CreditsText");
+<<<<<<< HEAD
 
     //Escape will reset the buttons
     void Update()
@@ -33,17 +34,50 @@ public class MainMenuManager : MonoBehaviour
 			SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
 		}
 	}
+=======
+>>>>>>> c41bbf17f2231cc3844c20e50a0aac02b9d84ed2
 
-	//This is the onclick for LoadGame
-	public void LoadGame(){
-		//If the scene exists then it loads the scene
-		if(sceneName != ""){
-			SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+    //Escape will reset the buttons
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            newButton.SetActive(true);
+            loadButton.SetActive(true);
+            settingsButton.SetActive(true);
+            creditsButton.SetActive(true);
+            creditsText.SetActive(false);
+        }
+    }
+    //This is the onclick for NewGame
+    public void NewGame()
+    {
+        //If the scene exists then it loads the scene
+        if (sceneName != "")
+        {
+            SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+        }
+    }
 
+<<<<<<< HEAD
 			//Sends the loadchecker gameobject to the next scene which when the next scene
 			DontDestroyOnLoad (GameObject.Find("LoadChecker"));
 		}
 	}
+=======
+    //This is the onclick for LoadGame
+    public void LoadGame()
+    {
+        //If the scene exists then it loads the scene
+        if (sceneName != "")
+        {
+            SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+
+            //Sends the loadchecker gameobject to the next scene which when the next scene
+            DontDestroyOnLoad(GameObject.Find("LoadChecker"));
+        }
+    }
+>>>>>>> c41bbf17f2231cc3844c20e50a0aac02b9d84ed2
 
     public void CreditsReal()
     {
@@ -56,4 +90,8 @@ public class MainMenuManager : MonoBehaviour
         //Enabling the Credits
         creditsText.SetActive(true);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> c41bbf17f2231cc3844c20e50a0aac02b9d84ed2
