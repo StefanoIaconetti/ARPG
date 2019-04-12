@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Slender : Enemy {
+
+    //Variables
     public float chaseRange;
     public float attackRange;
 
@@ -21,11 +23,14 @@ public class Slender : Enemy {
         CheckDistance();
     }
 
+    //Check distance between enemy and player
     public void CheckDistance() {
         if (target != null) {
+            //If the player is outside of the player attack range but still in its chase range
             if (Vector3.Distance(target.position, transform.position) <= chaseRange && Vector3.Distance(target.position, transform.position) > attackRange) {
-
+                //if the enemy isnt staggered or is currently walking
                 if (currentState == EnemyState.idle || currentState == EnemyState.walking && currentState != EnemyState.stagger) {
+                    //Move towards the player
                     Vector3 temp = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
                     ChangeAnimation(temp - transform.position);
                     rb.MovePosition(temp);
@@ -36,7 +41,9 @@ public class Slender : Enemy {
                 animator.SetBool("IsWalking", false);
             }
 
+            //If the player is within attack range
             if(Vector3.Distance(target.position, transform.position) <= attackRange) {
+                //Attack
                 animator.SetBool("IsAttacking", true);
                 ChangeState(EnemyState.attacking);
             } else {
@@ -46,11 +53,13 @@ public class Slender : Enemy {
         }
     }
 
+
     private void SetAnimatorFloat(Vector2 setVector) {
         animator.SetFloat("x", setVector.x);
         animator.SetFloat("y", setVector.y);
     }
 
+    //Function that will change the animation depending on what direction the enemy is facing
     private void ChangeAnimation(Vector2 direction) {
         if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y)) {
             if (direction.x > 0) {
@@ -67,6 +76,7 @@ public class Slender : Enemy {
         }
     }
 
+    //Change the state of the enemy
     private void ChangeState(EnemyState newState) {
         if (currentState != newState) {
             currentState = newState;

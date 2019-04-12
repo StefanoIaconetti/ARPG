@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Squid : Enemy {
 
+    //Variables
     public float chaseRange;
     public float attackRange;
-    public Transform originalPosition;
 
     public GameObject bubblePrefab;
     public bool canFire = true;
@@ -23,6 +23,7 @@ public class Squid : Enemy {
         target = GameObject.FindWithTag("Player").transform;
     }
 
+    //Timer between firing bubbles
     public void Update() {
         fireDelaySeconds -= Time.deltaTime;
         if(fireDelaySeconds <= 0) {
@@ -36,10 +37,13 @@ public class Squid : Enemy {
         CheckDistance();
     }
 
+    //Check distance between player and squid
     public void CheckDistance() {
         if (target != null) {
+            //If player is within chase range and outside of attack range
             if (Vector3.Distance(target.position, transform.position) <= chaseRange && Vector3.Distance(target.position, transform.position) > attackRange) {
 
+                //Walk towards the player
                 if (currentState == EnemyState.idle || currentState == EnemyState.walking && currentState != EnemyState.stagger) {
                     Vector3 temp = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
                     ChangeAnimation(temp - transform.position);
@@ -51,7 +55,7 @@ public class Squid : Enemy {
                 animator.SetBool("IsWalking", false);
             }
 
-            // Change to only shoot one at a time
+            //If within attack range
             if (Vector3.Distance(target.position, transform.position) <= attackRange) {
                 if(canFire) {
                     ChangeState(EnemyState.attacking);
@@ -76,6 +80,7 @@ public class Squid : Enemy {
         animator.SetFloat("y", setVector.y);
     }
 
+    //Change animation depending where the squid is facing
     private void ChangeAnimation(Vector2 direction) {
         if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y)) {
             if (direction.x > 0) {
@@ -92,6 +97,7 @@ public class Squid : Enemy {
         }
     }
 
+    //Changed enemy state
     private void ChangeState(EnemyState newState) {
         if (currentState != newState) {
             currentState = newState;

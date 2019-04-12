@@ -9,6 +9,7 @@ public enum State {
 
 public class Boss : MonoBehaviour {
 
+    //Variables
     public State currentState;
     public float health;
     public float maxHealth;
@@ -27,6 +28,7 @@ public class Boss : MonoBehaviour {
 
     public Coroutine deathCoroutine;
 
+    //Timer
     public void Update() {
         timeSinceLastHit -= Time.deltaTime;
         if (timeSinceLastHit <= 0) {
@@ -34,6 +36,7 @@ public class Boss : MonoBehaviour {
         }
     }
 
+    //Set up the boss
     public void Start() {
         health = maxHealth;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
@@ -46,6 +49,7 @@ public class Boss : MonoBehaviour {
         CheckDistance();
     }
 
+    //Check distance and if hes able to attack do so
     public void CheckDistance() {
         if (playerTransform != null) {
             if (Vector3.Distance(playerTransform.position, transform.position) <= attackRange && canAttack) {
@@ -60,6 +64,7 @@ public class Boss : MonoBehaviour {
         }
     }
 
+    //take damage function
     public void TakeDamage(float damage) {
         health -= damage;
         if (health <= 0) {
@@ -69,16 +74,25 @@ public class Boss : MonoBehaviour {
         }
     }
 
+    //DEATH COROUTINE!!
     private IEnumerator DeathCo() {
-        //This is happening before healthbar script can get rid of the healthbar NEEDS FIX
-        animator.SetBool("IsDead", true);
+        //Give player xp and update his quests
         player.GainXP(xpDrop);
         player.UpdateKillQuests();
 		//Call Final Function from boss manager
 		BossManager bossManag = GameObject.Find("BossManager").GetComponent<BossManager>();
-        yield return new WaitForSeconds(1f);
-        Destroy(gameObject);
+<<<<<<< HEAD
+=======
 		bossManag.Final ();
+        //wait
+>>>>>>> b18562375118b828043c35f070a7df1ee8b54589
+        yield return new WaitForSeconds(1f);
+        //Destroy boss
+        Destroy(gameObject);
+<<<<<<< HEAD
+		bossManag.Final ();
+=======
+>>>>>>> b18562375118b828043c35f070a7df1ee8b54589
     }
 
 }

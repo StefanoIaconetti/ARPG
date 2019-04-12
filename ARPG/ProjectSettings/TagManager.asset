@@ -10,6 +10,7 @@ TagManager:
   - Dungeon
   - NPC
   - Boss
+  - CanvasUI
   layers:
   - Default
   - TransparentFX
