@@ -19,7 +19,6 @@ public class EnterDoor : MonoBehaviour {
 
 			if (col.gameObject.tag == "Player" && counter == listOfEnemies.Length) {
 				counter = 0;
-				Debug.Log ("Ooooofer tooofer");
 				GameObject dungeonManag = GameObject.Find ("Dungeon Manager");
 				DungeonManager dungeon = dungeonManag.GetComponent<DungeonManager> ();
 				dungeon.RandomDungeon ();

@@ -256,5 +256,40 @@ PrefabInstance:
       propertyPath: caveMusic
       value: 
       objectReference: {fileID: 8300000, guid: acfbbd79cb51c4af297183ef7e9089fe, type: 3}
+    - target: {fileID: 1591895608236504018, guid: 62487ce3fa3e95e46ae825aabee4fe60,
+        type: 3}
+      propertyPath: bossType.Array.data[0]
+      value: 
+      objectReference: {fileID: 5545137393596671158, guid: 93924dd4c787e4d6c82be68b67d9c1ff,
+        type: 3}
+    - target: {fileID: 1591895608236504018, guid: 62487ce3fa3e95e46ae825aabee4fe60,
+        type: 3}
+      propertyPath: bossType.Array.data[1]
+      value: 
+      objectReference: {fileID: 4990085355687838021, guid: 7727e2f376547488faae5cf0de0aabf1,
+        type: 3}
+    - target: {fileID: 1591895608236504018, guid: 62487ce3fa3e95e46ae825aabee4fe60,
+        type: 3}
+      propertyPath: bossType.Array.data[2]
+      value: 
+      objectReference: {fileID: 3103057363302296300, guid: a895e54f74a404440a1f459fda928882,
+        type: 3}
+    - target: {fileID: 1591895608236504018, guid: 62487ce3fa3e95e46ae825aabee4fe60,
+        type: 3}
+      propertyPath: bossType.Array.data[3]
+      value: 
+      objectReference: {fileID: 6959077065979079285, guid: 6e218df5954624c2c82c6fc2a83e50cc,
+        type: 3}
+    - target: {fileID: 1591895608236504018, guid: 62487ce3fa3e95e46ae825aabee4fe60,
+        type: 3}
+      propertyPath: bossType.Array.data[4]
+      value: 
+      objectReference: {fileID: 2834925073821881364, guid: 62ebf84bd15ed493abfc0db38f2699bf,
+        type: 3}
+    - target: {fileID: 1591895608236504018, guid: 62487ce3fa3e95e46ae825aabee4fe60,
+        type: 3}
+      propertyPath: currentDungeon
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62487ce3fa3e95e46ae825aabee4fe60, type: 3}

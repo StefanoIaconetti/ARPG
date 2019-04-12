@@ -74,6 +74,9 @@ public class Boss : MonoBehaviour {
         animator.SetBool("IsDead", true);
         player.GainXP(xpDrop);
         player.UpdateKillQuests();
+		//Call Final Function from boss manager
+		BossManager bossManag = GameObject.Find("BossManager").GetComponent<BossManager>();
+		bossManag.Final ();
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
         Debug.Log("BOSS should die");

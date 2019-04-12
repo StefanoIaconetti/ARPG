@@ -16,6 +16,8 @@ public class Player : Character {
     public GameObject leftTarget;
     public GameObject rightTarget;
 
+	public int bossNum;
+
     // Update is called once per frame
     protected override void Update(){
 		getInput();

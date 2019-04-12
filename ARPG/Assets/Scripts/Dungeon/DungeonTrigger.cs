@@ -14,12 +14,21 @@ public class DungeonTrigger : MonoBehaviour
 	public GameObject managers;
 	public GameObject canvas;
 	public GameObject canvasUI;
+	public int entranceNum;
 
-    private GameObject player = null;
+    public GameObject player;
+	Player playerScript;
+	public void Awake(){
+
+		playerScript = player.GetComponent<Player> ();
+
+	}
 
 	//When the player enters 
      void OnTriggerEnter2D(Collider2D collision)
-	{	DontDestroyOnLoad (playerObj);
+	{	
+		playerScript.bossNum = entranceNum;
+		DontDestroyOnLoad (playerObj);
 		DontDestroyOnLoad (managers);
 		DontDestroyOnLoad (canvas);
 		DontDestroyOnLoad (canvasUI);
