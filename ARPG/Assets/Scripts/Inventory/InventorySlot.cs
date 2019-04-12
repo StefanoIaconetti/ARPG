@@ -37,6 +37,7 @@ public class InventorySlot : MonoBehaviour
 	EquipmentManager equipMang;
 	//Creates a public equipable item, if the item is equipable then this is populated
 	Equipable equipableItem;
+	ShopKeepingManager shopkeepManag;
 
 	//boolean that checks if the optionsbutton has already translated
 	bool alreadyTrans = false;
@@ -45,6 +46,7 @@ public class InventorySlot : MonoBehaviour
 	public void Start(){
 		//This accepts all the managers
 
+		shopkeepManag = GameObject.Find("Shopkeeping Manager").GetComponent<ShopKeepingManager>();
 		player = GameObject.Find("Player").GetComponent<Player>();
 		 shopMang = GameObject.Find("ShopKeeperManager").GetComponent<ShopKeeperManager>();
 		 chestMang = GameObject.Find("ChestManager").GetComponent<ChestManager>();
@@ -141,18 +143,25 @@ public class InventorySlot : MonoBehaviour
 	//If the player is in a shop and sells that item
 	public void OnSellButton(){
 
-		//Gold is increased
-		player.gold += item.item.cost;
+		if (shopkeepManag.canSell = true) {
+			shopkeepManag.Selling (item);
+			shopkeepManag.canSell = false;
+		} else {
+			//Gold is increased
+			float realCost = item.item.cost / 2;
+			player.gold += realCost;
 
-		//Item is removed from inventory
-		Player.inventory.RemoveItem (item);
+			//Item is removed from inventory
+			Player.inventory.RemoveItem (item);
 
-		//Item is added to the shopkeepers inventory
-		shopMang.currentShopKeeper.inventory.AddItem (item);
+			//Item is added to the shopkeepers inventory
+			shopMang.currentShopKeeper.inventory.AddItem (item);
 
-		//Both UI's are updated
-		Player.UpdateUI ();
-		shopMang.currentShopKeeper.UpdateUI ();
+			//Both UI's are updated
+			Player.UpdateUI ();
+			shopMang.currentShopKeeper.UpdateUI ();
+
+		}
 	}
 
 

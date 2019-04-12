@@ -47,7 +47,7 @@ public class Player : Character {
 
 	//Method that updates UI
 	public static void UpdateUI() {
-
+		
         //UPDATE GATHER QUESTS IN THE MOST RIDICULOUS WAY POSSIBLE
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.GetComponent<Player>().UpdateGatherQuests();

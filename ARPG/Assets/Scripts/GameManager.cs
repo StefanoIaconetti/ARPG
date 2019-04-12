@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
     public GameObject questLog;
 
 
+
+
     //This checks to see if the inventory is open
     public static bool inventoryOpen = false;
 

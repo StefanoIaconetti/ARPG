@@ -32,13 +32,15 @@ public abstract class NPC : Interactable
 	ChestManager chestMang;
 	ShopKeeperManager shopManag;
 	ShopKeeperObject shopObj;
+	ShopKeepingManager shopkeepManag;
+	GameManager gameManager;
 
 
 	public void Start (){
 		shopManag = GameObject.Find("ShopKeeperManager").GetComponent<ShopKeeperManager>();
 		chestMang = GameObject.Find("ChestManager").GetComponent<ChestManager>();
-
-
+		shopkeepManag = GameObject.Find("Shopkeeping Manager").GetComponent<ShopKeepingManager>();
+		gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
 		shopObj = GetComponent<ShopKeeperObject>();
 		chest = GetComponent<Chest>();
@@ -49,7 +51,7 @@ public abstract class NPC : Interactable
 		lineText = GameObject.Find("CanvasUI/PlayerDialogue/DialogueBox/LineText").GetComponent<Text>();
 		animator= GameObject.Find("CanvasUI/PlayerDialogue/DialogueBox").GetComponent<Animator>();
         //When colliding with the player
-		if (character.gameObject.name == "Player" && npcType != NPCType.Chest) {
+		if (character.gameObject.name == "Player" && npcType != NPCType.Chest && npcType != NPCType.ShopObject) {
 			//Strings the data in the xmlFile
 			string data = xmlFile.text;
 
@@ -67,7 +69,7 @@ public abstract class NPC : Interactable
     //When the player is no longer in the collider
     public void OnTriggerExit2D(Collider2D other)
     {
-		if (npcType != NPCType.Chest && npcType != NPCType.Crafter) {
+		if (npcType != NPCType.Chest && npcType != NPCType.Crafter && npcType != NPCType.ShopObject) {
 			//The dialogue text goes down
 			animator.SetBool ("IsOpen", false);
 			collide = false;
@@ -87,9 +89,13 @@ public abstract class NPC : Interactable
 				chestMang.inventoryCanOpen = true;
 				chestMang.currentchest = chest;
 				chestMang.CheckShopKeeper ();
-				//chest.ShopOpen();
 
-			} else {
+			}else if(npcType == NPCType.ShopObject){
+				shopkeepManag.canSell = true;
+				Debug.Log("Hello");
+
+			}else {
+				Debug.Log ("Oooh?");
 				Triggered ();
 			}
 
@@ -102,12 +108,7 @@ public abstract class NPC : Interactable
             {
 
 				animator.SetBool("IsOpen", false);
-				//nameText.text = "";
 				shopManag.inventoryCanOpen = true;
-
-				//ShopKeeperManager.currentShopKeeper = 
-
-				//ShopKeeperManager.CheckShopKeeper ();
 				shopManag.currentShopKeeper = shopObj;
 				shopManag.CheckShopKeeper ();
 				endDialogue = 0;
