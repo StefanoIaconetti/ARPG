@@ -4456,7 +4456,7 @@ Tilemap:
   m_GameObject: {fileID: 1989489237853347730}
   m_Enabled: 1
   m_Tiles:
-  - first: {x: 4, y: 0, z: 0}
+  - first: {x: 5, y: 0, z: 0}
     second:
       m_TileIndex: 0
       m_TileSpriteIndex: 0
@@ -4468,10 +4468,10 @@ Tilemap:
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 7fd284c2c2bb804459e4a3dd9667c448, type: 2}
+    m_Data: {fileID: 11400000, guid: 7475cb3dbfc4f4d919b0a62729398d94, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 1
-    m_Data: {fileID: 21300444, guid: 02794d4496e9a934398dfc74e004da20, type: 3}
+    m_Data: {fileID: 21300444, guid: 78c677bc3acdba445be0f50eb4c9703f, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 1
     m_Data:
@@ -4497,7 +4497,7 @@ Tilemap:
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: 0, y: 0, z: 0}
-  m_Size: {x: 5, y: 1, z: 1}
+  m_Size: {x: 6, y: 1, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -4592,8 +4592,6 @@ MonoBehaviour:
   - {fileID: 6650935639814507674}
   - {fileID: 3597278164362125872}
   - {fileID: 7798842016097586271}
-  dungeonMang: {fileID: 1591895608236504018, guid: 62487ce3fa3e95e46ae825aabee4fe60,
-    type: 3}
 --- !u!1 &1989489238586550093
 GameObject:
   m_ObjectHideFlags: 0
