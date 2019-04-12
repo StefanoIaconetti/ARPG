@@ -16,11 +16,8 @@ public class Player : Character {
     public GameObject leftTarget;
     public GameObject rightTarget;
 
-<<<<<<< HEAD
 	public int bossNum;
-=======
     public EquipmentManager equipmentManager;
->>>>>>> 1e733634e9dc152422c870c5c38604b70de2ba5f
 
     // Update is called once per frame
     protected override void Update(){
