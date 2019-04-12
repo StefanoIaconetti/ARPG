@@ -165,9 +165,8 @@ MonoBehaviour:
   originalPosition: {fileID: 0}
   bubblePrefab: {fileID: 5469187267824962645, guid: d94b3f067cfa54f2abc78d914e3910c0,
     type: 3}
-  shootSpeed: 2
   canFire: 1
-  fireDelay: 1
+  fireDelay: 2
 --- !u!61 &1675299625
 BoxCollider2D:
   m_ObjectHideFlags: 0

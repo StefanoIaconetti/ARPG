@@ -9,7 +9,6 @@ public class Squid : Enemy {
     public Transform originalPosition;
 
     public GameObject bubblePrefab;
-    public int shootSpeed;
     public bool canFire = true;
     public float fireDelay;
     private float fireDelaySeconds;
