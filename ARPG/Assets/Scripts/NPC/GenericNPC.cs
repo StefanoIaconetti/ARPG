@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GenericNPC : NPC {
 
+    //variables
     public List<GameObject> targets;
     public bool IsWalking = false;
     private int counter = 0;
@@ -17,6 +18,7 @@ public class GenericNPC : NPC {
         rb = GetComponent<Rigidbody2D>();
     }
 
+    //Create a NPC
     public GenericNPC() {
         nameOfCharacter = "genericnpc";
         npcType = NPCType.NPC;
@@ -50,6 +52,7 @@ public class GenericNPC : NPC {
         anim.SetFloat("y", setVector.y);
     }
 
+    //Cheange animation depending on direction
     private void ChangeAnimation(Vector2 direction) {
         if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y)) {
             if (direction.x > 0) {

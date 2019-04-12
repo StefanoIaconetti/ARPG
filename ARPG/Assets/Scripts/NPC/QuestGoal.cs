@@ -15,17 +15,19 @@ public class QuestGoal  {
     public int requiredAmount;
     public int currentAmount = 0;
 
+    //If quest goal is reached
     public bool isReached() {
         return (currentAmount >= requiredAmount);
     }
 
+    //If an enemy is killed add 1 to current amount
     public void EnemyKilled() {
         if(goalType == GoalType.Kill) {
-            Debug.Log("Incremented");
             currentAmount++;
         }
     }
 
+    //If resource is gathered add 1 to current amount
     public void GatheredResource() {
         if(goalType == GoalType.Gather) {
             currentAmount++;

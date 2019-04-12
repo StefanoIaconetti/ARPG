@@ -136,6 +136,7 @@ public abstract class NPC : Interactable
         }
     }
 
+    //When npc is triggered then make dialoge box show
     virtual public void Triggered() {
         animator.SetBool("IsOpen", true);
         nameText.text = lineName[0];

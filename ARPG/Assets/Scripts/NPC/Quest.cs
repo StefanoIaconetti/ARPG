@@ -17,10 +17,12 @@ public class Quest {
 
     public QuestGoal goal;
 
+    //When quest is complete set in inactive
     public void Complete() {
         isActive = false;
     }
 
+    //Create quest
     public Quest() {
         goal = new QuestGoal();
     }

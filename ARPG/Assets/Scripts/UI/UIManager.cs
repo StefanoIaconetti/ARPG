@@ -21,12 +21,14 @@ public class UIManager : MonoBehaviour {
 
 
     private void Update() {
+        //Update text fields and fill amounts
         levelText.text = "Lvl: " + player.level;
         healthBar.fillAmount = player.health / player.maxHealth;
         healthText.text = player.health + "/" + player.maxHealth;
         xpBar.fillAmount = player.xp / player.maxLevelXP;
         goldText.text = "Gold: " + player.gold;
 
+        //Change potion icon
         if (player.currentPotion != null) {
             potionImage.enabled = true;
             switch (player.currentPotion.name) {
