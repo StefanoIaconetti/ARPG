@@ -441,6 +441,7 @@ MonoBehaviour:
   speed: 2
   baseAttack: 10
   xpDrop: 20
+  drops: {fileID: 11400000, guid: 56602c2a47a0f496d9569b4f9757f3ba, type: 2}
   target: {fileID: 4386762622061600, guid: 7a99c59d3b9064c958bbce110d3437be, type: 3}
   chaseRange: 8
   attackRange: 2.5
