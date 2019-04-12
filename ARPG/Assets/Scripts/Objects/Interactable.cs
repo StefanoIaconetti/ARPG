@@ -10,7 +10,8 @@ public class Interactable : MonoBehaviour {
         Shopkeeper,
         NPC,
         QuestGiver,
-		Chest
+		Chest,
+        Crafter
     };
 
     //Checks if they have collided

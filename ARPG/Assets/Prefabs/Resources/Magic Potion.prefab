@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5310256853700729504}
   - component: {fileID: 1463702573701490972}
   - component: {fileID: 5190930892650327742}
+  - component: {fileID: 1749730184389090962}
   m_Layer: 0
   m_Name: Magic Potion
   m_TagString: Item
@@ -131,3 +132,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1749730184389090962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2469717080419422600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc3e2122559941a18fbb44cbc245e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionType: 1
+  player: {fileID: 0}

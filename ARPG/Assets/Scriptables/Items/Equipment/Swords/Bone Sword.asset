@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 894ecb06489d948d4adf9c99a2b57acb, type: 3}
-  m_Name: Ruby Sword
+  m_Name: Bone Sword
   m_EditorClassIdentifier: 
-  name: Ruby Sword
+  name: Bone Sword
   icon: {fileID: 21300000, guid: 63fbc01373a64884fbc7abd9cafd5aea, type: 3}
   cost: 700
   canEquip: 1

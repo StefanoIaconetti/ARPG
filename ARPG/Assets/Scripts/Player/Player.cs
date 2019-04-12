@@ -16,6 +16,8 @@ public class Player : Character {
     public GameObject leftTarget;
     public GameObject rightTarget;
 
+    public EquipmentManager equipmentManager;
+
     // Update is called once per frame
     protected override void Update(){
 		getInput();
@@ -104,8 +106,8 @@ public class Player : Character {
         }
         if (Input.GetKeyDown(KeyCode.C)) {
             if (!isBoosted && currentPotion != null) {
-                //Use the function in the potion script UsePotion();
-                //current potion is an equipable and i need it to be a potion?
+                //Use the function in the equipment manager UsePotion();
+                equipmentManager.UsePotion(currentPotion);
             }
         }
     }
