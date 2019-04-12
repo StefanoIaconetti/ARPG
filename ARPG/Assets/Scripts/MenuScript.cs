@@ -15,18 +15,11 @@ public class MenuScript : MonoBehaviour {
 	void Start ()
 	{
 		//Assign Settings to the Panel object in our Canvas
-		//Make sure it's not active when the game starts
 		menuPanel = transform.Find("Panel");
 		//menuPanel.gameObject.SetActive(false);
 		waitingForKey = false;
 
-		/*iterate through each child of the panel and check
-		 * the names of each one. Each if statement will
-		 * set each button's text component to display
-		 * the name of the key that is associated
-		 * with each command. Example: the ForwardKey
-		 * button will display "W" in the middle of it
-		 */
+		//This for loop will go through each key that can be assigned and set the buttons text to the currently assigned key
 		for(int i = 0; i < menuPanel.childCount; i++)
 		{
 			if(menuPanel.GetChild(i).name == "ForwardKey")
@@ -61,14 +54,10 @@ public class MenuScript : MonoBehaviour {
 
 	void OnGUI()
 	{
-		/*keyEvent dictates what key our user presses
-		 * bt using Event.current to detect the current
-		 * event
-		 */
+		//Used to detect the current event
 		keyEvent = Event.current;
 
-		//Executes if a button gets pressed and
-		//the user presses a key
+		//Executes if a button gets pressed and the user presses a key
 		if(keyEvent.isKey && waitingForKey)
 		{
 			newKey = keyEvent.keyCode; //Assigns newKey to the key user presses
@@ -76,37 +65,27 @@ public class MenuScript : MonoBehaviour {
 		}
 	}
 
-	/*Buttons cannot call on Coroutines via OnClick().
-	 * Instead, we have it call StartAssignment, which will
-	 * call a coroutine in this script instead, only if we
-	 * are not already waiting for a key to be pressed.
-	 */
+	//Start assignment function to assign the key pressed to the selected key
 	public void StartAssignment(string keyName)
 	{
 		if(!waitingForKey)
 			StartCoroutine(AssignKey(keyName));
 	}
 
-	//Assigns buttonText to the text component of
-	//the button that was pressed
+	//Sets the buttons text with the key name
 	public void SendText(Text text)
 	{
 		buttonText = text;
 	}
 
-	//Used for controlling the flow of our below Coroutine
+	//Waiting for the key to be pressed
 	IEnumerator WaitForKey()
 	{
 		while(!keyEvent.isKey)
 			yield return null;
 	}
 
-	/*AssignKey takes a keyName as a parameter. The
-	 * keyName is checked in a switch statement. Each
-	 * case assigns the command that keyName represents
-	 * to the new key that the user presses, which is grabbed
-	 * in the OnGUI() function, above.
-	 */
+	
 	public IEnumerator AssignKey(string keyName)
 	{
 		waitingForKey = true;
