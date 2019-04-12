@@ -143,9 +143,11 @@ public class InventorySlot : MonoBehaviour
 	//If the player is in a shop and sells that item
 	public void OnSellButton(){
 
-		if (shopkeepManag.canSell = true) {
-			shopkeepManag.Selling (item);
+		if (shopkeepManag.canSell == true) {
 			shopkeepManag.canSell = false;
+			shopkeepManag.currentItem = item;
+			Player.inventory.RemoveItem (item);
+			shopkeepManag.startSell = true;
 		} else {
 			//Gold is increased
 			float realCost = item.item.cost / 2;
@@ -232,14 +234,14 @@ public class InventorySlot : MonoBehaviour
 			optionsButton.transform.Translate (0, -10f, 0);
 			optionsButton.gameObject.SetActive (false);
 			alreadyTrans = false;
-		}else if (equipableItem != null && alreadyTrans == false && shopMang.inventoryCanOpen == false && chestMang.inventoryCanOpen == false) {
+		}else if (equipableItem != null && alreadyTrans == false && shopMang.inventoryCanOpen == false && chestMang.inventoryCanOpen == false &&  shopkeepManag.canSell == false) {
 			equipButton.gameObject.SetActive (true);
 			optionsButton.transform.Translate (0, 10, 0);
 			optionsButton.gameObject.SetActive (true);
 			alreadyTrans = true;
 		} else {
 			//If the shopmanager can open
-			if (shopMang != null && shopMang.inventoryCanOpen && sellButton != null) {
+			if (shopMang != null && shopMang.inventoryCanOpen && sellButton != null || shopkeepManag != null && shopkeepManag.canSell && sellButton != null) {
 				sellButton.gameObject.SetActive (true);
 			} else {
 				//If the sell button is not null then make it false

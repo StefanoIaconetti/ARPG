@@ -12,7 +12,7 @@ public class ChestManager : MonoBehaviour{
 	public bool inventoryCanOpen = false;
 
 	//Checks the current shopkeeper then updates its UI
-	public void CheckShopKeeper(){
+	public void CheckChest(){
 		if (inventoryCanOpen) {
 			currentchest.UpdateUI();
 			currentchest.ChestOpen();

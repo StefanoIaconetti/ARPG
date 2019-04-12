@@ -88,14 +88,12 @@ public abstract class NPC : Interactable
 			if (npcType == NPCType.Chest) {
 				chestMang.inventoryCanOpen = true;
 				chestMang.currentchest = chest;
-				chestMang.CheckShopKeeper ();
+				chestMang.CheckChest ();
 
 			}else if(npcType == NPCType.ShopObject){
 				shopkeepManag.canSell = true;
-				Debug.Log("Hello");
-
+				shopkeepManag.playerInventory.SetActive (true);
 			}else {
-				Debug.Log ("Oooh?");
 				Triggered ();
 			}
 

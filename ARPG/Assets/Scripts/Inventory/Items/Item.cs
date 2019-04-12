@@ -13,7 +13,4 @@ public class Item : ScriptableObject
     public int cost = 0;
 	public bool canEquip = false;
 
-    public static implicit operator Item(InventoryItem v) {
-        throw new NotImplementedException();
-    }
 }

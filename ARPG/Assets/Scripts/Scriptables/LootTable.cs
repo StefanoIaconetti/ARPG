@@ -19,10 +19,7 @@ public class LootTable : ScriptableObject {
 
         for (int i = 0; i < loots.Length; i++) {
             cumProb += loots[i].lootChance;
-            Debug.Log("cumilitive " + cumProb + " current " + currentProb);
-
             if (cumProb >= currentProb) {
-                Debug.Log(loots[i].loot.name);
                 return loots[i].loot;
             }
         }
