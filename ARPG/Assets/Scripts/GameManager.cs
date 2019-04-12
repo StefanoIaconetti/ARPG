@@ -59,17 +59,12 @@ public class GameManager : MonoBehaviour
 		//Inventory is no longer active same with inventory equipment
 		playerInventory.SetActive (false);	
 		inventoryEquipment.SetActive (false);
-<<<<<<< HEAD
-
 		//This populates the gameobject if it can find that they have loaded
 		checkLoad = GameObject.Find ("LoadChecker");
 		checkDungeon = GameObject.Find ("Dungeon Manager");
-=======
         questLog.SetActive(false);
         //This populates the gameobject if it can find that they have loaded
         checkLoad = GameObject.Find ("LoadChecker");
->>>>>>> 0815cff3429fc5094bfcef412ba9b9641a3ab49f
-
 		if(checkDungeon){
 			GameObject playerDestroy = GameObject.Find ("Destroy me");
 			Destroy (playerDestroy);
