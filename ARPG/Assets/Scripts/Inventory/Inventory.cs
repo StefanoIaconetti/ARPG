@@ -58,6 +58,7 @@ public class Inventory
 					break;
 				} else {
 					//Otherwise remove at the index (If you do not remove at the index it can potentially find the item you are not attempting to look for)
+					Debug.Log("comonnn");
 					items.RemoveAt (i);
 					break;
 

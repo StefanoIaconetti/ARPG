@@ -81,18 +81,11 @@ public class Boss : MonoBehaviour {
         player.UpdateKillQuests();
 		//Call Final Function from boss manager
 		BossManager bossManag = GameObject.Find("BossManager").GetComponent<BossManager>();
-<<<<<<< HEAD
-=======
-		bossManag.Final ();
         //wait
->>>>>>> b18562375118b828043c35f070a7df1ee8b54589
         yield return new WaitForSeconds(1f);
         //Destroy boss
         Destroy(gameObject);
-<<<<<<< HEAD
 		bossManag.Final ();
-=======
->>>>>>> b18562375118b828043c35f070a7df1ee8b54589
     }
 
 }

@@ -85,10 +85,6 @@ public class EquipmentSlot : MonoBehaviour
 		icon.sprite = null;
 		icon.enabled = false;
 		defaultImage.enabled = true;
-
-
-
-
 	}
 
 	//When the unequip button is pressed
