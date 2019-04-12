@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4491849234900903864}
   m_Layer: 11
   m_Name: NPC Child
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300002, guid: 93634b6592ada4a11af2dcdbe3d15c29, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -156,11 +156,9 @@ MonoBehaviour:
   nameText: {fileID: 0}
   lineText: {fileID: 0}
   animator: {fileID: 0}
-  shopMang: {fileID: 0}
-  shopObj: {fileID: 0}
-  chest: {fileID: 0}
-  chestMang: {fileID: 0}
   targets:
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   IsWalking: 0

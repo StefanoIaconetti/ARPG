@@ -11,6 +11,7 @@ public enum EnemyState {
 
 public class Enemy : MonoBehaviour {
 
+    //variables
     public EnemyState currentState;
     public float health;
     public float maxHealth;
@@ -34,6 +35,7 @@ public class Enemy : MonoBehaviour {
         health = maxHealth;
     }
 
+    //Function to take damage
     public void TakeDamage(float damage) {
         health -= damage;
         if (health <= 0) {
@@ -61,22 +63,28 @@ public class Enemy : MonoBehaviour {
         }
     }
 
+    //Coroutine of DEATH!!!
     private IEnumerator DeathCo() {
-        //This is happening before healthbar script can get rid of the healthbar NEEDS FIX
+        //make the animator play death animation
         animator.SetBool("IsDead", true);
+        //Give the player xp and update his kill quests
         target.gameObject.GetComponent<Player>().GainXP(xpDrop);
         target.gameObject.GetComponent<Player>().UpdateKillQuests();
+        //Drop an item
         DropItem();
+        //Wait
         yield return new WaitForSeconds(1f);
+        //Destroy the enemy
         Destroy(gameObject);
-        Debug.Log("Enemy should die");
     }
-    
+
+    //Function to drop an item
     public void DropItem() {
         if (drops != null) {
+            //Generate a random loot from loot table
             Item loot = drops.LootItem();
             if (loot != null) {
-                Debug.Log("Dropped a " + loot.name);
+                //drop that item
                 GameObject gameObject = Instantiate(Resources.Load(loot.name), transform.position, Quaternion.identity) as GameObject;
             }
         }

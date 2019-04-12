@@ -5,6 +5,7 @@ using UnityEngine;
 //Abstract meaning it cant exist on its own
 public abstract class Character : MonoBehaviour{
 
+    //Variables
 	[SerializeField]
 	public int speed;
 	public int wandDamage;
@@ -70,6 +71,7 @@ public abstract class Character : MonoBehaviour{
 		characterRigid.velocity = direction.normalized * speed;
     }
 
+    //Handles which animation layer is currently playing
     public void HandleLayers() {
         if (IsMoving) {
             ActivateLayer("Walk");
@@ -86,6 +88,7 @@ public abstract class Character : MonoBehaviour{
         }
     }
 
+    //Function to activate a new animation layer
     public void ActivateLayer(string layerName) {
         for (int i = 0; i < animator.layerCount; i++) {
             animator.SetLayerWeight(i, 0);
@@ -94,6 +97,7 @@ public abstract class Character : MonoBehaviour{
         animator.SetLayerWeight(animator.GetLayerIndex(layerName), 1);
     }
 
+    //Function to stop the attack coroutine
     public void StopAttackClose() {
         if (attackCloseCoroutine != null) {
             StopCoroutine(attackCloseCoroutine);
@@ -102,6 +106,7 @@ public abstract class Character : MonoBehaviour{
         }
     }
 
+    //Function to stop the ranged attack coroutine
     public void StopAttackRanged() {
         if (attackRangedCoroutine != null) {
             StopCoroutine(attackRangedCoroutine);
@@ -110,6 +115,7 @@ public abstract class Character : MonoBehaviour{
         }
     }
 
+    //Funciton levels the player up
     public void LevelUp() {
         //If not max level
         if(level < maxLevel) {
@@ -133,6 +139,7 @@ public abstract class Character : MonoBehaviour{
         }
     }
 
+    //Function that will give player xp
     public void GainXP(float xpGained) {
         xp += xpGained;
     }

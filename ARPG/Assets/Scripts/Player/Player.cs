@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : Character {
 
+    //Variables
     public List<Quest> questList;
 
     public bool isBoosted = false;
@@ -19,15 +20,6 @@ public class Player : Character {
 	public int bossNum;
     public EquipmentManager equipmentManager;
 
-    // Update is called once per frame
-    protected override void Update(){
-		getInput();
-		//Base means im accessing character
-		base.Update();
-
-	}
-
-
 	public static string directionString = "Right";
 
 	public static InventorySlot[] slots;
@@ -35,7 +27,16 @@ public class Player : Character {
 
 	public static Inventory inventory;
 
-	public void Awake()
+    // Update is called once per frame
+    protected override void Update() {
+        getInput();
+        //Base means im accessing character
+        base.Update();
+
+    }
+
+    //Setting up inventory
+    public void Awake()
 	{
 		inventory = new Inventory();
 		slots = itemsParent.GetComponentsInChildren<InventorySlot>();
@@ -69,7 +70,7 @@ public class Player : Character {
 	}
 
 
-
+    //This checks which key the player presses
     private void getInput(){
         //Resets direction
         direction = Vector2.zero;
@@ -113,25 +114,36 @@ public class Player : Character {
         }
     }
 
+    //Attack close coroutine
     private IEnumerator AttackClose() {
+        //if the player is allowed to attack
         if (!IsAttackingClose && !IsAttackingRanged && !IsMoving) {
+            //Have player attack
             IsAttackingClose = true;
             animator.SetBool("attackClose", IsAttackingClose);
+            //Wait a bit
             yield return new WaitForSeconds(.7f);
+            //Stop the attack
             StopAttackClose();
         }
     }
 
+    //Attack Ranged Coroutine
     private IEnumerator AttackRanged() {
+        //If player is allowed to attack
         if (!IsAttackingClose && !IsAttackingRanged && !IsMoving) {
+            //Attack
             IsAttackingRanged = true;
             animator.SetBool("attackRanged", IsAttackingRanged);
+            //Create magic bubble
             GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
             //Find direction
             Vector3 temp = FindDirection();
             //Shoot bubble
             projectile.GetComponent<Bubble>().Shoot(temp);
+            //Wait
             yield return new WaitForSeconds(.6f);
+            //Stopattack
             StopAttackRanged();
         }
     }
@@ -182,14 +194,15 @@ public class Player : Character {
         }
     }
 
+    //Updates Kill quests
     public void UpdateKillQuests() {
+        //Check each active quest
         foreach (Quest quest in questList) {
             if (quest.isActive) {
+                //If its a kill quest
                 if (quest.goal.goalType == GoalType.Kill) {
-                    Debug.Log("Killed an enemy");
+                    //Update the number of killed enemies
                     quest.goal.EnemyKilled();
-
-                    Debug.Log(quest.goal.currentAmount);
                     //If the goal is ever reached the player gains the rewards and ends the quest
                     if (quest.goal.isReached()) {
                         quest.isComplete = true;
@@ -199,11 +212,12 @@ public class Player : Character {
         }
     }
 
+    //Update gather quests
     public void UpdateGatherQuests() {
+        //Check each active gather quest
         foreach (Quest quest in questList) {
             if (quest.isActive) {
                 if (quest.goal.goalType == GoalType.Gather) {
-                    Debug.Log("Gathered");
                     //If the quests item name matches an item in the players inventory
                     foreach (InventoryItem item in inventory.items) {
                         if (quest.item.item.name == item.item.name ) {
@@ -212,8 +226,6 @@ public class Player : Character {
                         }
                     }
 
-
-                    Debug.Log(quest.goal.currentAmount);
                     //If the goal is ever reached the player gains the rewards and ends the quest
                     if (quest.goal.isReached()) {
                         quest.isComplete = true;
@@ -223,6 +235,7 @@ public class Player : Character {
         }
     }
 
+    //Function to find the direction the player is facing
     public Vector3 FindDirection() {
 
         Vector3 temp = new Vector3();

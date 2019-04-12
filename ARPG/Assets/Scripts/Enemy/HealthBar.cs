@@ -12,18 +12,21 @@ public class HealthBar : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
+        //Create a health bar on the enemy game object
         enemy = GetComponent<Enemy>();
-        healthBar = Instantiate(healthBarPrefab, FindObjectOfType<Canvas>().transform).GetComponent<Image>();
+        healthBar = Instantiate(healthBarPrefab, GameObject.FindGameObjectWithTag("CanvasUI").GetComponent<Canvas>().transform).GetComponent<Image>();
         healthBarFilled = new List<Image>(healthBar.GetComponentsInChildren<Image>()).Find(img => img != healthBar);
     }
 
     // Update is called once per frame
     void Update() {
+        //update the healthbar
         if (enemy.health > 0) {
             healthBar.transform.position = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 1f, 0));
             healthBarFilled.fillAmount = enemy.health / enemy.maxHealth;
         } else {
             healthBar.gameObject.SetActive(false);
+            //Destroy(healthBar);
         }
     }
 }
