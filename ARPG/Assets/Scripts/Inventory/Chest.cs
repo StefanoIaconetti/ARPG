@@ -21,7 +21,7 @@ public class Chest : MonoBehaviour
 	ChestManager chestMang;
 
 	//This holds the canvas of the playershop
-	public GameObject playerShop;
+	GameObject playerShop;
 
 	//This canvas holds the shopkeepers inventory
 	//public Canvas inventoryCanvas;
@@ -85,7 +85,7 @@ public class Chest : MonoBehaviour
 	public void ChestOpen(){
 		//Enables the canvas 
 		chestCanvas.SetActive (true);
-
+		playerShop = GameObject.Find("PlayerInventory/PlayerOpen/PlayerInventory");
 		//Updates the UI
 		UpdateUI ();
 

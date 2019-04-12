@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
 
 	//This will check if there is currently a loading gameobject, if there is load the recent save
 	private GameObject checkLoad;
+	private GameObject checkDungeon;
 
 	public string fileLoadName = @"/playerinfo.json";
 	public string fileSaveName = "playerinfo.json";
@@ -58,30 +59,27 @@ public class GameManager : MonoBehaviour
 
 		//This populates the gameobject if it can find that they have loaded
 		checkLoad = GameObject.Find ("LoadChecker");
+		checkDungeon = GameObject.Find ("Dungeon Manager");
+
+		if(checkDungeon){
+			GameObject playerDestroy = GameObject.Find ("Destroy me");
+			Destroy (playerDestroy);
+
+			Load ();
+			Destroy (checkDungeon);
+
+
+
+			Player.UpdateUI ();
+			equipManag.UpdateUI ();
+		}
+
 
 		//If they did just load in
 		if (checkLoad) {
-			//This finds the file by using Application.data path then finds the file playerinfo.json
-			var jsonContent = File.ReadAllText(Application.persistentDataPath + fileLoadName);
-			var playerData = JsonUtility.FromJson<SavingData>(jsonContent);
-
-			//This now sets all the values to the corresponding variables
-			Player.inventory = playerData.playerInventory;
-			player.gold = playerData.currency;
-			player.xp = playerData.experience;
-			player.health = playerData.health;
-
-			//Finds the player gameobject
-			var playerVector = GameObject.Find ("Player");
-
-			//Translates the gameobject to the last saved position
-			playerVector.transform.Translate (playerData.playerPosition[0], playerData.playerPosition[1], playerData.playerPosition[2]);
-
-			//Equipment that was worn last is now put back on the player
-			equipManag.currentEquipment = playerData.equipableItems;
-
+			Load ();
 			//Both UI'S are updated so the player can see that their inventory and items are still there
-			equipManag.UpdateUI ();
+			//equipManag.UpdateUI ();
 			Player.UpdateUI ();
 
 			//Destroys the checkload
@@ -185,6 +183,43 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && !MenuScript.menuPanel.gameObject.activeSelf)
             MenuScript.menuPanel.gameObject.SetActive(true);
     }
+
+
+	public void Load(){
+
+
+		//This finds the file by using Application.data path then finds the file playerinfo.json
+		var jsonContent = File.ReadAllText(Application.persistentDataPath + fileLoadName);
+		var playerData = JsonUtility.FromJson<SavingData>(jsonContent);
+
+		//This now sets all the values to the corresponding variables
+		player.gold = playerData.currency;
+		player.xp = playerData.experience;
+		player.health = playerData.health;
+
+		//Equipment that was worn last is now put back on the player
+		equipManag.currentEquipment = playerData.equipableItems;
+
+		Player.inventory = playerData.playerInventory;
+
+
+		//Finds the player gameobject
+		var playerVector = GameObject.Find ("Player");
+
+
+		if (checkDungeon) {
+			playerVector.transform.Translate (0, 0, 0);
+		} else {
+
+			//Translates the gameobject to the last saved position
+			playerVector.transform.Translate (playerData.playerPosition[0], playerData.playerPosition[1], playerData.playerPosition[2]);
+
+
+		}
+
+
+
+	}
 
   }
 

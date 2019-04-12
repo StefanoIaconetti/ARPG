@@ -148,7 +148,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collide: 0
   npcType: 1
-  nameOfCharacter: Acceptance
+  nameOfCharacter: acceptance
   line: 
   xmlFile: {fileID: 4900000, guid: 6838df10c67969c4bb4a7856dfa41fee, type: 3}
-  animator: {fileID: 0}

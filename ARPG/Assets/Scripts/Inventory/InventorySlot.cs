@@ -223,7 +223,7 @@ public class InventorySlot : MonoBehaviour
 			optionsButton.transform.Translate (0, -10f, 0);
 			optionsButton.gameObject.SetActive (false);
 			alreadyTrans = false;
-		}else if (equipableItem != null && alreadyTrans == false && shopMang.inventoryCanOpen == false) {
+		}else if (equipableItem != null && alreadyTrans == false && shopMang.inventoryCanOpen == false && chestMang.inventoryCanOpen == false) {
 			equipButton.gameObject.SetActive (true);
 			optionsButton.transform.Translate (0, 10, 0);
 			optionsButton.gameObject.SetActive (true);

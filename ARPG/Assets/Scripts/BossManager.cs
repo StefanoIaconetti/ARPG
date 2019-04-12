@@ -6,50 +6,34 @@ public class BossManager : MonoBehaviour
 {
 
 	public GameObject chest;
+	Chest chestObject;
+	public GameObject exit;
 	DungeonManager dungeonManag;
 	public GameObject[] bossPrefabs = new GameObject[4];
 	int currentBoss;
-
+	public Item[] bossItems;
 
 	public void Start(){
 		chest.SetActive (false);
-		dungeonManag = GameObject.Find ("DungeonManager").GetComponent<DungeonManager> ();
+		exit.SetActive (false);
+		dungeonManag = GameObject.Find ("Dungeon Manager").GetComponent<DungeonManager> ();
+
 		currentBoss = dungeonManag.currentBoss;
 	}
 
 	public void Final(){
 		chest.SetActive (true);
+		exit.SetActive (true);
 
-		switch (currentBoss) {
-		case 0:
+		chestObject = GameObject.Find ("Chest").GetComponent<Chest> ();
 
-			Instantiate (bossPrefabs [0], transform.position, Quaternion.identity);
-			break;
+		var bossVector = transform.position;
 
-		case 1:
-
-			Instantiate (bossPrefabs [1], transform.position, Quaternion.identity);
-			break;
-
-		case 2:
-
-			Instantiate (bossPrefabs [2], transform.position, Quaternion.identity);
-			break;
-
-		case 3:
-
-			Instantiate (bossPrefabs [3], transform.position, Quaternion.identity);
-			break;
-
-		case 4:
-
-			Instantiate (bossPrefabs [4], transform.position, Quaternion.identity);
-			break;
-		}
+		bossVector.x += 10.08f;
 
 
-
-
-
+		Instantiate (bossPrefabs [currentBoss], transform.position, Quaternion.identity);
+		InventoryItem item = new InventoryItem (bossItems [currentBoss], 1);
+		chestObject.inventory.items[0] = item;
 	}
 }

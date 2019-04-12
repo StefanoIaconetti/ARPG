@@ -36,39 +36,21 @@ public class DungeonManager : MonoBehaviour
 			Destroy (current);
 		}
 
-		if (roomCounter == 3) {
+		if (roomCounter == 2) {
 			Instantiate (bossRoom, transform.position, Quaternion.identity);
 			Player playerScript = player.GetComponent<Player> ();
 			BossManager bossManag = GameObject.Find ("BossManager").GetComponent<BossManager>();
 
 			int bossNum = playerScript.bossNum;
 
-			switch (bossNum) {
-			case 0:
-				Instantiate (bossType [0], transform.position, Quaternion.identity);
-				currentBoss = 0;
-				break;
 
-			case 1:
-				Instantiate (bossType[1], transform.position, Quaternion.identity);
-				currentBoss = 1;
-				break;
+			var bossVector = transform.position;
 
-			case 2:
-				Instantiate (bossType[2], transform.position, Quaternion.identity);
-				currentBoss = 2;
-				break;
+			bossVector.y += 10.08f;
 
-			case 3:
-				Instantiate (bossType[3], transform.position, Quaternion.identity);
-				currentBoss = 3;
-				break;
 
-			case 4:
-				Instantiate (bossType[4], transform.position, Quaternion.identity);
-				currentBoss = 4;
-				break;
-			}
+			Instantiate (bossType [bossNum], bossVector, Quaternion.identity);
+			currentBoss = bossNum;
 		} else {
 
 
