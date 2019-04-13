@@ -48,7 +48,6 @@ public class ShopKeeperObject : MonoBehaviour
 	//Start method starts with the inventory canvas being false
 	void Start(){
 		shopMang = GameObject.Find("ShopKeeperManager").GetComponent<ShopKeeperManager>();
-		Debug.Log (shopMang);
 		inventoryObject.SetActive (false);
 
 		//Gathers the original position of the inventory
@@ -121,7 +120,7 @@ public class ShopKeeperObject : MonoBehaviour
 		}
 
 		//Translates the gameobject
-		changePlayer.transform.Translate (-150.7f, -117.98f, 0);
+		changePlayer.transform.Translate (-150.7f, -99f, 0);
 		minused++;
 
 		}
@@ -136,7 +135,7 @@ public class ShopKeeperObject : MonoBehaviour
 			//Gives the gamemanager the ability to close the inventory
 
 			//Translates the gameobject back
-			changePlayer.transform.Translate (150.7f, 117.98f, 0);
+			changePlayer.transform.Translate (150.7f, 99f, 0);
 
 			//Resets by setting it to false
 			shopMang.inventoryCanOpen = false;

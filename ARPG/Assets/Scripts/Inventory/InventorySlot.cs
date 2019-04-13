@@ -143,11 +143,12 @@ public class InventorySlot : MonoBehaviour
 	//If the player is in a shop and sells that item
 	public void OnSellButton(){
 
-		if (shopkeepManag.canSell == true) {
+		if (shopkeepManag.canSell) {
 			shopkeepManag.canSell = false;
 			shopkeepManag.currentItem = item;
-			Player.inventory.RemoveItem (item);
 			shopkeepManag.startSell = true;
+			Player.inventory.RemoveItem (item);
+			sellButton.gameObject.SetActive (false);
 		} else {
 			//Gold is increased
 			float realCost = item.item.cost / 2;
@@ -163,6 +164,7 @@ public class InventorySlot : MonoBehaviour
 			Player.UpdateUI ();
 			shopMang.currentShopKeeper.UpdateUI ();
 
+			sellButton.gameObject.SetActive (false);
 		}
 	}
 

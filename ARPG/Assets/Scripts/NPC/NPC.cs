@@ -91,8 +91,7 @@ public abstract class NPC : Interactable
 				chestMang.CheckChest ();
 
 			}else if(npcType == NPCType.ShopObject){
-				shopkeepManag.canSell = true;
-				shopkeepManag.playerInventory.SetActive (true);
+				shopkeepManag.SetSell ();
 			}else {
 				Triggered ();
 			}

@@ -23,11 +23,17 @@ public class ShopKeepingManager : MonoBehaviour
 
 	}
 
+	public void SetSell(){
+		canSell = true;
+		playerInventory.SetActive (true);
+	}
+
 	public IEnumerator Selling(Item item) {
 		{
 			shopkeeperSelling.SetActive (true);
 			yield return new WaitForSeconds (6f);
 			player.gold += item.cost;
+			player.xp += 50;
 			shopkeeperSelling.SetActive (false);
 
 		}
