@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StoryManager : MonoBehaviour {
 
@@ -16,6 +17,7 @@ public class StoryManager : MonoBehaviour {
     public GameObject enemy2;
     public GameObject enemy3;
     public Camera camera;
+    public AudioSource audio;
 
     public bool nextScene = false;
     public float timeInBetweenScenes;
@@ -36,6 +38,7 @@ public class StoryManager : MonoBehaviour {
         enemy3.active = false;
         canvas.enabled = false;
         blackBackground.active = false;
+        audio.Play();
 
         camera.transform.position = new Vector3(0, 8, -10);
     }
@@ -147,6 +150,9 @@ public class StoryManager : MonoBehaviour {
             case 18:
                 textManager.nameText.text = "Ester";
                 textManager.lineText.text = "NOOOOOOOOOOO!";
+                break;
+            case 19:
+                SceneManager.LoadScene("FinalScene", LoadSceneMode.Single);
                 break;
         }
     }
