@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47f42c8b930e3654aaf4df03e5ea0335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: StefanosScene
+  sceneName: MainScene
   newButton: {fileID: 5313488896675271889}
   loadButton: {fileID: 5313488895286817791}
   settingsButton: {fileID: 0}

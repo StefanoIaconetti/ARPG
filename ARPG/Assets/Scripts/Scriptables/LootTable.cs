@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Loot chance
 [System.Serializable]
 public class Loot {
     public Item loot;
     public int lootChance;
 }
 
-
+//Creats an item for the loot table
 [CreateAssetMenu]
 public class LootTable : ScriptableObject {
     public Loot[] loots;

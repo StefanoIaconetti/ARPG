@@ -5,7 +5,7 @@ using UnityEngine;
 public class GifterNPC : GenericNPC {
 
     public LootTable gifts;
-
+	//Allows the NPC to gift items
     public override void Triggered() {
         base.Triggered();
         Item item = gifts.LootItem();

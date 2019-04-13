@@ -185,7 +185,7 @@ public class Player : Character {
 			Destroy (canvasUI);
 
             //Display her death
-			SceneManager.LoadScene("StefanosScene");
+			SceneManager.LoadScene("MainScene");
 
 
 			gameManag.Load ();

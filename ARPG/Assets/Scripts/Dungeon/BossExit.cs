@@ -38,7 +38,7 @@ public class BossExit : MonoBehaviour
 		Debug.Log("Level saved to " + savePath);
 
 
-		SceneManager.LoadScene("StefanosScene");
+		SceneManager.LoadScene("MainScene");
 		playerObj.name = "Destroy me";
 		Destroy (managers);
 		Destroy (canvas);

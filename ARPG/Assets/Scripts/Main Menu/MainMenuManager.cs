@@ -38,7 +38,7 @@ public class MainMenuManager : MonoBehaviour
         //If the scene exists then it loads the scene
         if (sceneName != "")
         {
-            SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+            SceneManager.LoadScene("Opening");
         }
     
 			//Sends the loadchecker gameobject to the next scene which when the next scene

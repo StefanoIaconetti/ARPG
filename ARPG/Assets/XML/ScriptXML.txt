@@ -18,7 +18,6 @@
         <name>Shopkeeper</name>
         <line>Hello! Welcome do my shop, feel free to purchase or sell whatever you like</line>
 	</shopkeeper>
-<<<<<<< HEAD
     <questgiver>
         <name>Quest Giver</name>
         <line>Hello! Here is a quest</line>
@@ -47,9 +46,6 @@
         <name>Depression</name>
         <line>My life is meaningless</line>
     </depression>
-=======
-    
-    
     <questgiverbefore>
         <name>Quest Giver</name>
         <line>Hello young adventurer! Could you help me with something?</line>

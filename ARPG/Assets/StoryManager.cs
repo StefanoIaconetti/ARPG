@@ -152,7 +152,7 @@ public class StoryManager : MonoBehaviour {
                 textManager.lineText.text = "NOOOOOOOOOOO!";
                 break;
             case 19:
-                SceneManager.LoadScene("FinalScene", LoadSceneMode.Single);
+                SceneManager.LoadScene("MainScene", LoadSceneMode.Single);
                 break;
         }
     }
