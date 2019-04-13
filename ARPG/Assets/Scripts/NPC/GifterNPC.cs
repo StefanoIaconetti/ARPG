@@ -8,11 +8,11 @@ public class GifterNPC : GenericNPC {
 
     public override void Triggered() {
         base.Triggered();
-
         Item item = gifts.LootItem();
         InventoryItem gift = new InventoryItem(item, 1);
         Player.inventory.AddItem(gift);
         Player.UpdateUI();
+        GetComponent<GifterNPC>().nameOfCharacter = "gifterafter";
 
     }
 
