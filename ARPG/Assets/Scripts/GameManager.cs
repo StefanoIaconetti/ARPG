@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 //This game managers handles most of the things occuring in the game, there will only be one gamemanager
 public class GameManager : MonoBehaviour
@@ -29,6 +30,8 @@ public class GameManager : MonoBehaviour
     public GameObject questLog;
 
 
+
+
     //This checks to see if the inventory is open
     public static bool inventoryOpen = false;
 
@@ -37,6 +40,7 @@ public class GameManager : MonoBehaviour
 
 	//This holds the player object so we can save
 	public Player player;
+	public GameObject exitGame;
 
 	//This holds the save button so when this button is pressed the game saves
 	public GameObject saveButton;
@@ -49,42 +53,39 @@ public class GameManager : MonoBehaviour
 
 	//This will check if there is currently a loading gameobject, if there is load the recent save
 	private GameObject checkLoad;
+	private GameObject checkDungeon;
 
 	public string fileLoadName = @"/playerinfo.json";
 	public string fileSaveName = "playerinfo.json";
 
 	//When the game starts
-    void Start(){
+	void Start(){
+		GameObject playerDestroy = GameObject.Find ("Destroy me");
+		Destroy (playerDestroy);
 		//Inventory is no longer active same with inventory equipment
 		playerInventory.SetActive (false);	
 		inventoryEquipment.SetActive (false);
+		//This populates the gameobject if it can find that they have loaded
+		checkLoad = GameObject.Find ("LoadChecker");
+		checkDungeon = GameObject.Find ("Dungeon Manager");
         questLog.SetActive(false);
         //This populates the gameobject if it can find that they have loaded
         checkLoad = GameObject.Find ("LoadChecker");
+		if(checkDungeon){
+
+			Load ();
+			Destroy (checkDungeon);
+
+			Player.UpdateUI ();
+			equipManag.UpdateUI ();
+		}
+
 
 		//If they did just load in
 		if (checkLoad) {
-			//This finds the file by using Application.data path then finds the file playerinfo.json
-			var jsonContent = File.ReadAllText(Application.persistentDataPath + fileLoadName);
-			var playerData = JsonUtility.FromJson<SavingData>(jsonContent);
-
-			//This now sets all the values to the corresponding variables
-			Player.inventory = playerData.playerInventory;
-			player.gold = playerData.currency;
-			player.xp = playerData.experience;
-			player.health = playerData.health;
-
-			//Finds the player gameobject
-			var playerVector = GameObject.Find ("Player");
-
-			//Translates the gameobject to the last saved position
-			playerVector.transform.Translate (playerData.playerPosition[0], playerData.playerPosition[1], playerData.playerPosition[2]);
-
-			//Equipment that was worn last is now put back on the player
-			equipManag.currentEquipment = playerData.equipableItems;
-
+			Load ();
 			//Both UI'S are updated so the player can see that their inventory and items are still there
-			equipManag.UpdateUI ();
+			//equipManag.UpdateUI ();
 			Player.UpdateUI ();
 
 			//Destroys the checkload
@@ -152,9 +153,11 @@ public class GameManager : MonoBehaviour
 			if (saveButton.activeSelf) {
 				saveButton.SetActive (false);
                 saveButton1.SetActive(false);
+				exitGame.SetActive(false);
 			} else {
 				saveButton.SetActive (true);
                 saveButton1.SetActive(true);
+				exitGame.SetActive (true);
                 Settings.SetActive(false);
 
 			}
@@ -163,6 +166,8 @@ public class GameManager : MonoBehaviour
 
 	//When the player presses save
 	public void OnSaveButton(){
+
+		if(player.isInTown){
 		//This creates a object that holds all the data that needs to be saved
 		SavingData savingData = new SavingData (player, equipManag);
 
@@ -177,13 +182,20 @@ public class GameManager : MonoBehaviour
 
 		//Lets us know if the file as been saved
 		Debug.Log("Level saved to " + savePath);
+		}
 
+	}
+
+
+	public void OnExitButton(){
+		SceneManager.LoadScene ("MainMenuScene");
 	}
 
     public void OnSettingButton()
     {
         saveButton.SetActive(false);
         saveButton1.SetActive(false);
+		exitGame.SetActive(false);
         Settings.SetActive(true);
         //MenuScript.menuPanel.gameObject.SetActive(true);
 
@@ -191,6 +203,44 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && !MenuScript.menuPanel.gameObject.activeSelf)
             MenuScript.menuPanel.gameObject.SetActive(true);
     }
+
+
+	public void Load(){
+
+
+		//This finds the file by using Application.data path then finds the file playerinfo.json
+		var jsonContent = File.ReadAllText(Application.persistentDataPath + fileLoadName);
+		var playerData = JsonUtility.FromJson<SavingData>(jsonContent);
+
+		//This now sets all the values to the corresponding variables
+		player.gold = playerData.currency;
+		player.xp = playerData.experience;
+		player.health = playerData.health;
+		player.level = playerData.playerLevel;
+		player.maxHealth = playerData.maxHealth;
+		//Equipment that was worn last is now put back on the player
+		equipManag.currentEquipment = playerData.equipableItems;
+
+		Player.inventory = playerData.playerInventory;
+
+
+		//Finds the player gameobject
+		var playerVector = GameObject.Find ("Player");
+
+
+		if (checkDungeon) {
+			playerVector.transform.Translate (0, 0, 0);
+		} else {
+			if (playerVector != null) {
+				//Translates the gameobject to the last saved position
+				playerVector.transform.Translate (playerData.playerPosition [0], playerData.playerPosition [1], playerData.playerPosition [2]);
+			}
+
+		}
+
+
+
+	}
 
   }
 

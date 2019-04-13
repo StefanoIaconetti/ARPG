@@ -1347,31 +1347,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4119933276512311785, guid: 14f7da83ebc7c48cfa212829e2553a74,
         type: 3}
-      propertyPath: targets.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4119933276512311785, guid: 14f7da83ebc7c48cfa212829e2553a74,
-        type: 3}
-      propertyPath: nameText
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4119933276512311785, guid: 14f7da83ebc7c48cfa212829e2553a74,
-        type: 3}
-      propertyPath: lineText
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4119933276512311785, guid: 14f7da83ebc7c48cfa212829e2553a74,
-        type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4119933276512311785, guid: 14f7da83ebc7c48cfa212829e2553a74,
-        type: 3}
-      propertyPath: speed
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4119933276512311785, guid: 14f7da83ebc7c48cfa212829e2553a74,
-        type: 3}
       propertyPath: targets.Array.data[0]
       value: 
       objectReference: {fileID: 1475762580}
@@ -1380,11 +1355,6 @@ PrefabInstance:
       propertyPath: targets.Array.data[1]
       value: 
       objectReference: {fileID: 200152368}
-    - target: {fileID: 4119933276512311785, guid: 14f7da83ebc7c48cfa212829e2553a74,
-        type: 3}
-      propertyPath: npcType
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14f7da83ebc7c48cfa212829e2553a74, type: 3}
 --- !u!1001 &1722354342
@@ -1704,7 +1674,8 @@ PrefabInstance:
       propertyPath: speed
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2988146922003495739, guid: 10f97608cc746467097e70facf617c64, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 10f97608cc746467097e70facf617c64, type: 3}
 --- !u!1 &1837000033 stripped
 GameObject:
@@ -1794,7 +1765,8 @@ PrefabInstance:
       propertyPath: speed
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2988146922003495739, guid: 10f97608cc746467097e70facf617c64, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 10f97608cc746467097e70facf617c64, type: 3}
 --- !u!1 &1866180355 stripped
 GameObject:
@@ -2126,7 +2098,8 @@ PrefabInstance:
       propertyPath: speed
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2988146922003495739, guid: 10f97608cc746467097e70facf617c64, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 10f97608cc746467097e70facf617c64, type: 3}
 --- !u!1 &5765070342445794903 stripped
 GameObject:
@@ -2209,38 +2182,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6065909754586373183, guid: f65b552705cdd4dcd9795a5d8e291b51,
         type: 3}
-      propertyPath: targets.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6065909754586373183, guid: f65b552705cdd4dcd9795a5d8e291b51,
-        type: 3}
-      propertyPath: nameText
-      value: 
-      objectReference: {fileID: 670476443}
-    - target: {fileID: 6065909754586373183, guid: f65b552705cdd4dcd9795a5d8e291b51,
-        type: 3}
-      propertyPath: lineText
-      value: 
-      objectReference: {fileID: 1008569750}
-    - target: {fileID: 6065909754586373183, guid: f65b552705cdd4dcd9795a5d8e291b51,
-        type: 3}
       propertyPath: targets.Array.data[0]
       value: 
       objectReference: {fileID: 531987188}
-    - target: {fileID: 6065909754586373183, guid: f65b552705cdd4dcd9795a5d8e291b51,
-        type: 3}
-      propertyPath: npcType
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6065909754586373183, guid: f65b552705cdd4dcd9795a5d8e291b51,
-        type: 3}
-      propertyPath: nameOfCharacter
-      value: npcnotalk
-      objectReference: {fileID: 0}
-    - target: {fileID: 6065909754586373183, guid: f65b552705cdd4dcd9795a5d8e291b51,
-        type: 3}
-      propertyPath: speed
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f65b552705cdd4dcd9795a5d8e291b51, type: 3}

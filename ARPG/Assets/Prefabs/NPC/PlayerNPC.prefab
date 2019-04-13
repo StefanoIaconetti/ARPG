@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4315686687607410195}
   - component: {fileID: 4230717136876905816}
   - component: {fileID: 4230717137243569094}
-  - component: {fileID: 4230717137243569089}
   - component: {fileID: 6065909754586373183}
   m_Layer: 9
   m_Name: PlayerNPC
@@ -150,32 +149,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1431715, y: 1.6718574}
   m_EdgeRadius: 0
---- !u!61 &4230717137243569089
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4228964796676316539}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0032383204, y: 0.04046631}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.8399999, y: 3.42}
-    newSize: {x: 0.32, y: 0.32}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.7713487, y: 3.4547443}
-  m_EdgeRadius: 0
 --- !u!114 &6065909754586373183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,16 +162,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collide: 0
-  npcType: 1
-  nameOfCharacter: genericnpc
+  npcType: 5
+  nameOfCharacter: npcnotalk
   line: 
   xmlFile: {fileID: 4900000, guid: 6838df10c67969c4bb4a7856dfa41fee, type: 3}
-  nameText: {fileID: 0}
-  lineText: {fileID: 0}
-  animator: {fileID: 0}
   targets:
   - {fileID: 0}
   IsWalking: 0
-  speed: 3
+  speed: 4
   anim: {fileID: 0}
   rb: {fileID: 0}

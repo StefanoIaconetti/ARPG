@@ -12,9 +12,11 @@ public class CraftingTable : NPC {
     public override void Triggered() {
         if (canvas.isActiveAndEnabled) {
             canvas.enabled = false;
+			Time.timeScale = 1;
         } else {
             canvas.enabled = true;
-        }
+			Time.timeScale = 0;
+		}
     }
 
     private void Start() {

@@ -7,7 +7,7 @@ public class DungeonManager : MonoBehaviour
 	public GameObject[] dungeonPrefabs = new GameObject[4];
 	public GameObject[] bossType = new GameObject[5];
 	public GameObject currentDungeon;
-	public GameObject currentBoss;
+	public int currentBoss;
 	public GameObject bossRoom;
 	public int roomCounter = 0;
 	SoundManager soundManag;
@@ -36,34 +36,21 @@ public class DungeonManager : MonoBehaviour
 			Destroy (current);
 		}
 
-		if (roomCounter == 3) {
+		if (roomCounter == 2) {
 			Instantiate (bossRoom, transform.position, Quaternion.identity);
 			Player playerScript = player.GetComponent<Player> ();
 			BossManager bossManag = GameObject.Find ("BossManager").GetComponent<BossManager>();
 
 			int bossNum = playerScript.bossNum;
 
-			switch (bossNum) {
-			case 0:
-				currentBoss = GameObject.Instantiate (bossType [0], transform.position, Quaternion.identity);
-				break;
 
-			case 1:
-				currentBoss = GameObject.Instantiate (bossType[1], transform.position, Quaternion.identity);
-				break;
+			var bossVector = transform.position;
 
-			case 2:
-				currentBoss = GameObject.Instantiate (bossType[2], transform.position, Quaternion.identity);
-				break;
+			bossVector.y += 10.08f;
 
-			case 3:
-				currentBoss = GameObject.Instantiate (bossType[3], transform.position, Quaternion.identity);
-				break;
 
-			case 4:
-				currentBoss = GameObject.Instantiate (bossType[4], transform.position, Quaternion.identity);
-				break;
-			}
+			Instantiate (bossType [bossNum], bossVector, Quaternion.identity);
+			currentBoss = bossNum;
 		} else {
 
 

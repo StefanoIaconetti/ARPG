@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6518552691889052211}
   - component: {fileID: 6518552691889052210}
   - component: {fileID: 6518552691889052209}
-  - component: {fileID: 6518552691889052215}
   - component: {fileID: 1899883758639869802}
   - component: {fileID: 2524175318521140564}
   m_Layer: 11
@@ -136,25 +135,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.75241625, y: 0.81028783}
   m_EdgeRadius: 0
---- !u!95 &6518552691889052215
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6518552691889052214}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b914d34e3bbc2466e9c2fd540b7e2b23, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!50 &1899883758639869802
 Rigidbody2D:
   serializedVersion: 4
@@ -167,7 +147,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100
+  m_Mass: 100000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -190,15 +170,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collide: 0
   npcType: 1
-  nameOfCharacter: gifternpc
+  nameOfCharacter: gifterbefore
   line: 
   xmlFile: {fileID: 4900000, guid: 6838df10c67969c4bb4a7856dfa41fee, type: 3}
-  nameText: {fileID: 0}
-  lineText: {fileID: 0}
-  animator: {fileID: 0}
-  targets: []
-  IsWalking: 0
-  speed: 3
-  anim: {fileID: 0}
-  rb: {fileID: 1899883758639869802}
   gifts: {fileID: 11400000, guid: 6b9e045854a5f49b4863c5d5af4af879, type: 2}
+  isTalkedTo: 0

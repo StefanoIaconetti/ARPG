@@ -19,7 +19,6 @@
         <line>Hello! Welcome do my shop, feel free to purchase or sell whatever you like</line>
 	</shopkeeper>
     
-    
     <questgiverbefore>
         <name>Quest Giver</name>
         <line>Hello young adventurer! Could you help me with something?</line>
@@ -67,4 +66,24 @@
         <line>Ha ha. You found me!</line>
     </npcchildthree>
     
+    <acceptance>
+        <name>Acceptance</name>
+        <line>Thank you, I have accepted my loss, please feel free to use my chest to help you during your journey</line>
+    </acceptance>
+    <anger>
+        <name>Anger</name>
+        <line>My nerves..... They are calm... Thank you so much</line>
+    </anger>
+    <bargaining>
+        <name>Bargaining</name>
+        <line>Please take the item from my chest, I feel that would help me forget my loved ones</line>
+    </bargaining>
+    <denial>
+        <name>Denail</name>
+        <line>I DID NOT LOOSE, LEAVE ME ALONE!</line>
+    </denial>
+    <depression>
+        <name>Depression</name>
+        <line>My life is meaningless</line>
+    </depression>
 </script>

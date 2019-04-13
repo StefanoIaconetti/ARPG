@@ -22,11 +22,15 @@ public class HealthBar : MonoBehaviour {
     void Update() {
         //update the healthbar
         if (enemy.health > 0) {
-            healthBar.transform.position = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 1f, 0));
-            healthBarFilled.fillAmount = enemy.health / enemy.maxHealth;
-        } else {
+			if (healthBar != null) {
+				healthBar.transform.position = Camera.main.WorldToScreenPoint (transform.position + new Vector3 (0, 1f, 0));
+				healthBarFilled.fillAmount = enemy.health / enemy.maxHealth;
+			}
+		} else {
+			if (healthBar != null) {
             healthBar.gameObject.SetActive(false);
             //Destroy(healthBar);
+			}
         }
     }
 }

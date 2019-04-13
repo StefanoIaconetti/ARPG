@@ -16,8 +16,8 @@ public abstract class NPC : Interactable
     public TextAsset xmlFile;
 
     //Name holds the name of the character, line holds their script
-    public Text nameText;
-    public Text lineText;
+	Text nameText;
+	Text lineText;
     
 
     //Grabs the name and the line
@@ -26,24 +26,32 @@ public abstract class NPC : Interactable
     protected int endDialogue = 0;
 
     //Grabs the animator
-    public Animator animator;
+     Animator animator;
 
 	Chest chest;
 	ChestManager chestMang;
 	ShopKeeperManager shopManag;
 	ShopKeeperObject shopObj;
+	ShopKeepingManager shopkeepManag;
+	GameManager gameManager;
 
 
 	public void Start (){
 		shopManag = GameObject.Find("ShopKeeperManager").GetComponent<ShopKeeperManager>();
 		chestMang = GameObject.Find("ChestManager").GetComponent<ChestManager>();
+		shopkeepManag = GameObject.Find("Shopkeeping Manager").GetComponent<ShopKeepingManager>();
+		gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
 		shopObj = GetComponent<ShopKeeperObject>();
 		chest = GetComponent<Chest>();
 	}
     //When the NPC collides
-    public void OnTriggerEnter2D(Collider2D character) {
+	public void OnTriggerEnter2D(Collider2D character) {
+		nameText = GameObject.Find("CanvasUI/PlayerDialogue/DialogueBox/NameText").GetComponent<Text>();
+		lineText = GameObject.Find("CanvasUI/PlayerDialogue/DialogueBox/LineText").GetComponent<Text>();
+		animator= GameObject.Find("CanvasUI/PlayerDialogue/DialogueBox").GetComponent<Animator>();
         //When colliding with the player
-		if (character.gameObject.name == "Player" && npcType != NPCType.Chest && npcType != NPCType.NPCNoTalk) {
+		if (character.gameObject.name == "Player" && npcType != NPCType.Chest && npcType != NPCType.ShopObject && npcType != NPCType.NPCNoTalk) {
 			//Strings the data in the xmlFile
 			string data = xmlFile.text;
 
@@ -54,14 +62,18 @@ public abstract class NPC : Interactable
 			collide = true;
 		} else {
 
-			collide = true;
+			collide = false;
 		}
+
+        if (character.gameObject.name == "Player" && npcType == NPCType.Chest || npcType == NPCType.ShopObject) {
+            collide = true;
+        } 
     }
 
     //When the player is no longer in the collider
     public void OnTriggerExit2D(Collider2D other)
     {
-		if (npcType != NPCType.Chest && npcType != NPCType.Crafter && npcType != NPCType.NPCNoTalk) {
+		if (npcType != NPCType.Chest && npcType != NPCType.Crafter && npcType != NPCType.ShopObject && npcType != NPCType.NPCNoTalk) {
 			//The dialogue text goes down
 			animator.SetBool ("IsOpen", false);
 			collide = false;
@@ -80,10 +92,11 @@ public abstract class NPC : Interactable
 			if (npcType == NPCType.Chest) {
 				chestMang.inventoryCanOpen = true;
 				chestMang.currentchest = chest;
-				chestMang.CheckShopKeeper ();
-				//chest.ShopOpen();
+				chestMang.CheckChest ();
 
-			} else {
+			}else if(npcType == NPCType.ShopObject){
+				shopkeepManag.SetSell ();
+			}else {
 				Triggered ();
 			}
 
@@ -96,12 +109,7 @@ public abstract class NPC : Interactable
             {
 
 				animator.SetBool("IsOpen", false);
-				//nameText.text = "";
 				shopManag.inventoryCanOpen = true;
-
-				//ShopKeeperManager.currentShopKeeper = 
-
-				//ShopKeeperManager.CheckShopKeeper ();
 				shopManag.currentShopKeeper = shopObj;
 				shopManag.CheckShopKeeper ();
 				endDialogue = 0;

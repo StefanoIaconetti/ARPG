@@ -55,11 +55,11 @@ public class Inventory
 				if (items[i].itemQuantity > 1) {
 					//item.itemQuantity--;
 					items [i].itemQuantity--;
-					Debug.Log ("Yeee");
 					break;
 				} else {
 					//Otherwise remove at the index (If you do not remove at the index it can potentially find the item you are not attempting to look for)
-					items.RemoveAt (i);Debug.Log ("Yeeehaw");
+					Debug.Log("comonnn");
+					items.RemoveAt (i);
 					break;
 
 				}

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : Character {
 
@@ -16,6 +17,7 @@ public class Player : Character {
     public GameObject downTarget;
     public GameObject leftTarget;
     public GameObject rightTarget;
+	GameManager gameManag;
 
 	public int bossNum;
     public EquipmentManager equipmentManager;
@@ -38,17 +40,17 @@ public class Player : Character {
     //Setting up inventory
     public void Awake()
 	{
+		gameManag = GameObject.Find ("GameManager").GetComponent<GameManager>();
 		inventory = new Inventory();
 		slots = itemsParent.GetComponentsInChildren<InventorySlot>();
 	}
-
 
 	//Parent items
 	public Transform itemsParent;
 
 	//Method that updates UI
 	public static void UpdateUI() {
-
+		
         //UPDATE GATHER QUESTS IN THE MOST RIDICULOUS WAY POSSIBLE
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.GetComponent<Player>().UpdateGatherQuests();
@@ -168,10 +170,25 @@ public class Player : Character {
         }
         StartCoroutine(ColourCo());
         //If any point the player dies
-        if (health <= 0) {
-            //Display her death
+		if (health <= 0) {
+			GameObject playerObj = GameObject.Find ("Player");
+			GameObject managers = GameObject.Find ("Managers");
+			GameObject canvas = GameObject.Find ("PlayerInventory");
+			GameObject canvasUI = GameObject.Find ("CanvasUI");
+			GameObject dungeonManag = GameObject.Find ("Dungeon Manager");
 
-            //Reset the player health and spawn her back at the player shop
+
+
+			playerObj.name = "Destroy me";
+			Destroy (managers);
+			Destroy (canvas);
+			Destroy (canvasUI);
+
+            //Display her death
+			SceneManager.LoadScene("StefanosScene");
+
+
+			gameManag.Load ();
 
         }
     }
