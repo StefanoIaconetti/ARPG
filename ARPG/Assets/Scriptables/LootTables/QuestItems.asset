@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09d6f96e0e178410cb4b56077be28603, type: 3}
+  m_Name: QuestItems
+  m_EditorClassIdentifier: 
+  loots:
+  - loot: {fileID: 11400000, guid: b5a11156b22c6450398e33c258cc462d, type: 2}
+    lootChance: 20
+  - loot: {fileID: 11400000, guid: 64f1dcbb828a246ecb5328ad20b55f47, type: 2}
+    lootChance: 20
+  - loot: {fileID: 11400000, guid: c118d4187d97c420fbcaf53ce49f532c, type: 2}
+    lootChance: 20
+  - loot: {fileID: 11400000, guid: e67fa073ae38c4833b8e9122ac720e49, type: 2}
+    lootChance: 20
+  - loot: {fileID: 11400000, guid: 3f07f689649e345a49400a7e3afa1091, type: 2}
+    lootChance: 10
+  - loot: {fileID: 11400000, guid: 0a38d07d5dbdd4110be055faa0fab52d, type: 2}
+    lootChance: 10

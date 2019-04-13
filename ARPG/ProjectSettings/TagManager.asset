@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Item
+  - Room
+  - Dungeon
+  - NPC
+  - Boss
+  - CanvasUI
   layers:
   - Default
   - TransparentFX
@@ -13,13 +20,13 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Projectile
+  - Player
+  - Enemy
+  - NPC
+  - PlayerProjectile
+  - Border
+  - Boss
   - 
   - 
   - 

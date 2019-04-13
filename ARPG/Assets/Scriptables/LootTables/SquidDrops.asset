@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09d6f96e0e178410cb4b56077be28603, type: 3}
+  m_Name: SquidDrops
+  m_EditorClassIdentifier: 
+  loots:
+  - loot: {fileID: 11400000, guid: c118d4187d97c420fbcaf53ce49f532c, type: 2}
+    lootChance: 40
+  - loot: {fileID: 11400000, guid: 64f1dcbb828a246ecb5328ad20b55f47, type: 2}
+    lootChance: 40
+  - loot: {fileID: 11400000, guid: 78daa1940d7b44c0dbbfb808c01ac558, type: 2}
+    lootChance: 9
+  - loot: {fileID: 11400000, guid: a2f376a9f3b1b414e8834a3588c268af, type: 2}
+    lootChance: 9
+  - loot: {fileID: 11400000, guid: 34465e939993a444da0dd70e94af7660, type: 2}
+    lootChance: 2
