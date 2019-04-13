@@ -50,6 +50,34 @@ We are going to be using agile development for our project. Doing 2 week sprints
 
 * 0.0.1
     * Work in progress (Initial Commit)
+* 1.0
+   * Main player was added and the base testing map was implemented
+* 1.0.1
+   * Minor updates occured with the map and players
+* 1.1
+   * Enemy Ai was started and Inventory development was being tested
+* 1.1.1
+   * Inventory and AI Bug fixes
+* 1.2
+   * New map was added
+* 1.3
+   * Shopkeeping, Quests, NPCs were added
+* 2.0
+   * Tile set was changed and completed map was added
+* 2.1
+   * Assets were added and all temporary assets were removed
+* 2.1.1
+   * Bug fixes and map colision updates
+* 2.2
+   * Alpha Release
+* 3.0
+   * Fixes following alpha tests
+* 3.1
+   * Beta Release
+* 4.0
+   * Fixes for beta feedback
+* 4.1
+   * Master Release
 
 ## Meta
 
