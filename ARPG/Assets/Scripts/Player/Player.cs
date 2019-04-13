@@ -168,7 +168,7 @@ public class Player : Character {
             //Just take the damage
             health -= damage;
         }
-
+        StartCoroutine(ColourCo());
         //If any point the player dies
 		if (health <= 0) {
 			GameObject playerObj = GameObject.Find ("Player");
@@ -191,6 +191,13 @@ public class Player : Character {
 			gameManag.Load ();
 
         }
+    }
+
+    public IEnumerator ColourCo() {
+        GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        GetComponent<SpriteRenderer>().color = Color.white;
+
     }
 
     //Function that will knock the player back

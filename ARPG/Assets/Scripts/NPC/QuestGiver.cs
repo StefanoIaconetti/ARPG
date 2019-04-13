@@ -23,6 +23,7 @@ public class QuestGiver : NPC {
             //add the quest
             player.questList.Add(quest);
             questGiven = true;
+            GetComponent<QuestGiver>().nameOfCharacter = "questgiverduring";
         }
     }
 
@@ -74,6 +75,7 @@ public class QuestGiver : NPC {
                 player.GainXP(quest.xpReward);
                 player.gold += quest.goldReward;
                 quest.Complete();
+                GetComponent<QuestGiver>().nameOfCharacter = "questgiverafter";
             }
         }
     }

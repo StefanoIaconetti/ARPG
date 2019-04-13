@@ -12,7 +12,11 @@ public class Interactable : MonoBehaviour {
         QuestGiver,
 		Chest,
         Crafter,
+<<<<<<< HEAD
 		ShopObject
+=======
+        NPCNoTalk
+>>>>>>> 876aa51a69a24b54c8f257576fdfa71fb489148f
     };
 
     //Checks if they have collided

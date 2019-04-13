@@ -11,10 +11,14 @@
         <name>Welington District</name>
         <line>Welcome to Nevertown</line>
     </town2>
+    
+    
+    
     <shopkeeper>
         <name>Shopkeeper</name>
         <line>Hello! Welcome do my shop, feel free to purchase or sell whatever you like</line>
 	</shopkeeper>
+<<<<<<< HEAD
     <questgiver>
         <name>Quest Giver</name>
         <line>Hello! Here is a quest</line>
@@ -43,4 +47,55 @@
         <name>Depression</name>
         <line>My life is meaningless</line>
     </depression>
+=======
+    
+    
+    <questgiverbefore>
+        <name>Quest Giver</name>
+        <line>Hello young adventurer! Could you help me with something?</line>
+    </questgiverbefore>
+    <questgiverduring>
+        <name>Quest Giver</name>
+        <line>Come see me when you complete my task for a reward</line>
+    </questgiverduring>
+    <questgiverafter>
+        <name>Quest Giver</name>
+        <line>Thank you very much for your assistance</line>
+    </questgiverafter>
+    
+    <gifterbefore>
+        <name>Helpful Citizen</name>
+        <line>Here! This will help you on your journey</line>
+    </gifterbefore>
+    <gifterafter>
+        <name>Helpful Citizen</name>
+        <line>I hope that item comes in handy someday!</line>
+    </gifterafter>
+    
+    <npctwo>
+        <name>Joe</name>
+        <line>You should look at the crafting bench over to teh right. I hear you can craft potions!</line>
+    </npctwo>
+    
+    <npcthree>
+        <name>Leo</name>
+        <line>Howdy Ester! Ika sure loves following you around. Speaking of Ika. Have you seen her?</line>
+    </npcthree>
+    
+    <npcfour>
+        <name>Sally</name>
+        <line>I heard there where many monsters west from here. Maybe you could clear them out!</line>
+    </npcfour>
+    
+    <npcchildtwo>
+        <name>Tom</name>
+        <line>Hey! When can I play with Ika again?</line>
+    </npcchildtwo>
+    
+    <npcchildthree>
+        <name>Morgan</name>
+        <line>Ha ha. You found me!</line>
+    </npcchildthree>
+    
+>>>>>>> 876aa51a69a24b54c8f257576fdfa71fb489148f
 </script>

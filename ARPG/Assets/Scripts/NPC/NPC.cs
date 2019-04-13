@@ -51,7 +51,11 @@ public abstract class NPC : Interactable
 		lineText = GameObject.Find("CanvasUI/PlayerDialogue/DialogueBox/LineText").GetComponent<Text>();
 		animator= GameObject.Find("CanvasUI/PlayerDialogue/DialogueBox").GetComponent<Animator>();
         //When colliding with the player
+<<<<<<< HEAD
 		if (character.gameObject.name == "Player" && npcType != NPCType.Chest && npcType != NPCType.ShopObject) {
+=======
+		if (character.gameObject.name == "Player" && npcType != NPCType.Chest && npcType != NPCType.NPCNoTalk) {
+>>>>>>> 876aa51a69a24b54c8f257576fdfa71fb489148f
 			//Strings the data in the xmlFile
 			string data = xmlFile.text;
 
@@ -69,7 +73,11 @@ public abstract class NPC : Interactable
     //When the player is no longer in the collider
     public void OnTriggerExit2D(Collider2D other)
     {
+<<<<<<< HEAD
 		if (npcType != NPCType.Chest && npcType != NPCType.Crafter && npcType != NPCType.ShopObject) {
+=======
+		if (npcType != NPCType.Chest && npcType != NPCType.Crafter && npcType != NPCType.NPCNoTalk) {
+>>>>>>> 876aa51a69a24b54c8f257576fdfa71fb489148f
 			//The dialogue text goes down
 			animator.SetBool ("IsOpen", false);
 			collide = false;
