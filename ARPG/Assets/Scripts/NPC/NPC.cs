@@ -43,7 +43,7 @@ public abstract class NPC : Interactable
     //When the NPC collides
     public void OnTriggerEnter2D(Collider2D character) {
         //When colliding with the player
-		if (character.gameObject.name == "Player" && npcType != NPCType.Chest) {
+		if (character.gameObject.name == "Player" && npcType != NPCType.Chest && npcType != NPCType.NPCNoTalk) {
 			//Strings the data in the xmlFile
 			string data = xmlFile.text;
 
@@ -61,7 +61,7 @@ public abstract class NPC : Interactable
     //When the player is no longer in the collider
     public void OnTriggerExit2D(Collider2D other)
     {
-		if (npcType != NPCType.Chest && npcType != NPCType.Crafter) {
+		if (npcType != NPCType.Chest && npcType != NPCType.Crafter && npcType != NPCType.NPCNoTalk) {
 			//The dialogue text goes down
 			animator.SetBool ("IsOpen", false);
 			collide = false;
