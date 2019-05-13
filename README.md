@@ -50,6 +50,7 @@ We are going to be using agile development for our project. Doing 2 week sprints
 
 * 0.0.1
     * Work in progress (Initial Commit)
+    * Project Release 
 
 ## Meta
 
