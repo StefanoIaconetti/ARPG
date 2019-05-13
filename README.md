@@ -55,7 +55,9 @@ We are going to be using agile development for our project. Doing 2 week sprints
 ## Meta
 
    Nicholas Stajduhar – nicholas.stajduhar01@stclairconnect.ca  
+   
    Stefano Iaconetti - stefanoiaconetti@outlook.com
+   
    Justin Maure - justin.maure01@stclairconnect.ca  
 
 
