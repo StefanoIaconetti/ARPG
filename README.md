@@ -69,3 +69,9 @@ We are going to be using agile development for our project. Doing 2 week sprints
    Tiny RPG Forest Charater - Ansimuz (Unity Assets)
    
    2D Hand Painted - Town Tileset - Daniel Thomas (Unity Assets)
+   
+   Weapons and Items - REXARD - (Unity Assets)
+   
+   NPC & Main Character Assets - Kurtis Vsteula
+   
+   Music - William Grant
