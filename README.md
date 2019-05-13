@@ -58,10 +58,14 @@ We are going to be using agile development for our project. Doing 2 week sprints
    Justin Maure - justin.maure01@stclairconnect.ca  
 
 
-## Contributing
+## References
 
    Ninja Character - Kin Ng (Unity Assets)
+   
    Old Tileset - Hyptosis and Zabin (OpenGameArt.org)
+   
    Old Dungeon Tileset - Buch (OpenGameArt.org)
+   
    Tiny RPG Forest Charater - Ansimuz (Unity Assets)
+   
    2D Hand Painted - Town Tileset - Daniel Thomas (Unity Assets)
