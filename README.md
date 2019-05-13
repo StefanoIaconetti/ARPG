@@ -60,13 +60,8 @@ We are going to be using agile development for our project. Doing 2 week sprints
 
 ## Contributing
 
-1. Create your feature branch (`git checkout -b feature`)
-2. Commit your changes (`git commit -m 'Add some message'`)
-3. Push to the branch (`git push origin`)
-4. Create a new Pull Request
-
-<!-- Markdown link & img dfn's -->
-[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
-[character-first]: http://nstajduhar.com/GithubImages/Chara.png
-[character-revised]: http://nstajduhar.com/GithubImages/CharaRevision.png
+Ninja Character - Kin Ng (Unity Assets)
+Old Tileset - Hyptosis and Zabin (OpenGameArt.org)
+Old Dungeon Tileset - Buch (OpenGameArt.org)
+Tiny RPG Forest Charater - Ansimuz (Unity Assets)
+2D Hand Painted - Town Tileset - Daniel Thomas (Unity Assets)
